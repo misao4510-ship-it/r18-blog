@@ -1,0 +1,159 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title: string;
+  description: string;
+  heroImage?: string;
+  ogImage?: string;
+  type?: string;
+  tags?: string[];
+}
+
+const { title, description, heroImage, ogImage, type = 'website', tags } = Astro.props;
+const siteUrl = 'https://r18-blog.pages.dev';
+const defaultOg = `${siteUrl}/images/og-default.png`;
+const ogImageUrl = ogImage
+  ? `${siteUrl}${ogImage}`
+  : heroImage
+    ? `${siteUrl}${heroImage}`
+    : defaultOg;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteUrl);
+const currentYear = new Date().getFullYear();
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | 蜜夢同人レビュー</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta name="robots" content="index, follow" />
+  <!-- OGP -->
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="蜜夢同人レビュー" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+  {tags && tags.map(tag => <meta property="article:tag" content={tag} />)}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script is:inline>
+    // ダークテーマはデフォルト（R18サイトは常にダークテーマ）
+    document.documentElement.style.colorScheme = 'dark';
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">💜 蜜夢同人レビュー</a>
+      <nav class="site-header__nav">
+        <a href="/">ホーム</a>
+        <a href="/about/">このサイトについて</a>
+        <a href="/contact/">お問い合わせ</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る">↑</button>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__links">
+        <a href="/">ホーム</a>
+        <a href="/about/">このサイトについて</a>
+        <a href="/contact/">お問い合わせ</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+        <a href="/sitemap-index.xml">サイトマップ</a>
+      </div>
+      <p>© {currentYear} 蜜夢同人レビュー</p>
+      <p class="site-footer__affiliate">
+        本サイトはFANZA（DMMアダルト）アフィリエイトプログラムを利用しています。<br />
+        掲載価格は記事作成時点のものです。実際の価格はリンク先でご確認ください。<br />
+        本サイトは18歳以上の方を対象としています。
+      </p>
+    </div>
+  </footer>
+
+  <!-- 年齢確認モーダル（Cookie未設定の場合に表示） -->
+  <div id="age-verify-overlay" class="age-overlay" style="display:none;">
+    <div class="age-modal">
+      <h2>⚠️ 年齢確認</h2>
+      <p>
+        本サイトは<strong>18歳以上の成人向けコンテンツ</strong>を含みます。<br />
+        R18同人作品のレビュー・紹介サイトです。
+      </p>
+      <p class="warning">18歳未満の方はご利用いただけません。</p>
+      <div class="age-buttons">
+        <button class="age-btn-yes" id="age-yes">18歳以上です（入場する）</button>
+        <button class="age-btn-no" id="age-no">18歳未満です（退出する）</button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    // 年齢確認
+    (function() {
+      var COOKIE_KEY = 'r18_age_verified';
+      function getCookie(name) {
+        var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+        return m ? m[2] : null;
+      }
+      function setCookie(name, value, days) {
+        var d = new Date();
+        d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/';
+      }
+      var overlay = document.getElementById('age-verify-overlay');
+      var yesBtn = document.getElementById('age-yes');
+      var noBtn = document.getElementById('age-no');
+
+      if (!getCookie(COOKIE_KEY)) {
+        if (overlay) overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      if (yesBtn) {
+        yesBtn.addEventListener('click', function() {
+          setCookie(COOKIE_KEY, '1', 365);
+          if (overlay) overlay.style.display = 'none';
+          document.body.style.overflow = '';
+        });
+      }
+      if (noBtn) {
+        noBtn.addEventListener('click', function() {
+          window.location.href = 'https://www.google.co.jp/';
+        });
+      }
+    })();
+
+    // トップに戻るボタン
+    (function() {
+      var btn = document.getElementById('scroll-top-btn');
+      if (!btn) return;
+      window.addEventListener('scroll', function() {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

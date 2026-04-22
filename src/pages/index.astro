@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<BaseLayout
+  title="蜜夢同人レビュー"
+  description="R18同人作品のレビュー・紹介サイト。厳選作品の詳細レビューをお届けします。18歳以上限定。"
+>
+  <section class="hero">
+    <h1>💜 蜜夢同人レビュー</h1>
+    <p>大人向け同人作品の本格レビューサイト。質にこだわった作品を厳選してご紹介します。</p>
+    <p style="margin-top:0.8rem; font-size:0.85rem; color:#ff4d8d; font-weight:700;">⚠️ 本サイトは18歳以上の方を対象としています</p>
+  </section>
+
+  <div class="container" style="padding: 2rem 1rem;">
+    <h2 style="font-size:1.4rem; font-weight:900; margin-bottom:1.5rem; color:#e040fb;">📚 最新レビュー</h2>
+
+    {posts.length === 0 ? (
+      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    ) : (
+      <div class="article-grid">
+        {posts.map(post => (
+          <article class="article-card">
+            <a href={`/posts/${post.id}/`}>
+              {post.data.heroImage && (
+                <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+              )}
+              <div class="article-card__body">
+                <div class="article-card__title">{post.data.title}</div>
+                <div class="article-card__desc">{post.data.description}</div>
+                <div class="article-card__date">
+                  {new Date(post.data.pubDate).toLocaleDateString('ja-JP', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                  })}
+                </div>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="article-tags" style="margin-top:0.5rem;">
+                    {post.data.tags.map(tag => (
+                      <span class="article-tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
