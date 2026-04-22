@@ -1,0 +1,7 @@
+name = "r18-blog"
+compatibility_date = "2025-01-01"
+
+[pages_config]
+branch = "main"
+build_command = "npm run build"
+destination_dir = "dist"
