@@ -1,0 +1,160 @@
+{
+  "result": {
+    "status": 200,
+    "result_count": 5,
+    "total_count": 5,
+    "first_position": 1,
+    "items": [
+      {
+        "content_id": "d_mock001",
+        "title": "蜜月の誘惑 ～桜色の秘密～",
+        "affiliateURL": "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F%2D%2Fdetail%2F%3D%2Fcid%3Dd_mock001%2F&af_id=DUMMY_AFFILIATE_ID&ch=api&ch_id=link",
+        "date": "2026-01-15",
+        "prices": {
+          "price": "880",
+          "list_price": "880"
+        },
+        "imageURL": {
+          "list": "https://pics.dmm.co.jp/digital/doujin/d_mock001/d_mock001pl.jpg",
+          "small": "https://pics.dmm.co.jp/digital/doujin/d_mock001/d_mock001ps.jpg",
+          "large": "https://pics.dmm.co.jp/digital/doujin/d_mock001/d_mock001pl.jpg"
+        },
+        "iteminfo": {
+          "maker": [
+            {"id": "70001", "name": "蜜彩つかさ"}
+          ],
+          "genre": [
+            {"id": "1001", "name": "恋愛"},
+            {"id": "1002", "name": "フルカラー"},
+            {"id": "1003", "name": "美少女"}
+          ],
+          "volume": "32"
+        },
+        "review": {
+          "count": 128,
+          "average": "4.20"
+        }
+      },
+      {
+        "content_id": "d_mock002",
+        "title": "放課後の秘密 ～禁断の二人の物語～",
+        "affiliateURL": "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F%2D%2Fdetail%2F%3D%2Fcid%3Dd_mock002%2F&af_id=DUMMY_AFFILIATE_ID&ch=api&ch_id=link",
+        "date": "2025-12-20",
+        "prices": {
+          "price": "770",
+          "list_price": "770"
+        },
+        "imageURL": {
+          "list": "https://pics.dmm.co.jp/digital/doujin/d_mock002/d_mock002pl.jpg",
+          "small": "https://pics.dmm.co.jp/digital/doujin/d_mock002/d_mock002ps.jpg",
+          "large": "https://pics.dmm.co.jp/digital/doujin/d_mock002/d_mock002pl.jpg"
+        },
+        "iteminfo": {
+          "maker": [
+            {"id": "70002", "name": "夢野ほたる"}
+          ],
+          "genre": [
+            {"id": "1004", "name": "青春"},
+            {"id": "1005", "name": "学園"},
+            {"id": "1002", "name": "フルカラー"}
+          ],
+          "volume": "28"
+        },
+        "review": {
+          "count": 256,
+          "average": "4.50"
+        }
+      },
+      {
+        "content_id": "d_mock003",
+        "title": "深夜の密会 ～上司と部下の禁断愛～",
+        "affiliateURL": "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F%2D%2Fdetail%2F%3D%2Fcid%3Dd_mock003%2F&af_id=DUMMY_AFFILIATE_ID&ch=api&ch_id=link",
+        "date": "2025-11-10",
+        "prices": {
+          "price": "1100",
+          "list_price": "1100"
+        },
+        "imageURL": {
+          "list": "https://pics.dmm.co.jp/digital/doujin/d_mock003/d_mock003pl.jpg",
+          "small": "https://pics.dmm.co.jp/digital/doujin/d_mock003/d_mock003ps.jpg",
+          "large": "https://pics.dmm.co.jp/digital/doujin/d_mock003/d_mock003pl.jpg"
+        },
+        "iteminfo": {
+          "maker": [
+            {"id": "70001", "name": "蜜彩つかさ"}
+          ],
+          "genre": [
+            {"id": "1006", "name": "オフィス"},
+            {"id": "1007", "name": "年上"},
+            {"id": "1002", "name": "フルカラー"}
+          ],
+          "volume": "40"
+        },
+        "review": {
+          "count": 89,
+          "average": "4.00"
+        }
+      },
+      {
+        "content_id": "d_mock004",
+        "title": "異世界の姫 ～魔王城での甘い蜜月～",
+        "affiliateURL": "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F%2D%2Fdetail%2F%3D%2Fcid%3Dd_mock004%2F&af_id=DUMMY_AFFILIATE_ID&ch=api&ch_id=link",
+        "date": "2025-10-05",
+        "prices": {
+          "price": "660",
+          "list_price": "660"
+        },
+        "imageURL": {
+          "list": "https://pics.dmm.co.jp/digital/doujin/d_mock004/d_mock004pl.jpg",
+          "small": "https://pics.dmm.co.jp/digital/doujin/d_mock004/d_mock004ps.jpg",
+          "large": "https://pics.dmm.co.jp/digital/doujin/d_mock004/d_mock004pl.jpg"
+        },
+        "iteminfo": {
+          "maker": [
+            {"id": "70003", "name": "星蒼あかり"}
+          ],
+          "genre": [
+            {"id": "1008", "name": "異世界"},
+            {"id": "1009", "name": "ファンタジー"},
+            {"id": "1010", "name": "モノクロ"}
+          ],
+          "volume": "24"
+        },
+        "review": {
+          "count": 44,
+          "average": "3.80"
+        }
+      },
+      {
+        "content_id": "d_mock005",
+        "title": "猫耳メイドの誘惑 ～ご主人様専属サービス～",
+        "affiliateURL": "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F%2D%2Fdetail%2F%3D%2Fcid%3Dd_mock005%2F&af_id=DUMMY_AFFILIATE_ID&ch=api&ch_id=link",
+        "date": "2025-09-20",
+        "prices": {
+          "price": "770",
+          "list_price": "770"
+        },
+        "imageURL": {
+          "list": "https://pics.dmm.co.jp/digital/doujin/d_mock005/d_mock005pl.jpg",
+          "small": "https://pics.dmm.co.jp/digital/doujin/d_mock005/d_mock005ps.jpg",
+          "large": "https://pics.dmm.co.jp/digital/doujin/d_mock005/d_mock005pl.jpg"
+        },
+        "iteminfo": {
+          "maker": [
+            {"id": "70004", "name": "紅葉かなで"}
+          ],
+          "genre": [
+            {"id": "1011", "name": "メイド"},
+            {"id": "1012", "name": "獣耳"},
+            {"id": "1002", "name": "フルカラー"}
+          ],
+          "volume": "28"
+        },
+        "review": {
+          "count": 67,
+          "average": "4.00"
+        }
+      }
+    ]
+  }
+}
