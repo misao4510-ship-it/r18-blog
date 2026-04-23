@@ -5,6 +5,7 @@ pubDate: 2026-04-21
 heroImage: /images/og/sample1.png
 ogImage: /images/og/sample1.png
 tags: ["恋愛", "ラブラブ", "美少女", "フルカラー"]
+work_id: "dsample-001"
 ---
 
 ## 作品概要

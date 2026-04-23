@@ -12,6 +12,7 @@ const posts = defineCollection({
     ogImage: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    work_id: z.string().optional(),
   }),
 });
 

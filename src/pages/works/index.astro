@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import worksData from '../../../data/works.json';
+
+const works = worksData.works;
+const allGenres = [...new Set(works.flatMap(w => w.genres))].sort();
+const allAuthors = [...new Set(works.map(w => w.author))].sort();
+const priceMin = Math.min(...works.map(w => w.price));
+const priceMax = Math.max(...works.map(w => w.price));
+const totalCount = works.length;
+---
+
+<BaseLayout
+  title="作品一覧・検索"
+  description="FANZA同人作品のデータベース。タイトル・作者・値段・発売日で絞り込み検索できます。"
+>
+  <div class="container" style="padding: 2rem 1rem;">
+    <div class="works-header">
+      <h1>📚 作品一覧・検索</h1>
+      <p class="works-header__sub">全 <span id="result-count">{totalCount}</span> 件 / {totalCount}件中</p>
+    </div>
+
+    <!-- 検索・絞り込みUI -->
+    <div class="filter-panel">
+      <!-- テキスト検索 -->
+      <div class="filter-row">
+        <div class="filter-group filter-group--wide">
+          <label class="filter-label" for="search-text">🔍 タイトル・作者を検索</label>
+          <input
+            type="text"
+            id="search-text"
+            class="filter-input"
+            placeholder="キーワードを入力..."
+          />
+        </div>
+      </div>
+
+      <!-- 作者フィルタ -->
+      <div class="filter-row">
+        <div class="filter-group">
+          <label class="filter-label" for="filter-author">✍ 作者</label>
+          <select id="filter-author" class="filter-select">
+            <option value="">すべての作者</option>
+            {allAuthors.map(a => <option value={a}>{a}</option>)}
+          </select>
+        </div>
+
+        <!-- ソート -->
+        <div class="filter-group">
+          <label class="filter-label" for="sort-select">🔃 並び替え</label>
+          <select id="sort-select" class="filter-select">
+            <option value="date-desc">新着順</option>
+            <option value="date-asc">古い順</option>
+            <option value="price-asc">安い順</option>
+            <option value="price-desc">高い順</option>
+            <option value="rating-desc">評価順</option>
+            <option value="author-asc">作者名順</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 価格範囲 -->
+      <div class="filter-row">
+        <div class="filter-group filter-group--wide">
+          <label class="filter-label">💴 価格範囲</label>
+          <div class="price-range-row">
+            <span class="price-label">¥<span id="price-min-display">{priceMin}</span></span>
+            <input type="range" id="price-min" class="price-slider" min={priceMin} max={priceMax} value={priceMin} step="110" />
+            <span class="price-sep">〜</span>
+            <input type="range" id="price-max" class="price-slider" min={priceMin} max={priceMax} value={priceMax} step="110" />
+            <span class="price-label">¥<span id="price-max-display">{priceMax}</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ジャンルチェックボックス -->
+      <div class="filter-row">
+        <div class="filter-group filter-group--wide">
+          <label class="filter-label">🏷 ジャンル</label>
+          <div class="genre-checks" id="genre-checks">
+            {allGenres.map(g => (
+              <label class="genre-check-label">
+                <input type="checkbox" class="genre-check" value={g} /> {g}
+              </label>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button id="filter-reset" class="filter-reset-btn">フィルタをリセット</button>
+    </div>
+
+    <!-- 作品グリッド -->
+    <div class="works-grid" id="works-grid">
+      {works.map(work => (
+        <WorkCard {...work} />
+      ))}
+    </div>
+
+    <p id="no-results" class="no-results" style="display:none;">
+      条件に一致する作品が見つかりませんでした。
+    </p>
+  </div>
+</BaseLayout>
+
+<!-- 埋め込みJSON（クライアントサイド検索用） -->
+<script is:inline define:vars={{ worksJson: works, priceMin, priceMax }}>
+(function() {
+  var works = worksJson;
+  var cards = document.querySelectorAll('.work-card');
+  var grid = document.getElementById('works-grid');
+  var noResults = document.getElementById('no-results');
+  var resultCount = document.getElementById('result-count');
+
+  var state = {
+    text: '',
+    author: '',
+    priceMin: priceMin,
+    priceMax: priceMax,
+    genres: [],
+    sort: 'date-desc'
+  };
+
+  function applyFilters() {
+    var text = state.text.toLowerCase();
+    var visibleWorks = works.filter(function(w) {
+      // テキスト検索
+      if (text && !w.title.toLowerCase().includes(text) && !w.author.toLowerCase().includes(text)) return false;
+      // 作者
+      if (state.author && w.author !== state.author) return false;
+      // 価格
+      if (w.price < state.priceMin || w.price > state.priceMax) return false;
+      // ジャンル
+      if (state.genres.length > 0) {
+        var hasAll = state.genres.every(function(g) { return w.genres.includes(g); });
+        if (!hasAll) return false;
+      }
+      return true;
+    });
+
+    // ソート
+    visibleWorks.sort(function(a, b) {
+      switch(state.sort) {
+        case 'date-desc': return new Date(b.release_date) - new Date(a.release_date);
+        case 'date-asc':  return new Date(a.release_date) - new Date(b.release_date);
+        case 'price-asc': return a.price - b.price;
+        case 'price-desc': return b.price - a.price;
+        case 'rating-desc': return (b.rating || 0) - (a.rating || 0);
+        case 'author-asc': return a.author.localeCompare(b.author, 'ja');
+        default: return 0;
+      }
+    });
+
+    var visibleIds = new Set(visibleWorks.map(function(w) { return w.id; }));
+
+    // カードの表示/非表示 & 順序変更
+    visibleWorks.forEach(function(w) {
+      var card = document.querySelector('.work-card[data-id="' + w.id + '"]');
+      if (card) grid.appendChild(card);
+    });
+    cards.forEach(function(card) {
+      card.style.display = visibleIds.has(card.dataset.id) ? '' : 'none';
+    });
+
+    var count = visibleWorks.length;
+    if (resultCount) resultCount.textContent = count;
+    if (noResults) noResults.style.display = count === 0 ? '' : 'none';
+  }
+
+  // イベントリスナー
+  var searchInput = document.getElementById('search-text');
+  if (searchInput) searchInput.addEventListener('input', function() {
+    state.text = this.value.trim();
+    applyFilters();
+  });
+
+  var authorSelect = document.getElementById('filter-author');
+  if (authorSelect) authorSelect.addEventListener('change', function() {
+    state.author = this.value;
+    applyFilters();
+  });
+
+  var sortSelect = document.getElementById('sort-select');
+  if (sortSelect) sortSelect.addEventListener('change', function() {
+    state.sort = this.value;
+    applyFilters();
+  });
+
+  var priceMinInput = document.getElementById('price-min');
+  var priceMaxInput = document.getElementById('price-max');
+  var priceMinDisplay = document.getElementById('price-min-display');
+  var priceMaxDisplay = document.getElementById('price-max-display');
+
+  if (priceMinInput) priceMinInput.addEventListener('input', function() {
+    var v = parseInt(this.value);
+    if (v > state.priceMax) { this.value = state.priceMax; return; }
+    state.priceMin = v;
+    if (priceMinDisplay) priceMinDisplay.textContent = v.toLocaleString();
+    applyFilters();
+  });
+  if (priceMaxInput) priceMaxInput.addEventListener('input', function() {
+    var v = parseInt(this.value);
+    if (v < state.priceMin) { this.value = state.priceMin; return; }
+    state.priceMax = v;
+    if (priceMaxDisplay) priceMaxDisplay.textContent = v.toLocaleString();
+    applyFilters();
+  });
+
+  document.querySelectorAll('.genre-check').forEach(function(cb) {
+    cb.addEventListener('change', function() {
+      if (this.checked) {
+        state.genres.push(this.value);
+      } else {
+        state.genres = state.genres.filter(function(g) { return g !== this.value; }.bind(this));
+      }
+      applyFilters();
+    });
+  });
+
+  var resetBtn = document.getElementById('filter-reset');
+  if (resetBtn) resetBtn.addEventListener('click', function() {
+    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, genres: [], sort: 'date-desc' };
+    if (searchInput) searchInput.value = '';
+    if (authorSelect) authorSelect.value = '';
+    if (sortSelect) sortSelect.value = 'date-desc';
+    if (priceMinInput) { priceMinInput.value = priceMin; if (priceMinDisplay) priceMinDisplay.textContent = priceMin.toLocaleString(); }
+    if (priceMaxInput) { priceMaxInput.value = priceMax; if (priceMaxDisplay) priceMaxDisplay.textContent = priceMax.toLocaleString(); }
+    document.querySelectorAll('.genre-check').forEach(function(cb) { cb.checked = false; });
+    applyFilters();
+  });
+})();
+</script>
+
+<style>
+.works-header {
+  margin-bottom: 1.5rem;
+}
+.works-header h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  margin-bottom: 0.3rem;
+}
+.works-header__sub {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.filter-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.filter-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 180px;
+}
+.filter-group--wide { flex: 1; min-width: 280px; }
+.filter-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.filter-input, .filter-select {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.filter-input:focus, .filter-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+.filter-select { cursor: pointer; }
+
+.price-range-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.price-slider {
+  flex: 1;
+  min-width: 80px;
+  accent-color: var(--color-accent);
+}
+.price-label { font-size: 0.85rem; color: var(--color-text); white-space: nowrap; }
+.price-sep { color: var(--color-text-muted); }
+
+.genre-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.genre-check-label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.genre-check-label:hover { border-color: var(--color-accent); }
+.genre-check-label:has(.genre-check:checked) {
+  background: rgba(224, 64, 251, 0.15);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.genre-check { accent-color: var(--color-accent); }
+
+.filter-reset-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+.filter-reset-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.works-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  .works-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+}
+@media (min-width: 900px) {
+  .works-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1100px) {
+  .works-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.no-results {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 3rem 0;
+  font-size: 1rem;
+}
+</style>

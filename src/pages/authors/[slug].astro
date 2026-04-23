@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import worksData from '../../../data/works.json';
+
+export function getStaticPaths() {
+  const works = worksData.works;
+  const authorMap = new Map<string, { name: string; slug: string }>();
+  works.forEach(w => {
+    if (!authorMap.has(w.author_slug)) {
+      authorMap.set(w.author_slug, { name: w.author, slug: w.author_slug });
+    }
+  });
+  return Array.from(authorMap.values()).map(({ name, slug }) => ({
+    params: { slug },
+    props: { authorName: name, authorSlug: slug }
+  }));
+}
+
+interface Props {
+  authorName: string;
+  authorSlug: string;
+}
+
+const { authorName, authorSlug } = Astro.props;
+const works = worksData.works;
+const authorWorks = works
+  .filter(w => w.author_slug === authorSlug)
+  .sort((a, b) => new Date(b.release_date).valueOf() - new Date(a.release_date).valueOf());
+
+const totalPrice = authorWorks.reduce((s, w) => s + w.price, 0);
+const avgPrice = authorWorks.length > 0 ? Math.round(totalPrice / authorWorks.length) : 0;
+const avgRating = authorWorks.length > 0
+  ? (authorWorks.reduce((s, w) => s + (w.rating || 0), 0) / authorWorks.length).toFixed(1)
+  : '—';
+---
+
+<BaseLayout
+  title={`${authorName} の作品一覧`}
+  description={`${authorName} の同人作品 ${authorWorks.length}件を一覧表示。タイトル・価格・発売日をまとめてチェックできます。`}
+>
+  <div class="container" style="padding: 2rem 1rem;">
+    <!-- パンくず -->
+    <nav class="breadcrumb">
+      <a href="/">ホーム</a>
+      <span>›</span>
+      <a href="/works/">作品一覧</a>
+      <span>›</span>
+      <span>{authorName}</span>
+    </nav>
+
+    <!-- 作者ヘッダー -->
+    <div class="author-header">
+      <div class="author-avatar">✍</div>
+      <div class="author-info">
+        <h1 class="author-name">{authorName}</h1>
+        <div class="author-stats">
+          <span class="stat"><strong>{authorWorks.length}</strong> 作品</span>
+          <span class="stat-sep">|</span>
+          <span class="stat">平均価格 <strong>¥{avgPrice.toLocaleString()}</strong></span>
+          <span class="stat-sep">|</span>
+          <span class="stat">平均評価 <strong>★{avgRating}</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作品グリッド -->
+    {authorWorks.length === 0 ? (
+      <p style="color: var(--color-text-muted); padding: 2rem 0;">この作者の作品は現在登録されていません。</p>
+    ) : (
+      <div class="works-grid">
+        {authorWorks.map(work => (
+          <WorkCard {...work} />
+        ))}
+      </div>
+    )}
+
+    <div style="margin-top: 2rem;">
+      <a href="/works/" class="back-link">← 作品一覧に戻る</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--color-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.author-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.author-avatar {
+  font-size: 3rem;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(224, 64, 251, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+.author-stats {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.author-stats strong { color: var(--color-text); }
+.stat-sep { color: var(--color-border); }
+
+.works-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  .works-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+}
+@media (min-width: 900px) {
+  .works-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.back-link {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.back-link:hover { color: var(--color-accent); }
+</style>

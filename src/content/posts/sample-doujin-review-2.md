@@ -5,6 +5,7 @@ pubDate: 2026-04-22
 heroImage: /images/og/sample2.png
 ogImage: /images/og/sample2.png
 tags: ["青春", "学園", "ラブストーリー", "フルカラー"]
+work_id: "dsample-002"
 ---
 
 ## 作品概要
