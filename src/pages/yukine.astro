@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="白鳥ゆきね プロフィール｜月灯の書架"
+  description="月灯の書架の主任司書・白鳥ゆきね（しらとりゆきね）のプロフィールページ。"
+  ogImage="/images/yukine/profile-og.png"
+>
+  <div class="container" style="padding: 2rem 1rem; max-width: 860px; margin: 0 auto;">
+
+    <!-- ヒーロー -->
+    <section class="yukine-hero">
+      <div class="yukine-hero__image">
+        <img src="/images/yukine/profile.png" alt="白鳥ゆきね" />
+      </div>
+      <div class="yukine-hero__intro">
+        <p class="yukine-hero__role">月灯の書架　主任司書</p>
+        <h1 class="yukine-hero__name">白鳥 ゆきね</h1>
+        <p class="yukine-hero__kana">しらとり ゆきね</p>
+        <p class="yukine-hero__catch">「秘密の書棚へようこそ。<br>今日はどんな1冊をお探しですか？」</p>
+      </div>
+    </section>
+
+    <!-- プロフィール表 -->
+    <section class="profile-section">
+      <h2 class="section-title">📋 プロフィール</h2>
+      <table class="profile-table">
+        <tbody>
+          <tr><th>名前</th><td>白鳥ゆきね（しらとりゆきね）</td></tr>
+          <tr><th>通称</th><td>ゆきね、ゆきねぇ</td></tr>
+          <tr><th>年齢</th><td>20歳</td></tr>
+          <tr><th>役職</th><td>月灯の書架 主任司書</td></tr>
+          <tr><th>身長</th><td>165cm</td></tr>
+          <tr><th>容姿</th><td>黒髪ストレートロング、紫色の大きな瞳、細フレーム眼鏡</td></tr>
+          <tr><th>性格</th><td>清楚・知的・優しい・本好き・少し恥ずかしがり屋</td></tr>
+          <tr><th>趣味</th><td>読書（特に同人作品）、紅茶、夜の散歩</td></tr>
+          <tr><th>役割</th><td>サイトマスコット・レビュー記事の語り手・案内人</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- キャラクター紹介文 -->
+    <section class="profile-section">
+      <h2 class="section-title">✨ ゆきねについて</h2>
+      <p class="profile-text">
+        月灯の書架の主任司書、白鳥ゆきねです。<br>
+        物静かで本を愛する清楚なお姉さん……と思われがちですが、
+        実は大人向けの同人作品にもとても詳しいんです。
+        秘密にしているわけではないのですが、なかなか言い出せなくて。
+      </p>
+      <p class="profile-text">
+        このサイトでは、わたしゆきねが厳選した同人ボイス作品や読み物を、
+        丁寧にご紹介しています。
+        品質にこだわった作品だけを扱っていますので、
+        迷ったときはぜひわたしのおすすめを参考にしてみてください。
+      </p>
+      <p class="profile-text">
+        お気に入りは囁き系のバイノーラル作品。
+        夜、ひとりで静かに耳を傾けるひとときが、何より好きな時間です。
+      </p>
+    </section>
+
+    <!-- 吹き出しサンプル -->
+    <section class="profile-section">
+      <h2 class="section-title">💬 ゆきねのひとこと</h2>
+      <div class="speech-bubbles">
+        <div class="speech-bubble">
+          <img src="/images/yukine/profile.png" alt="ゆきね" class="bubble-avatar" />
+          <div class="bubble-text">
+            18歳以上の方限定のサイトです。大人の秘密の本棚として、どうぞご活用くださいね。
+          </div>
+        </div>
+        <div class="speech-bubble speech-bubble--right">
+          <div class="bubble-text">
+            声優さんのお声って、本当に大切なんです。わたしのおすすめ作品一覧、よかったら見てみてください♪
+          </div>
+          <img src="/images/yukine/profile.png" alt="ゆきね" class="bubble-avatar" />
+        </div>
+        <div class="speech-bubble">
+          <img src="/images/yukine/profile.png" alt="ゆきね" class="bubble-avatar" />
+          <div class="bubble-text">
+            お気に入りの作品が見つかったら、またここに会いに来てくださいね。いつでもお待ちしています。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="profile-section">
+      <h2 class="section-title">🔗 関連ページ</h2>
+      <div class="profile-links">
+        <a href="/" class="profile-link">🏠 トップページ</a>
+        <a href="/works/" class="profile-link">📚 作品一覧</a>
+        <a href="/favorites/" class="profile-link">♥ お気に入り作品</a>
+        <a href="/cv/" class="profile-link">🎤 声優別レビュー</a>
+        <a href="/about/" class="profile-link">📖 このサイトについて</a>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  /* ヒーロー */
+  .yukine-hero {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .yukine-hero__image {
+    flex-shrink: 0;
+    width: 220px;
+  }
+  .yukine-hero__image img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #7b2fff;
+    box-shadow: 0 0 20px rgba(123, 47, 255, 0.4);
+  }
+  .yukine-hero__intro {
+    flex: 1;
+    min-width: 200px;
+  }
+  .yukine-hero__role {
+    font-size: 0.85rem;
+    color: #bb86fc;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .yukine-hero__name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin: 0 0 0.2rem;
+  }
+  .yukine-hero__kana {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+  .yukine-hero__catch {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.8;
+    border-left: 3px solid #7b2fff;
+    padding-left: 1rem;
+    font-style: italic;
+  }
+
+  /* セクション */
+  .profile-section {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #7b2fff44;
+  }
+
+  /* プロフィール表 */
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .profile-table th {
+    width: 6em;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    color: #bb86fc;
+    font-weight: 700;
+    background: #1a0a2e;
+    white-space: nowrap;
+    border-bottom: 1px solid #7b2fff33;
+  }
+  .profile-table td {
+    padding: 0.6rem 1rem;
+    color: var(--color-text);
+    border-bottom: 1px solid #7b2fff33;
+  }
+
+  /* 紹介文 */
+  .profile-text {
+    color: var(--color-text);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* 吹き出し */
+  .speech-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .speech-bubble {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .speech-bubble--right {
+    flex-direction: row-reverse;
+  }
+  .bubble-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid #7b2fff;
+    flex-shrink: 0;
+  }
+  .bubble-text {
+    background: #1a0a2e;
+    border: 1px solid #7b2fff44;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    max-width: 80%;
+    position: relative;
+  }
+
+  /* 関連リンク */
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .profile-link {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #7b2fff;
+    border-radius: 8px;
+    color: #bb86fc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .profile-link:hover {
+    background: #7b2fff;
+    color: #fff;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 600px) {
+    .yukine-hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .yukine-hero__image { width: 160px; }
+    .yukine-hero__catch { text-align: left; }
+    .bubble-text { max-width: 85%; }
+  }
+</style>
