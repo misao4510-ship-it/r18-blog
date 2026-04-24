@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import worksData from '../../../data/works.json';
+---
+
+<BaseLayout
+  title="♥ お気に入り"
+  description="あなたがお気に入りに追加した作品の一覧です。"
+>
+  <div class="container" style="padding: 2rem 1rem;">
+    <div class="fav-header">
+      <h1>♥ お気に入り</h1>
+      <p class="fav-header__sub" id="fav-count-text">読み込み中...</p>
+    </div>
+
+    <!-- 0件メッセージ -->
+    <div id="fav-empty" class="fav-empty" style="display:none;">
+      <div class="yukine-balloon">
+        <p>🌙 お気に入りに作品を追加しましょ♪</p>
+        <p class="fav-empty__hint">作品カードの <span class="fav-empty__heart">♥</span> をクリックすると追加できます</p>
+        <a href="/works/" class="btn-browse">作品一覧を見る</a>
+      </div>
+    </div>
+
+    <!-- お気に入りグリッド -->
+    <div class="works-grid" id="fav-grid"></div>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ allWorks: worksData.works }}>
+(function() {
+  var LS_KEY = 'yukine_favorites';
+
+  function getFavIds() {
+    try { return new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]')); }
+    catch(e) { return new Set(); }
+  }
+
+  function buildWorkCard(w) {
+    var ratingHtml = '';
+    if (w.rating) {
+      var stars = Math.round(w.rating);
+      var filled = '★'.repeat(stars);
+      var empty = '☆'.repeat(5 - stars);
+      ratingHtml = '<div class="work-card__rating">' + filled + empty +
+        '<span class="work-card__rating-num">' + w.rating.toFixed(1) + '</span></div>';
+    }
+
+    var date = new Date(w.release_date).toLocaleDateString('ja-JP', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    var pagesHtml = w.pages
+      ? '<span class="work-card__pages">' + w.pages + 'P</span>'
+      : '';
+
+    var reviewHtml = w.review_slug
+      ? '<a href="/posts/' + w.review_slug + '/" class="btn-review">レビューを読む</a>'
+      : '';
+
+    var genreHtml = (w.genres || []).map(function(g) {
+      return '<span class="work-card__genre">' + g + '</span>';
+    }).join('');
+
+    var isFav = getFavIds().has(w.id);
+    var favClass = isFav ? 'work-card__fav-btn is-fav' : 'work-card__fav-btn';
+
+    return '<article class="work-card" data-id="' + w.id + '">' +
+      '<div class="work-card__thumb">' +
+        '<img src="' + w.thumbnail + '" alt="' + w.title + '" loading="lazy" width="300" height="420" />' +
+        ratingHtml +
+        '<button class="' + favClass + '" data-work-id="' + w.id + '" aria-label="お気に入り">' +
+          '<svg class="fav-icon fav-icon--off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+          '<svg class="fav-icon fav-icon--on" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="work-card__body">' +
+        '<div class="work-card__title">' + w.title + '</div>' +
+        '<a href="/authors/' + w.author_slug + '/" class="work-card__author">✍ ' + w.author + '</a>' +
+        '<div class="work-card__meta">' +
+          '<span class="work-card__price">¥' + w.price.toLocaleString() + '</span>' +
+          pagesHtml +
+          '<span class="work-card__date">' + date + '</span>' +
+        '</div>' +
+        '<div class="work-card__genres">' + genreHtml + '</div>' +
+        '<div class="work-card__actions">' +
+          '<a href="' + w.fanza_link + '" target="_blank" rel="noopener noreferrer nofollow" class="btn-fanza">FANZAで見る</a>' +
+          reviewHtml +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function saveFavs(set) {
+    localStorage.setItem(LS_KEY, JSON.stringify([...set]));
+  }
+
+  function updateBtn(btn, favIds) {
+    if (favIds.has(btn.dataset.workId)) { btn.classList.add('is-fav'); }
+    else { btn.classList.remove('is-fav'); }
+  }
+
+  function bindFavButtons(grid) {
+    grid.querySelectorAll('.work-card__fav-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var id = btn.dataset.workId;
+        var f = getFavIds();
+        if (f.has(id)) {
+          f.delete(id);
+          // カードを非表示にしてページから削除
+          var card = btn.closest('.work-card');
+          if (card) {
+            card.style.opacity = '0';
+            card.style.transition = 'opacity 0.3s';
+            setTimeout(function() {
+              card.remove();
+              var count = grid.querySelectorAll('.work-card').length;
+              var countText = document.getElementById('fav-count-text');
+              var empty = document.getElementById('fav-empty');
+              if (countText) countText.textContent = count + '件のお気に入り';
+              if (count === 0 && empty) empty.style.display = '';
+            }, 300);
+          }
+        } else {
+          f.add(id);
+          btn.classList.add('is-fav');
+        }
+        saveFavs(f);
+        updateBtn(btn, getFavIds());
+        btn.classList.remove('fav-anim');
+        void btn.offsetWidth;
+        btn.classList.add('fav-anim');
+      });
+    });
+  }
+
+  function render() {
+    var favIds = getFavIds();
+    var grid = document.getElementById('fav-grid');
+    var empty = document.getElementById('fav-empty');
+    var countText = document.getElementById('fav-count-text');
+
+    var favWorks = allWorks.filter(function(w) { return favIds.has(w.id); });
+
+    if (favWorks.length === 0) {
+      if (empty) empty.style.display = '';
+      if (countText) countText.textContent = '0件';
+      return;
+    }
+
+    if (countText) countText.textContent = favWorks.length + '件のお気に入り';
+    if (grid) {
+      grid.innerHTML = favWorks.map(buildWorkCard).join('');
+      bindFavButtons(grid);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+})();
+</script>
+
+<style>
+.fav-header {
+  margin-bottom: 1.5rem;
+}
+.fav-header h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ff4d8d;
+  margin-bottom: 0.3rem;
+}
+.fav-header__sub {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.fav-empty {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+.yukine-balloon {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 400px;
+}
+.yukine-balloon p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+.fav-empty__hint {
+  font-size: 0.85rem !important;
+  color: var(--color-text-muted) !important;
+  margin-bottom: 1.2rem !important;
+}
+.fav-empty__heart {
+  color: #ff4d8d;
+  font-weight: 700;
+}
+.btn-browse {
+  display: inline-block;
+  background: linear-gradient(135deg, #e040fb, #ff4d8d);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+.btn-browse:hover { opacity: 0.85; text-decoration: none; }
+
+.works-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+@media (max-width: 600px) {
+  .works-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+}
+@media (min-width: 900px) {
+  .works-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1100px) {
+  .works-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* WorkCardスタイル（ページ内JS生成分） */
+:global(.work-card) {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+:global(.work-card:hover) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(224, 64, 251, 0.2);
+}
+:global(.work-card__thumb) {
+  position: relative;
+  aspect-ratio: 5/7;
+  overflow: hidden;
+  background: #0d0d1a;
+}
+:global(.work-card__thumb img) {
+  width: 100%; height: 100%; object-fit: cover;
+}
+:global(.work-card__rating) {
+  position: absolute; bottom: 0.4rem; left: 0.4rem;
+  background: rgba(13,13,26,0.85);
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  font-size: 0.75rem; color: #ffd700;
+}
+:global(.work-card__rating-num) {
+  color: var(--color-text); margin-left: 0.3rem; font-size: 0.8rem;
+}
+:global(.work-card__fav-btn) {
+  position: absolute; top: 0.4rem; right: 0.4rem;
+  width: 32px; height: 32px; border: none;
+  background: rgba(13,13,26,0.75); border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  padding: 0; transition: transform 0.15s, background 0.15s; z-index: 2;
+}
+:global(.work-card__fav-btn:hover) { background: rgba(13,13,26,0.92); transform: scale(1.1); }
+:global(.fav-icon--off) { color: #aaa; display: block; }
+:global(.fav-icon--on) { color: #ff4d8d; display: none; }
+:global(.work-card__fav-btn.is-fav .fav-icon--off) { display: none; }
+:global(.work-card__fav-btn.is-fav .fav-icon--on) { display: block; }
+:global(.work-card__fav-btn.fav-anim) { animation: fav-pop 0.3s ease; }
+@keyframes fav-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+:global(.work-card__body) {
+  padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1;
+}
+:global(.work-card__title) {
+  font-size: 0.9rem; font-weight: 700; color: var(--color-text);
+  line-height: 1.4; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+:global(.work-card__author) { font-size: 0.8rem; color: var(--color-accent); text-decoration: none; }
+:global(.work-card__author:hover) { text-decoration: underline; }
+:global(.work-card__meta) {
+  display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;
+}
+:global(.work-card__price) { font-size: 0.95rem; font-weight: 900; color: #ff4d8d; }
+:global(.work-card__pages) {
+  font-size: 0.75rem; color: var(--color-text-muted);
+  background: var(--color-surface-raised); padding: 0.1rem 0.4rem; border-radius: 4px;
+}
+:global(.work-card__date) { font-size: 0.75rem; color: var(--color-text-muted); }
+:global(.work-card__genres) { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+:global(.work-card__genre) {
+  font-size: 0.72rem; background: rgba(224, 64, 251, 0.15);
+  color: var(--color-accent); border: 1px solid rgba(224, 64, 251, 0.3);
+  padding: 0.1rem 0.4rem; border-radius: 4px;
+}
+:global(.work-card__actions) {
+  display: flex; gap: 0.5rem; margin-top: auto; padding-top: 0.4rem;
+}
+:global(.btn-fanza), :global(.btn-review) {
+  flex: 1; text-align: center; padding: 0.45rem 0.5rem;
+  border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+  text-decoration: none; transition: opacity 0.2s;
+}
+:global(.btn-fanza) {
+  background: linear-gradient(135deg, #e040fb, #ff4d8d); color: #fff;
+}
+:global(.btn-fanza:hover) { opacity: 0.85; text-decoration: none; }
+:global(.btn-review) {
+  background: var(--color-surface-raised); color: var(--color-accent);
+  border: 1px solid var(--color-border);
+}
+:global(.btn-review:hover) { border-color: var(--color-accent); text-decoration: none; }
+</style>

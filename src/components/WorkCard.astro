@@ -32,6 +32,10 @@ const ratingStars = rating ? Math.round(rating) : 0;
         <span class="work-card__rating-num">{rating.toFixed(1)}</span>
       </div>
     )}
+    <button class="work-card__fav-btn" data-work-id={id} aria-label="お気に入り">
+      <svg class="fav-icon fav-icon--off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <svg class="fav-icon fav-icon--on" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </button>
   </div>
   <div class="work-card__body">
     <div class="work-card__title">{title}</div>
@@ -182,4 +186,78 @@ const ratingStars = rating ? Math.round(rating) : 0;
   border: 1px solid var(--color-border);
 }
 .btn-review:hover { border-color: var(--color-accent); text-decoration: none; }
+
+/* お気に入りボタン */
+.work-card__fav-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(13,13,26,0.75);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.15s, background 0.15s;
+  z-index: 2;
+}
+.work-card__fav-btn:hover { background: rgba(13,13,26,0.92); transform: scale(1.1); }
+.fav-icon--off { color: #aaa; display: block; }
+.fav-icon--on  { color: #ff4d8d; display: none; }
+.work-card__fav-btn.is-fav .fav-icon--off { display: none; }
+.work-card__fav-btn.is-fav .fav-icon--on  { display: block; }
+.work-card__fav-btn.fav-anim { animation: fav-pop 0.3s ease; }
+@keyframes fav-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
 </style>
+
+<script is:inline>
+(function() {
+  var LS_KEY = 'yukine_favorites';
+
+  function getFavs() {
+    try { return new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]')); }
+    catch(e) { return new Set(); }
+  }
+  function saveFavs(set) {
+    localStorage.setItem(LS_KEY, JSON.stringify([...set]));
+  }
+
+  function updateBtn(btn, favs) {
+    var id = btn.dataset.workId;
+    if (favs.has(id)) { btn.classList.add('is-fav'); }
+    else              { btn.classList.remove('is-fav'); }
+  }
+
+  function initFavButtons() {
+    var favs = getFavs();
+    document.querySelectorAll('.work-card__fav-btn').forEach(function(btn) {
+      updateBtn(btn, favs);
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var id = btn.dataset.workId;
+        var f = getFavs();
+        if (f.has(id)) { f.delete(id); } else { f.add(id); }
+        saveFavs(f);
+        updateBtn(btn, f);
+        btn.classList.remove('fav-anim');
+        void btn.offsetWidth; // reflow
+        btn.classList.add('fav-anim');
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFavButtons);
+  } else {
+    initFavButtons();
+  }
+})();
+</script>
