@@ -1,0 +1,86 @@
+---
+interface Props {
+  variant?: 'home' | 'post' | 'works' | 'author';
+  message?: string;
+}
+
+const { variant = 'home', message } = Astro.props;
+
+const defaultMessages: Record<string, string> = {
+  home: 'いらっしゃい♪ 気になる作品、一緒に探しましょ？',
+  works: '作品データベース、どんなの探す？',
+  post: 'この作品、気になる？ 詳しく見てみましょ♪',
+  author: 'この作者さんの作品、他にもいろいろあるの♪',
+};
+
+const displayMessage = message ?? defaultMessages[variant] ?? defaultMessages.home;
+---
+
+<div class="yukine-bubble-wrapper">
+  <div class="yukine-bubble">
+    <p class="yukine-bubble__text">{displayMessage}</p>
+    <div class="yukine-bubble__tail"></div>
+  </div>
+</div>
+
+<style>
+  .yukine-bubble-wrapper {
+    position: fixed;
+    bottom: 290px; /* 立ち絵の上に吹き出しを配置 */
+    right: 1.5rem;
+    z-index: 11;
+    pointer-events: none;
+  }
+
+  .yukine-bubble {
+    position: relative;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(160, 100, 220, 0.5);
+    border-radius: 12px;
+    padding: 0.65rem 0.9rem;
+    max-width: 200px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 12px rgba(160, 100, 220, 0.25);
+  }
+
+  .yukine-bubble__text {
+    color: #e8d5ff;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  /* 吹き出しの尻尾（右下向き） */
+  .yukine-bubble__tail {
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid rgba(26, 26, 46, 0.95);
+  }
+
+  @media (max-width: 768px) {
+    .yukine-bubble-wrapper {
+      bottom: 165px;
+      right: 0.5rem;
+    }
+
+    .yukine-bubble {
+      max-width: 150px;
+    }
+
+    .yukine-bubble__text {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .yukine-bubble-wrapper {
+      display: none;
+    }
+  }
+</style>

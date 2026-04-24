@@ -1,0 +1,48 @@
+---
+// 雪音立ち絵コンポーネント - PC右下固定表示、スマホは小さめ
+---
+<div class="yukine-standing-wrapper">
+  <img
+    src="/images/yukine/standing.png"
+    alt="白鳥雪音"
+    class="yukine-standing"
+    loading="lazy"
+  />
+</div>
+
+<style>
+  .yukine-standing-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 1.5rem;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .yukine-standing {
+    display: block;
+    max-height: 300px;
+    width: auto;
+    opacity: 0.95;
+    filter: drop-shadow(0 0 12px rgba(160, 100, 220, 0.4));
+  }
+
+  @media (max-width: 768px) {
+    .yukine-standing-wrapper {
+      right: 0.5rem;
+      bottom: 3.5rem; /* スクロールボタンと重ならないよう調整 */
+    }
+
+    .yukine-standing {
+      max-height: 140px;
+      opacity: 0.85;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .yukine-standing-wrapper {
+      display: none; /* 超小画面では非表示 */
+    }
+  }
+</style>
