@@ -137,16 +137,6 @@ ASMR・ボイス作品で圧倒的な実績を持つ声優さんです。
 ---
 
 
----
-
-## 🛒 作品を購入する
-
-<div style="text-align:center; margin: 1.5rem 0;">
-  <a href="https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_194160%2F&af_id=&ch=toolbar_sp&ch_id=link" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block; background:linear-gradient(135deg,#e040fb,#ff4d8d); color:#fff; font-size:1.1rem; font-weight:900; padding:0.9rem 2.5rem; border-radius:50px; text-decoration:none; box-shadow:0 4px 16px rgba(224,64,251,0.4);">
-    ✨ FANZAで購入する
-  </a>
-</div>
-
 雪音でした♡
 
 いつも応援してくれてありがとうございます。

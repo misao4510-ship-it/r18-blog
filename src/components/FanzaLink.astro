@@ -1,0 +1,47 @@
+---
+import { fanzaAffiliateUrl } from '../utils/fanza';
+
+interface Props {
+  cid: string;
+  label?: string;
+}
+
+const { cid, label = 'FANZAで購入する' } = Astro.props;
+const url = fanzaAffiliateUrl(cid);
+---
+
+<div class="fanza-link-wrapper">
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    class="fanza-buy-btn"
+  >
+    ✨ {label}
+  </a>
+</div>
+
+<style>
+  .fanza-link-wrapper {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .fanza-buy-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #e040fb, #ff4d8d);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(224, 64, 251, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .fanza-buy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(224, 64, 251, 0.5);
+    text-decoration: none;
+    opacity: 1;
+  }
+</style>

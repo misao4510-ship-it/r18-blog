@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
 import RelatedWorks from '../../components/RelatedWorks.astro';
+import FanzaLink from '../../components/FanzaLink.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, pubDate, updatedDate, heroImage, ogImage, tags } = post.data;
+const { title, description, pubDate, updatedDate, heroImage, ogImage, tags, work_id } = post.data;
 const siteUrl = 'https://r18-blog.pages.dev';
 const canonicalUrl = `${siteUrl}/posts/${post.id}/`;
 ---
@@ -43,6 +44,13 @@ const canonicalUrl = `${siteUrl}/posts/${post.id}/`;
     <div class="prose">
       <Content />
     </div>
+
+    {work_id && (
+      <div style="margin: 2rem 0; padding: 1.5rem; background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: 12px; text-align: center;">
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">この作品を購入する</p>
+        <FanzaLink cid={work_id} />
+      </div>
+    )}
 
     <ShareButtons title={title} url={canonicalUrl} />
 
