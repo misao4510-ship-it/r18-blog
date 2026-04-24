@@ -147,6 +147,7 @@ const currentYear = new Date().getFullYear();
       background: rgba(0, 0, 0, 0.5);
       z-index: 300;
       opacity: 0;
+      pointer-events: none;
       transition: opacity 0.3s;
     }
     .slide-menu__nav {
@@ -166,6 +167,7 @@ const currentYear = new Date().getFullYear();
     }
     .slide-menu.is-open .slide-menu__overlay {
       opacity: 1;
+      pointer-events: auto;
     }
     .slide-menu.is-open .slide-menu__nav {
       right: 0;
