@@ -6,6 +6,8 @@ heroImage: /images/works/d_325958/hero.png
 ogImage: /images/works/d_325958/hero.png
 tags: ["ボイス", "ASMR", "ツンデレ", "学園もの", "ラブラブ"]
 work_id: "d_325958"
+voice_actresses: ["陽向葵ゅか"]
+circle: "スマート挿入"
 ---
 
 こんにちは、雪音です♪

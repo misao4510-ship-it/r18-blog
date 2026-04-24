@@ -6,6 +6,8 @@ heroImage: /images/works/d_205407/hero.png
 ogImage: /images/works/d_205407/hero.png
 tags: ["ボイス", "ASMR", "OL", "ラブラブ", "おっぱい"]
 work_id: "d_205407"
+voice_actresses: ["陽向葵ゅか"]
+circle: "Arche-Type"
 ---
 
 こんにちは、雪音です♪

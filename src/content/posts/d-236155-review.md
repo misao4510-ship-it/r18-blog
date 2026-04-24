@@ -6,6 +6,8 @@ heroImage: /images/works/d_236155/hero.png
 ogImage: /images/works/d_236155/hero.png
 tags: ["ボイス", "KU100", "BSS", "幼馴染", "囁き"]
 work_id: "d_236155"
+voice_actresses: ["陽向葵ゅか"]
+circle: "バニラシロップ"
 ---
 
 こんにちは、雪音です♪

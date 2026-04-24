@@ -6,6 +6,7 @@ heroImage: /images/works/d_666782/hero.png
 ogImage: /images/works/d_666782/hero.png
 tags: ["ボイス", "オナサポ", "耳舐め", "全肯定", "彼女"]
 work_id: "d_666782"
+voice_actresses: ["陽向葵ゅか"]
 ---
 
 こんにちは、雪音です♪

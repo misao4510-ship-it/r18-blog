@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const circleMap = new Map<string, typeof allPosts>();
+  for (const post of allPosts) {
+    const c = post.data.circle;
+    if (c) {
+      if (!circleMap.has(c)) circleMap.set(c, []);
+      circleMap.get(c)!.push(post);
+    }
+  }
+
+  return [...circleMap.entries()].map(([name, posts]) => ({
+    params: { slug: name },
+    props: { name, posts: posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+<BaseLayout
+  title={`${name} のレビュー一覧`}
+  description={`サークル「${name}」のFANZA同人・ボイス作品レビューを雪音がまとめてご紹介します。`}
+  yukineVariant="works"
+>
+  <div class="container" style="padding:2rem 1rem;">
+    <div style="margin-bottom:1rem;">
+      <a href="/circles/" style="color:var(--color-text-muted);font-size:0.9rem;">← サークル一覧</a>
+    </div>
+    <h1 style="font-size:1.5rem;font-weight:900;margin-bottom:0.4rem;color:#ff4d8d;">🏷️ {name}</h1>
+    <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:0.9rem;">{posts.length}本のレビューを掲載中</p>
+
+    <div class="article-grid">
+      {posts.map(post => (
+        <article class="article-card">
+          <a href={`/posts/${post.id}/`}>
+            {post.data.heroImage && (
+              <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+            )}
+            <div class="article-card__body">
+              <div class="article-card__title">{post.data.title}</div>
+              <div class="article-card__desc">{post.data.description}</div>
+              <div class="article-card__date">
+                {new Date(post.data.pubDate).toLocaleDateString('ja-JP', {
+                  year: 'numeric', month: 'long', day: 'numeric'
+                })}
+              </div>
+              {post.data.voice_actresses && post.data.voice_actresses.length > 0 && (
+                <div style="margin-top:0.4rem;font-size:0.78rem;color:var(--color-text-muted);">
+                  CV:&nbsp;
+                  {post.data.voice_actresses.map((va, i) => (
+                    <>
+                      <a href={`/voices/${encodeURIComponent(va)}/`} style="color:#e040fb;">{va}</a>
+                      {i < post.data.voice_actresses.length - 1 && ' / '}
+                    </>
+                  ))}
+                </div>
+              )}
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="article-tags" style="margin-top:0.5rem;">
+                  {post.data.tags.map(tag => (
+                    <span class="article-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="/" style="color:var(--color-accent);">← 記事一覧に戻る</a>
+    </div>
+  </div>
+</BaseLayout>

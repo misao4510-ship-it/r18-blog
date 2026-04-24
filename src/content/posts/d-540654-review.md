@@ -6,6 +6,8 @@ heroImage: /images/works/d_540654/hero.png
 ogImage: /images/works/d_540654/hero.png
 tags: ["ボイス", "KU100", "バイノーラル", "巨乳", "女友達"]
 work_id: "d_540654"
+voice_actresses: ["陽向葵ゅか"]
+circle: "ちょこうさぎプチ"
 ---
 
 こんにちは、雪音です♪

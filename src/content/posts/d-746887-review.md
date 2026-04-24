@@ -6,6 +6,8 @@ heroImage: /images/works/d_746887/hero.png
 ogImage: /images/works/d_746887/hero.png
 tags: ["コミック", "アブノーマル", "青春", "制服", "オリジナル"]
 work_id: "d_746887"
+voice_actresses: []
+circle: "ひやしまくら"
 ---
 
 こんにちは、雪音です♪

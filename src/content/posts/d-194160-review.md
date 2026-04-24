@@ -6,6 +6,8 @@ heroImage: /images/works/d_194160/hero.png
 ogImage: /images/works/d_194160/hero.png
 tags: ["ボイス", "ASMR", "バイノーラル", "清楚", "電車"]
 work_id: "d_194160"
+voice_actresses: ["陽向葵ゅか"]
+circle: "青春×フェティシズム"
 ---
 
 こんにちは、雪音です♪

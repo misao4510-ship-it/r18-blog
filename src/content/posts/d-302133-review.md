@@ -6,6 +6,8 @@ heroImage: /images/works/d_302133/hero.png
 ogImage: /images/works/d_302133/hero.png
 tags: ["ボイス", "超囁き", "バイノーラル", "双子", "JK"]
 work_id: "d_302133"
+voice_actresses: ["陽向葵ゅか"]
+circle: "青春×フェティシズム"
 ---
 
 こんにちは、雪音です♪

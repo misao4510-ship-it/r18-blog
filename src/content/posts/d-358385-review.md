@@ -6,6 +6,8 @@ heroImage: /images/works/d_358385/hero.png
 ogImage: /images/works/d_358385/hero.png
 tags: ["ボイス", "KU100", "JK", "バイノーラル", "わからせ"]
 work_id: "d_358385"
+voice_actresses: ["陽向葵ゅか"]
+circle: "ao"
 ---
 
 こんにちは、雪音です♪

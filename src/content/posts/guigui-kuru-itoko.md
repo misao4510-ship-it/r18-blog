@@ -6,6 +6,8 @@ heroImage: /images/works/d_731781/hero.png
 ogImage: /images/works/d_731781/hero.png
 tags: ["コミック", "フルカラー", "ラブコメ", "いとこ", "オリジナル"]
 work_id: "d_731781"
+voice_actresses: []
+circle: "DKsha"
 ---
 
 こんにちは、雪音です♪

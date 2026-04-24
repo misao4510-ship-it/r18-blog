@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+// circle ごとに記事をまとめる
+const circleMap = new Map<string, typeof allPosts>();
+for (const post of allPosts) {
+  const c = post.data.circle;
+  if (c) {
+    if (!circleMap.has(c)) circleMap.set(c, []);
+    circleMap.get(c)!.push(post);
+  }
+}
+const circles = [...circleMap.entries()].sort((a, b) => b[1].length - a[1].length);
+---
+<BaseLayout
+  title="サークル・作者別レビュー一覧"
+  description="月灯の書架のサークル・作者別レビュー一覧。お気に入りサークルの作品をまとめてチェックできます。"
+  yukineVariant="works"
+>
+  <div class="container" style="padding:2rem 1rem;">
+    <h1 style="font-size:1.6rem;font-weight:900;margin-bottom:0.5rem;color:#e040fb;">🏷️ サークル・作者別</h1>
+    <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:0.9rem;">お気に入りサークルや作者の作品をまとめて見つけられます♪</p>
+
+    {circles.length === 0 ? (
+      <p style="color:var(--color-text-muted);">サークル情報を準備中です。</p>
+    ) : (
+      <div class="circle-grid">
+        {circles.map(([name, posts]) => (
+          <a href={`/circles/${name}/`} class="circle-card">
+            <div class="circle-card__name">{name}</div>
+            <div class="circle-card__count">{posts.length}本のレビュー</div>
+            <div class="circle-card__works">
+              {posts.slice(0, 2).map(p => (
+                <div class="circle-card__work-title">{p.data.title.replace(/^【レビュー】/, '')}</div>
+              ))}
+              {posts.length > 2 && <div class="circle-card__more">他{posts.length - 2}本...</div>}
+            </div>
+            {posts[0]?.data.voice_actresses && posts[0].data.voice_actresses.length > 0 && (
+              <div class="circle-card__va">CV: {posts[0].data.voice_actresses.join(' / ')}</div>
+            )}
+          </a>
+        ))}
+      </div>
+    )}
+
+    <div style="margin-top:2rem;">
+      <a href="/" style="color:var(--color-accent);">← 記事一覧に戻る</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .circle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .circle-card {
+    display: block;
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .circle-card:hover {
+    border-color: #ff4d8d;
+    transform: translateY(-2px);
+  }
+  .circle-card__name {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #ff4d8d;
+    margin-bottom: 0.3rem;
+  }
+  .circle-card__count {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.6rem;
+  }
+  .circle-card__work-title {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .circle-card__more {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+  .circle-card__va {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    color: #e040fb;
+  }
+</style>

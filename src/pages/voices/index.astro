@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+// voice_actresses ごとに記事をまとめる
+const voiceMap = new Map<string, typeof allPosts>();
+for (const post of allPosts) {
+  for (const va of (post.data.voice_actresses ?? [])) {
+    if (!voiceMap.has(va)) voiceMap.set(va, []);
+    voiceMap.get(va)!.push(post);
+  }
+}
+const voices = [...voiceMap.entries()].sort((a, b) => b[1].length - a[1].length);
+---
+<BaseLayout
+  title="声優別レビュー一覧"
+  description="月灯の書架の声優別レビュー一覧。陽向葵ゅかなど人気声優の作品をまとめてチェックできます。"
+  yukineVariant="works"
+>
+  <div class="container" style="padding:2rem 1rem;">
+    <h1 style="font-size:1.6rem;font-weight:900;margin-bottom:0.5rem;color:#e040fb;">🎤 声優別レビュー</h1>
+    <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:0.9rem;">好きな声優さんの作品をまとめて探せます♪</p>
+
+    {voices.length === 0 ? (
+      <p style="color:var(--color-text-muted);">声優情報を準備中です。</p>
+    ) : (
+      <div class="voice-grid">
+        {voices.map(([name, posts]) => (
+          <a href={`/voices/${name}/`} class="voice-card">
+            <div class="voice-card__name">{name}</div>
+            <div class="voice-card__count">{posts.length}本のレビュー</div>
+            <div class="voice-card__works">
+              {posts.slice(0, 2).map(p => (
+                <div class="voice-card__work-title">{p.data.title.replace(/^【レビュー】/, '')}</div>
+              ))}
+              {posts.length > 2 && <div class="voice-card__more">他{posts.length - 2}本...</div>}
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+
+    <div style="margin-top:2rem;">
+      <a href="/" style="color:var(--color-accent);">← 記事一覧に戻る</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .voice-card {
+    display: block;
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .voice-card:hover {
+    border-color: #e040fb;
+    transform: translateY(-2px);
+  }
+  .voice-card__name {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin-bottom: 0.3rem;
+  }
+  .voice-card__count {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.8rem;
+  }
+  .voice-card__work-title {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .voice-card__more {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+</style>

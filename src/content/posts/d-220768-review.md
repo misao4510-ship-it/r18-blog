@@ -6,6 +6,8 @@ heroImage: /images/works/d_220768/hero.png
 ogImage: /images/works/d_220768/hero.png
 tags: ["ボイス", "ASMR", "バイノーラル", "メスガキ", "囁き"]
 work_id: "d_220768"
+voice_actresses: ["陽向葵ゅか"]
+circle: "青春×フェティシズム"
 ---
 
 こんにちは、雪音です♪

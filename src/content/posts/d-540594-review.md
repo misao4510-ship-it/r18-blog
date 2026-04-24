@@ -6,6 +6,8 @@ heroImage: /images/works/d_540594/hero.png
 ogImage: /images/works/d_540594/hero.png
 tags: ["ボイス", "KU100", "バイノーラル", "幼馴染", "1人2役"]
 work_id: "d_540594"
+voice_actresses: ["陽向葵ゅか"]
+circle: "ちょこうさぎ"
 ---
 
 こんにちは、雪音です♪
