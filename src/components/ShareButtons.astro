@@ -1,0 +1,143 @@
+---
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+const encodedTitle = encodeURIComponent(title + ' | 月灯の書架');
+const encodedUrl = encodeURIComponent(url);
+const tweetUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+---
+
+<div class="share-buttons">
+  <p class="share-buttons__label">この記事をシェア</p>
+  <div class="share-buttons__row">
+    <a
+      href={tweetUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="share-btn share-btn--x"
+      aria-label="X(旧Twitter)でシェア"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      Xでシェア
+    </a>
+    <button
+      class="share-btn share-btn--copy"
+      id="copy-url-btn"
+      aria-label="URLをコピー"
+      data-url={url}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      URLをコピー
+    </button>
+  </div>
+  <div id="copy-toast" class="copy-toast" aria-live="polite">コピーしました♪</div>
+</div>
+
+<script is:inline>
+  (function() {
+    var btn = document.getElementById('copy-url-btn');
+    var toast = document.getElementById('copy-toast');
+    if (!btn || !toast) return;
+    btn.addEventListener('click', function() {
+      var url = btn.getAttribute('data-url');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          showToast();
+        }).catch(function() {
+          fallbackCopy(url);
+        });
+      } else {
+        fallbackCopy(url);
+      }
+    });
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); showToast(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    function showToast() {
+      toast.classList.add('visible');
+      setTimeout(function() { toast.classList.remove('visible'); }, 2000);
+    }
+  })();
+</script>
+
+<style>
+.share-buttons {
+  margin: 2rem 0;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-surface-raised, #1a1a2e);
+  border: 1px solid var(--color-border, #2a2a40);
+  border-radius: 12px;
+  position: relative;
+}
+.share-buttons__label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #888);
+  margin: 0 0 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.share-buttons__row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.1s;
+  border: none;
+  line-height: 1;
+}
+.share-btn:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
+.share-btn:active { transform: translateY(0); }
+.share-btn--x {
+  background: #000;
+  color: #fff;
+}
+.share-btn--copy {
+  background: var(--color-surface, #0d0d1a);
+  color: var(--color-accent, #c084fc);
+  border: 1px solid var(--color-border, #2a2a40);
+}
+.share-btn--copy:hover { border-color: var(--color-accent, #c084fc); }
+.copy-toast {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent, #c084fc);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  white-space: nowrap;
+}
+.copy-toast.visible { opacity: 1; }
+</style>

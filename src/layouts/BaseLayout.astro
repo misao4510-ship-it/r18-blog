@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
+import YukineStanding from '../components/YukineStanding.astro';
+import YukineComment from '../components/YukineComment.astro';
 
 interface Props {
   title: string;
@@ -9,11 +11,12 @@ interface Props {
   ogImage?: string;
   type?: string;
   tags?: string[];
+  yukineVariant?: 'home' | 'post' | 'works' | 'author';
 }
 
-const { title, description, heroImage, ogImage, type = 'website', tags } = Astro.props;
+const { title, description, heroImage, ogImage, type = 'website', tags, yukineVariant = 'home' } = Astro.props;
 const siteUrl = 'https://r18-blog.pages.dev';
-const defaultOg = `${siteUrl}/images/og-default.png`;
+const defaultOg = `${siteUrl}/images/og/og-default.png`;
 const ogImageUrl = ogImage
   ? `${siteUrl}${ogImage}`
   : heroImage
@@ -50,6 +53,14 @@ const currentYear = new Date().getFullYear();
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-17M7QN4XSW"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-17M7QN4XSW');
+  </script>
   <script is:inline>
     // ダークテーマはデフォルト（R18サイトは常にダークテーマ）
     document.documentElement.style.colorScheme = 'dark';
@@ -74,6 +85,10 @@ const currentYear = new Date().getFullYear();
   </main>
 
   <button id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る">↑</button>
+
+  <!-- 雪音立ち絵 & ナビコメント -->
+  <YukineComment variant={yukineVariant} />
+  <YukineStanding />
 
   <footer class="site-footer">
     <div class="site-footer__inner">

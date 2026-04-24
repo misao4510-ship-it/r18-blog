@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
+import RelatedWorks from '../../components/RelatedWorks.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,8 +15,10 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, description, pubDate, updatedDate, heroImage, ogImage, tags } = post.data;
+const siteUrl = 'https://r18-blog.pages.dev';
+const canonicalUrl = `${siteUrl}/posts/${post.id}/`;
 ---
-<BaseLayout {title} {description} {heroImage} {ogImage} type="article" {tags}>
+<BaseLayout {title} {description} {heroImage} {ogImage} type="article" {tags} yukineVariant="post">
   <article class="article-content">
     {heroImage && (
       <img src={heroImage} alt={title} style="width:100%; border-radius:12px; margin-bottom:1.5rem;" />
@@ -39,6 +43,10 @@ const { title, description, pubDate, updatedDate, heroImage, ogImage, tags } = p
     <div class="prose">
       <Content />
     </div>
+
+    <ShareButtons title={title} url={canonicalUrl} />
+
+    <RelatedWorks currentTags={tags ?? []} currentSlug={post.id} maxItems={4} />
 
     <div style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--color-border);">
       <a href="/" style="color:var(--color-accent);">← 記事一覧に戻る</a>
