@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { CV_SLUG_MAP, cvToSlug, slugToCv } from '../../lib/cv-slugs';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const cvMap = new Map<string, typeof allPosts>();
+  for (const post of allPosts) {
+    for (const va of (post.data.voice_actresses ?? [])) {
+      if (!cvMap.has(va)) cvMap.set(va, []);
+      cvMap.get(va)!.push(post);
+    }
+  }
+
+  return [...cvMap.entries()].map(([name, posts]) => ({
+    params: { slug: cvToSlug(name) },
+    props: { name, posts: posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) },
+  }));
+}
+
+interface Props {
+  name: string;
+  posts: Awaited<ReturnType<typeof getCollection<'posts'>>>;
+}
+
+const { name, posts } = Astro.props;
+const avgRating = posts.length > 0 ? '★★★★☆' : '—';
+---
+<BaseLayout
+  title={`${name} 出演作品一覧`}
+  description={`${name}出演のFANZA同人・バイノーラル作品 ${posts.length}本のレビューを雪音がご紹介します。`}
+  yukineVariant="author"
+>
+  <div class="container" style="padding:2rem 1rem;">
+    <nav class="breadcrumb">
+      <a href="/">ホーム</a>
+      <span>›</span>
+      <a href="/cv/">声優一覧</a>
+      <span>›</span>
+      <span>{name}</span>
+    </nav>
+
+    <!-- 声優ヘッダー -->
+    <div class="cv-header">
+      <div class="cv-avatar">🎤</div>
+      <div class="cv-info">
+        <h1 class="cv-name">{name}</h1>
+        <div class="cv-stats">
+          <span class="stat"><strong>{posts.length}</strong> 作品レビュー</span>
+          <span class="stat-sep">|</span>
+          <span class="stat">人気評価 <strong>{avgRating}</strong></span>
+        </div>
+        <p class="cv-description">
+          {name}さんのFANZA同人・バイノーラル作品のレビューをまとめています。
+          KU100バイノーラル収録作品を中心に、雪音が詳しくご紹介します♪
+        </p>
+      </div>
+    </div>
+
+    <!-- レビュー一覧 -->
+    <h2 style="font-size:1.2rem;font-weight:900;margin-bottom:1rem;color:var(--color-text);">📚 レビュー一覧</h2>
+
+    <div class="article-grid">
+      {posts.map(post => (
+        <article class="article-card">
+          <a href={`/posts/${post.id}/`}>
+            {post.data.heroImage && (
+              <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+            )}
+            <div class="article-card__body">
+              <div class="article-card__title">{post.data.title}</div>
+              <div class="article-card__desc">{post.data.description}</div>
+              <div class="article-card__date">
+                {new Date(post.data.pubDate).toLocaleDateString('ja-JP', {
+                  year: 'numeric', month: 'long', day: 'numeric'
+                })}
+              </div>
+              {post.data.circle && (
+                <div style="margin-top:0.4rem;font-size:0.78rem;color:var(--color-text-muted);">
+                  サークル: <a href={`/circles/${post.data.circle}/`} style="color:var(--color-accent);">{post.data.circle}</a>
+                </div>
+              )}
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="article-tags" style="margin-top:0.5rem;">
+                  {post.data.tags.map(tag => (
+                    <span class="article-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="/cv/" style="color:var(--color-accent);">← 声優一覧に戻る</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .breadcrumb { display:flex; gap:0.5rem; align-items:center; font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.5rem; }
+  .breadcrumb a { color:var(--color-accent); text-decoration:none; }
+  .breadcrumb a:hover { text-decoration:underline; }
+  .cv-header { display:flex; align-items:flex-start; gap:1.2rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:12px; padding:1.5rem; margin-bottom:2rem; }
+  .cv-avatar { font-size:3rem; width:64px; height:64px; display:flex; align-items:center; justify-content:center; background:rgba(224,64,251,0.1); border-radius:50%; flex-shrink:0; }
+  .cv-name { font-size:1.6rem; font-weight:900; color:#e040fb; margin-bottom:0.5rem; }
+  .cv-stats { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; font-size:0.9rem; color:var(--color-text-muted); margin-bottom:0.8rem; }
+  .cv-stats strong { color:var(--color-text); }
+  .stat-sep { color:var(--color-border); }
+  .cv-description { font-size:0.88rem; color:var(--color-text-muted); line-height:1.7; margin:0; }
+</style>
