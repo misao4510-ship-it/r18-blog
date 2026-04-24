@@ -80,7 +80,17 @@ const displayMessage = message ?? defaultMessages[variant] ?? defaultMessages.ho
 
   @media (max-width: 480px) {
     .yukine-bubble-wrapper {
-      display: none;
+      bottom: 85px;
+      right: 0.25rem;
+    }
+
+    .yukine-bubble {
+      max-width: 120px;
+      padding: 0.3rem 0.5rem;
+    }
+
+    .yukine-bubble__text {
+      font-size: 0.6rem;
     }
   }
 </style>

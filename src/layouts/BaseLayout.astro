@@ -78,8 +78,129 @@ const currentYear = new Date().getFullYear();
         <a href="/contact/">お問い合わせ</a>
         <a href="/privacy/">プライバシーポリシー</a>
       </nav>
+      <!-- ハンバーガーボタン（モバイルのみ表示） -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- スライドメニュー -->
+  <div class="slide-menu" id="slide-menu">
+    <div class="slide-menu__overlay" id="slide-menu-overlay"></div>
+    <nav class="slide-menu__nav">
+      <button class="slide-menu__close" id="slide-menu-close" aria-label="メニューを閉じる">✕</button>
+      <a href="/" class="slide-menu__item">🏠 ホーム</a>
+      <a href="/works/" class="slide-menu__item">📚 作品一覧</a>
+      <a href="/favorites/" class="slide-menu__item">♥ お気に入り</a>
+      <a href="/about/" class="slide-menu__item">📖 このサイトについて</a>
+      <a href="/contact/" class="slide-menu__item">✉️ お問い合わせ</a>
+      <a href="/privacy/" class="slide-menu__item">🔒 プライバシーポリシー</a>
+    </nav>
+  </div>
+
+  <style>
+    /* ハンバーガーボタン */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 200;
+    }
+    .hamburger-line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #e8d5ff;
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* スライドメニュー */
+    .slide-menu {
+      display: none;
+    }
+    .slide-menu__overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 300;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .slide-menu__nav {
+      position: fixed;
+      top: 0;
+      right: -280px;
+      width: 260px;
+      height: 100dvh;
+      background: #1a1a2e;
+      border-left: 1px solid rgba(192, 132, 252, 0.3);
+      z-index: 400;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 20px rgba(160, 100, 220, 0.2);
+    }
+    .slide-menu.is-open .slide-menu__overlay {
+      opacity: 1;
+    }
+    .slide-menu.is-open .slide-menu__nav {
+      right: 0;
+    }
+    .slide-menu__close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      color: #e8d5ff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .slide-menu__item {
+      display: block;
+      color: #e8d5ff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid rgba(192, 132, 252, 0.15);
+      transition: background 0.2s, color 0.2s;
+    }
+    .slide-menu__item:hover {
+      background: rgba(192, 132, 252, 0.15);
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .hamburger-btn {
+        display: flex;
+      }
+      .slide-menu {
+        display: block;
+      }
+    }
+  </style>
 
   <main>
     <slot />
@@ -172,6 +293,33 @@ const currentYear = new Date().getFullYear();
       btn.addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    })();
+
+    // ハンバーガーメニュー
+    (function() {
+      var hamburgerBtn = document.getElementById('hamburger-btn');
+      var slideMenu = document.getElementById('slide-menu');
+      var overlay = document.getElementById('slide-menu-overlay');
+      var closeBtn = document.getElementById('slide-menu-close');
+      if (!hamburgerBtn || !slideMenu) return;
+
+      function openMenu() {
+        slideMenu.classList.add('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        slideMenu.classList.remove('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburgerBtn.addEventListener('click', function() {
+        var isOpen = slideMenu.classList.contains('is-open');
+        if (isOpen) closeMenu(); else openMenu();
+      });
+      if (overlay) overlay.addEventListener('click', closeMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     })();
   </script>
 </body>
