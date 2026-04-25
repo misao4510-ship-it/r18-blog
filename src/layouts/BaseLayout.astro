@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
+import Lightbox from '../components/Lightbox.astro';
 interface Props {
   title: string;
   description: string;
@@ -206,6 +207,8 @@ const currentYear = new Date().getFullYear();
   </main>
 
   <button id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る">↑</button>
+
+  <Lightbox />
 
   <footer class="site-footer">
     <div class="site-footer__inner">

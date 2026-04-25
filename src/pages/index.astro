@@ -75,72 +75,7 @@ const dayName = dayNamesJa[dayIndex];
     )}
   </div>
 
-  <!-- ゆきねライトボックス -->
-  <div id="yukine-modal" class="yukine-modal" onclick="closeYukineModal()" aria-hidden="true">
-    <button class="yukine-modal__close" onclick="closeYukineModal()" aria-label="閉じる">✕</button>
-    <img id="yukine-modal-img" src="" alt="" class="yukine-modal__img" onclick="event.stopPropagation()" />
-  </div>
 </BaseLayout>
-
-<style>
-  .yukine-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.88);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-  }
-  .yukine-modal.is-open {
-    display: flex;
-  }
-  .yukine-modal__img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 8px;
-    box-shadow: 0 0 40px rgba(123, 47, 255, 0.5);
-    object-fit: contain;
-  }
-  .yukine-modal__close {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background: #7b2fff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
-
-<script is:inline>
-  function openYukineModal(src, alt) {
-    var modal = document.getElementById('yukine-modal');
-    var img = document.getElementById('yukine-modal-img');
-    img.src = src;
-    img.alt = alt;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeYukineModal() {
-    var modal = document.getElementById('yukine-modal');
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeYukineModal();
-  });
-</script>
 
 <style>
   .todays-yukine {

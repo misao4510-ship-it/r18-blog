@@ -1,0 +1,107 @@
+---
+// 全ページ共通ライトボックス — BaseLayoutに1回だけ配置
+---
+
+<div id="lb-modal" class="lb-modal" aria-hidden="true" aria-modal="true" role="dialog">
+  <button class="lb-close" id="lb-close" aria-label="閉じる">✕</button>
+  <img id="lb-img" src="" alt="" class="lb-img" />
+</div>
+
+<style>
+  .lb-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.90);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .lb-modal.is-open {
+    display: flex;
+  }
+  .lb-img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(123, 47, 255, 0.45);
+    object-fit: contain;
+    cursor: default;
+  }
+  .lb-close {
+    position: fixed;
+    top: 0.8rem;
+    right: 0.8rem;
+    background: #7b2fff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  function openLb(src, alt) {
+    var modal = document.getElementById('lb-modal');
+    var img   = document.getElementById('lb-img');
+    img.src = src;
+    img.alt = alt || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    var modal = document.getElementById('lb-modal');
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // ✕ボタン
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  // オーバーレイクリック（画像本体以外）
+  document.getElementById('lb-modal').addEventListener('click', function (e) {
+    if (e.target === this) closeLb();
+  });
+  // ESCキー
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLb();
+  });
+
+  // 記事本文内の img に自動バインド（DOMContentLoaded後）
+  function bindArticleImages() {
+    var containers = document.querySelectorAll('.post-content, .prose, article .content, [data-lightbox]');
+    containers.forEach(function (container) {
+      container.querySelectorAll('img').forEach(function (img) {
+        if (img.closest('#lb-modal')) return; // モーダル内は除外
+        if (img.dataset.lbBound) return;      // 二重バインド防止
+        img.dataset.lbBound = '1';
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function () {
+          openLb(this.src, this.alt);
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindArticleImages);
+  } else {
+    bindArticleImages();
+  }
+
+  // index.astroのゆきねライトボックスとの共存: グローバルに公開
+  window.openYukineModal = openLb;
+  window.closeYukineModal = closeLb;
+})();
+</script>
