@@ -27,17 +27,15 @@ const dayName = dayNamesJa[dayIndex];
   <section class="todays-yukine">
     <div class="todays-yukine__inner">
       <h2 class="todays-yukine__title">今日のゆきね（{dayName}曜日）</h2>
-      <a href="/yukine/" class="todays-yukine__link">
-        <img
-          src={`/images/yukine/daily/${dayKey}.png`}
-          alt={`今日のゆきね（${dayName}曜日）`}
-          class="todays-yukine__img"
-          loading="eager"
-        />
-      </a>
-      <p class="todays-yukine__caption">
-        <a href="/yukine/">ゆきねについて →</a>
-      </p>
+      <img
+        src={`/images/yukine/daily/${dayKey}.png`}
+        alt={`今日のゆきね（${dayName}曜日）`}
+        class="todays-yukine__img"
+        loading="eager"
+        onclick="openYukineModal(this.src, this.alt)"
+        style="cursor:zoom-in;"
+      />
+      <p class="todays-yukine__caption">タップで拡大</p>
     </div>
   </section>
 
@@ -76,7 +74,73 @@ const dayName = dayNamesJa[dayIndex];
       </div>
     )}
   </div>
+
+  <!-- ゆきねライトボックス -->
+  <div id="yukine-modal" class="yukine-modal" onclick="closeYukineModal()" aria-hidden="true">
+    <button class="yukine-modal__close" onclick="closeYukineModal()" aria-label="閉じる">✕</button>
+    <img id="yukine-modal-img" src="" alt="" class="yukine-modal__img" onclick="event.stopPropagation()" />
+  </div>
 </BaseLayout>
+
+<style>
+  .yukine-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  .yukine-modal.is-open {
+    display: flex;
+  }
+  .yukine-modal__img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(123, 47, 255, 0.5);
+    object-fit: contain;
+  }
+  .yukine-modal__close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #7b2fff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<script>
+  function openYukineModal(src: string, alt: string) {
+    const modal = document.getElementById('yukine-modal') as HTMLElement;
+    const img = document.getElementById('yukine-modal-img') as HTMLImageElement;
+    img.src = src;
+    img.alt = alt;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeYukineModal() {
+    const modal = document.getElementById('yukine-modal') as HTMLElement;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeYukineModal();
+  });
+</script>
 
 <style>
   .todays-yukine {
