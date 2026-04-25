@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】巨乳ゲーマー女友達が帰ってくれない件 ～KU100で味わう無防備な距離感～"
 description: "ゲーマー巨乳女友達との距離ゼロ生活をKU100で体感！ゆきねがレビュー。"
-pubDate: 2026-04-30
+pubDate: 2026-04-19
 heroImage: /images/works/d_540654/hero.png
 ogImage: /images/works/d_540654/hero.png
 tags: ["ボイス", "KU100", "バイノーラル", "巨乳", "女友達"]

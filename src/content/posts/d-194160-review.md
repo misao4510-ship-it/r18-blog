@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】超囁き！清楚JK二条由乃と電車の中で ～究極の密着バイノーラル～"
 description: "超囁きシリーズ！清楚JKとの電車内密着バイノーラルをゆきねがレビュー。"
-pubDate: 2026-04-29
+pubDate: 2026-04-18
 heroImage: /images/works/d_194160/hero.png
 ogImage: /images/works/d_194160/hero.png
 tags: ["ボイス", "ASMR", "バイノーラル", "清楚", "電車"]

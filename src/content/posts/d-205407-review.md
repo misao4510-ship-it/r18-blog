@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】大丈夫？おっぱい揉む？ ～ソシャゲ好きOLとの甘いボイス～"
 description: "販売4.6万超えの大ヒット！ソシャゲOLとのえっちな関係をゆきねがレビュー。"
-pubDate: 2026-04-27
+pubDate: 2026-04-16
 heroImage: /images/works/d_205407/hero.png
 ogImage: /images/works/d_205407/hero.png
 tags: ["ボイス", "ASMR", "OL", "ラブラブ", "おっぱい"]

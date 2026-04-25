@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】推しの中の人が幼馴染！？ ～陽向葵ゅか1人2役の3時間KU100～"
 description: "推しVアイドルの正体は幼馴染！陽向葵ゅか1人2役の圧巻演技をゆきねがレビュー。"
-pubDate: 2026-05-01
+pubDate: 2026-04-20
 heroImage: /images/works/d_540594/hero.png
 ogImage: /images/works/d_540594/hero.png
 tags: ["ボイス", "KU100", "バイノーラル", "幼馴染", "1人2役"]

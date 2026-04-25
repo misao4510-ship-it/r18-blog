@@ -121,10 +121,10 @@ const dayName = dayNamesJa[dayIndex];
   }
 </style>
 
-<script>
-  function openYukineModal(src: string, alt: string) {
-    const modal = document.getElementById('yukine-modal') as HTMLElement;
-    const img = document.getElementById('yukine-modal-img') as HTMLImageElement;
+<script is:inline>
+  function openYukineModal(src, alt) {
+    var modal = document.getElementById('yukine-modal');
+    var img = document.getElementById('yukine-modal-img');
     img.src = src;
     img.alt = alt;
     modal.classList.add('is-open');
@@ -132,12 +132,12 @@ const dayName = dayNamesJa[dayIndex];
     document.body.style.overflow = 'hidden';
   }
   function closeYukineModal() {
-    const modal = document.getElementById('yukine-modal') as HTMLElement;
+    var modal = document.getElementById('yukine-modal');
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeYukineModal();
   });
 </script>

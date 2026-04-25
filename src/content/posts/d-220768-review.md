@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】超囁き！メスガキJKリカと漫喫えっち ～バイノーラルで超没入～"
 description: "超囁きシリーズのバイノーラル作品！漫喫個室でのドキドキ体験をゆきねがレビュー。"
-pubDate: 2026-04-28
+pubDate: 2026-04-17
 heroImage: /images/works/d_220768/hero.png
 ogImage: /images/works/d_220768/hero.png
 tags: ["ボイス", "ASMR", "バイノーラル", "メスガキ", "囁き"]

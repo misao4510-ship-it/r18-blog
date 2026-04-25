@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】超囁き！教え子JK七草姉妹とカテキョー失格背徳えっち"
 description: "超囁きシリーズの双子JK！陽向葵ゅか1人2役の両耳同時攻めをゆきねがレビュー。"
-pubDate: 2026-05-03
+pubDate: 2026-04-22
 heroImage: /images/works/d_302133/hero.png
 ogImage: /images/works/d_302133/hero.png
 tags: ["ボイス", "超囁き", "バイノーラル", "双子", "JK"]

@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】イマジナリー彼女 ～全肯定＆ねっとり耳舐めオナサポ～"
 description: "理想の彼女が完全主観で甘やかしてくれる。陽向葵ゅかの耳舐めオナサポをゆきねがレビュー。"
-pubDate: 2026-05-02
+pubDate: 2026-04-21
 heroImage: /images/works/d_666782/hero.png
 ogImage: /images/works/d_666782/hero.png
 tags: ["ボイス", "オナサポ", "耳舐め", "全肯定", "彼女"]

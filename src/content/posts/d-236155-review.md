@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】カレからワタシを奪ってみてよ♪ ～幼馴染お姉ちゃんの密着囁きBSS～"
 description: "彼氏持ち幼馴染に密着囁きで煽られるBSS体験。陽向葵ゅかの意地悪演技をゆきねがレビュー。"
-pubDate: 2026-05-04
+pubDate: 2026-04-23
 heroImage: /images/works/d_236155/hero.png
 ogImage: /images/works/d_236155/hero.png
 tags: ["ボイス", "KU100", "BSS", "幼馴染", "囁き"]

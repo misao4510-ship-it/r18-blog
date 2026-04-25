@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】パパ活JKおまこレンタル ～単調喘ぎからのわからせKU100～"
 description: "事務的なプレイから本気の感情へ。陽向葵ゅかの演技変化をゆきねがレビュー。KU100バイノーラル収録。"
-pubDate: 2026-05-05
+pubDate: 2026-04-24
 heroImage: /images/works/d_358385/hero.png
 ogImage: /images/works/d_358385/hero.png
 tags: ["ボイス", "KU100", "JK", "バイノーラル", "わからせ"]

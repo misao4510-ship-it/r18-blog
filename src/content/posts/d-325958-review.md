@@ -1,7 +1,7 @@
 ---
 title: "【レビュー】素直になりきれない後輩ちゃんに性処理してもらう生活 ～甘酸っぱいツンデレASMR～"
 description: "販売1.2万超え！ツンデレ後輩ちゃんとの甘い青春ボイス作品をゆきねがレビュー。"
-pubDate: 2026-04-26
+pubDate: 2026-04-15
 heroImage: /images/works/d_325958/hero.png
 ogImage: /images/works/d_325958/hero.png
 tags: ["ボイス", "ASMR", "ツンデレ", "学園もの", "ラブラブ"]
