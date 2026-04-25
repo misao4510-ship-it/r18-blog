@@ -1,9 +1,6 @@
 ---
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
-import YukineStanding from '../components/YukineStanding.astro';
-import YukineComment from '../components/YukineComment.astro';
-
 interface Props {
   title: string;
   description: string;
@@ -215,10 +212,6 @@ const currentYear = new Date().getFullYear();
   </main>
 
   <button id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る">↑</button>
-
-  <!-- 雪音立ち絵 & ナビコメント -->
-  <YukineComment variant={yukineVariant} />
-  <YukineStanding />
 
   <footer class="site-footer">
     <div class="site-footer__inner">
