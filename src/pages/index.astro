@@ -4,6 +4,14 @@ import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 今日のゆきね：JSTで曜日を判定（毎朝cronで再ビルドされるため常に最新）
+const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const dayNamesJa = ['日', '月', '火', '水', '木', '金', '土'];
+const jstNow = new Date(Date.now() + 9 * 60 * 60 * 1000);
+const dayIndex = jstNow.getUTCDay();
+const dayKey = days[dayIndex];
+const dayName = dayNamesJa[dayIndex];
 ---
 <BaseLayout
   title="月灯の書架"
@@ -13,6 +21,24 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     <h1>🌙 月灯の書架</h1>
     <p>白鳥ゆきね（しらとりゆきね）がお届けする、大人のための作品ガイド。質にこだわった作品を厳選してご紹介します。</p>
     <p style="margin-top:0.8rem; font-size:0.85rem; color:#ff4d8d; font-weight:700;">⚠️ 本サイトは18歳以上の方を対象としています</p>
+  </section>
+
+  <!-- 今日のゆきね -->
+  <section class="todays-yukine">
+    <div class="todays-yukine__inner">
+      <h2 class="todays-yukine__title">今日のゆきね（{dayName}曜日）</h2>
+      <a href="/yukine/" class="todays-yukine__link">
+        <img
+          src={`/images/yukine/daily/${dayKey}.png`}
+          alt={`今日のゆきね（${dayName}曜日）`}
+          class="todays-yukine__img"
+          loading="eager"
+        />
+      </a>
+      <p class="todays-yukine__caption">
+        <a href="/yukine/">ゆきねについて →</a>
+      </p>
+    </div>
   </section>
 
   <div class="container" style="padding: 2rem 1rem;">
@@ -51,3 +77,50 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     )}
   </div>
 </BaseLayout>
+
+<style>
+  .todays-yukine {
+    background: linear-gradient(135deg, #1a0a2e 0%, #0d0520 100%);
+    border-top: 1px solid #7b2fff33;
+    border-bottom: 1px solid #7b2fff33;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .todays-yukine__inner {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .todays-yukine__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #bb86fc;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .todays-yukine__link {
+    display: inline-block;
+  }
+  .todays-yukine__img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    border: 2px solid #7b2fff;
+    box-shadow: 0 0 24px rgba(123, 47, 255, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .todays-yukine__img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 36px rgba(123, 47, 255, 0.55);
+  }
+  .todays-yukine__caption {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+  }
+  .todays-yukine__caption a {
+    color: #bb86fc;
+    text-decoration: none;
+  }
+  .todays-yukine__caption a:hover {
+    color: #e040fb;
+  }
+</style>
