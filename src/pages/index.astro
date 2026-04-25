@@ -27,6 +27,9 @@ const dayName = dayNamesJa[dayIndex];
   <section class="todays-yukine">
     <div class="todays-yukine__inner">
       <h2 class="todays-yukine__title">今日のゆきね（{dayName}曜日）</h2>
+      <div class="yukine-bubble-wrap">
+        <div class="yukine-bubble" id="yukine-bubble"></div>
+      </div>
       <img
         src={`/images/yukine/daily/${dayKey}.png`}
         alt={`今日のゆきね（${dayName}曜日）`}
@@ -114,12 +117,70 @@ const dayName = dayNamesJa[dayIndex];
   .todays-yukine__caption {
     margin-top: 0.6rem;
     font-size: 0.85rem;
+    color: var(--color-text-muted);
   }
-  .todays-yukine__caption a {
-    color: #bb86fc;
-    text-decoration: none;
+  /* 吹き出し */
+  .yukine-bubble-wrap {
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: center;
   }
-  .todays-yukine__caption a:hover {
-    color: #e040fb;
+  .yukine-bubble {
+    position: relative;
+    background: linear-gradient(135deg, #2a0a4e, #1a0a2e);
+    border: 1px solid #7b2fff88;
+    border-radius: 14px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.88rem;
+    color: #e8e8f0;
+    max-width: 300px;
+    line-height: 1.6;
+    box-shadow: 0 2px 12px rgba(123,47,255,0.25);
+  }
+  .yukine-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #7b2fff88;
   }
 </style>
+
+<script is:inline>
+(function () {
+  var msgs = {
+    morning: [
+      'おはようございます。今日も書架にお越しいただきありがとうございます',
+      'おはようございます、いってらっしゃいませ',
+      '朝から書架へようこそ。素敵な作品との出会いがありますように',
+      'おはようございます。今日も一冊、いかがでしょうか',
+      '早起きですね。お茶でも淹れましょうか…？'
+    ],
+    afternoon: [
+      'お昼からも頑張ってくださいませ',
+      '昼から何を見ていらっしゃるのですか…？気になります',
+      '午後の一冊、いかがでしょう？',
+      '昼下がりの読書はいかがですか？',
+      'お昼休み中ですか？少しだけ覗いていきます？'
+    ],
+    night: [
+      'おかえりなさいませ。今日もお疲れ様でした',
+      'お疲れ様でした。今夜はどんな1冊をお探しですか？',
+      '夜のお時間に書架へようこそ',
+      '一日の締めくくりに、ゆっくりお選びくださいませ',
+      'おやすみ前の1冊、ご一緒に…'
+    ]
+  };
+
+  var jstHour = new Date(Date.now() + 9 * 3600 * 1000).getUTCHours();
+  var pool = jstHour >= 5 && jstHour < 11 ? msgs.morning
+           : jstHour >= 11 && jstHour < 17 ? msgs.afternoon
+           : msgs.night;
+
+  var text = pool[Math.floor(Math.random() * pool.length)];
+  var el = document.getElementById('yukine-bubble');
+  if (el) el.textContent = text;
+})();
+</script>
