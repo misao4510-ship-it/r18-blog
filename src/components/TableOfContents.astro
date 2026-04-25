@@ -1,0 +1,130 @@
+---
+export interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { headings } = Astro.props;
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{tocHeadings.length > 0 && (
+  <details class="toc" open={false}>
+    <summary class="toc__summary">
+      <span class="toc__icon">📋</span>
+      <span class="toc__title">目次を開く</span>
+      <span class="toc__chevron">▼</span>
+    </summary>
+    <ol class="toc__list">
+      {tocHeadings.map(h => (
+        <li class={`toc__item toc__item--depth-${h.depth}`}>
+          <a href={`#${h.slug}`} class="toc__link" data-heading={h.slug}>
+            {h.text}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </details>
+)}
+
+<script is:inline>
+(function () {
+  // アクティブ見出しハイライト
+  var links = document.querySelectorAll('.toc__link');
+  if (!links.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var id = entry.target.id;
+      var link = document.querySelector('.toc__link[data-heading="' + id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.toc__link').forEach(function (l) { l.classList.remove('toc__link--active'); });
+        link.classList.add('toc__link--active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+
+  links.forEach(function (link) {
+    var el = document.getElementById(link.dataset.heading);
+    if (el) observer.observe(el);
+  });
+
+  // スムーズスクロール（ヘッダー高さ分オフセット）
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById(link.dataset.heading);
+      if (target) {
+        var y = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+
+<style>
+  .toc {
+    background: var(--color-surface);
+    border: 1px solid #7b2fff44;
+    border-radius: 10px;
+    margin: 0 0 1.5rem;
+    overflow: hidden;
+    font-size: 0.88rem;
+  }
+  .toc[open] .toc__chevron { transform: rotate(180deg); }
+
+  .toc__summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.1rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    list-style: none;
+    background: #1a0a2e;
+    color: #bb86fc;
+    user-select: none;
+  }
+  .toc__summary::-webkit-details-marker { display: none; }
+  .toc__summary:hover { background: #200e38; }
+
+  .toc__chevron {
+    margin-left: auto;
+    font-size: 0.72rem;
+    transition: transform 0.2s;
+    color: var(--color-text-muted);
+  }
+
+  .toc__list {
+    list-style: none;
+    padding: 0.7rem 1.1rem 0.9rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    border-top: 1px solid #7b2fff33;
+  }
+  .toc__item--depth-3 { padding-left: 1rem; }
+
+  .toc__link {
+    display: block;
+    padding: 0.28rem 0.5rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    line-height: 1.45;
+    transition: background 0.15s, color 0.15s;
+    border-left: 2px solid transparent;
+  }
+  .toc__link:hover {
+    background: #7b2fff22;
+    color: #e040fb;
+  }
+  .toc__link--active {
+    background: #7b2fff22;
+    color: #e040fb;
+    font-weight: 600;
+    border-left-color: #7b2fff;
+  }
+</style>
