@@ -78,19 +78,23 @@
     if (e.key === 'Escape') closeLb();
   });
 
-  // 記事本文内の img に自動バインド（DOMContentLoaded後）
+  // 記事本文・lightbox-target クラスの img に自動バインド
   function bindArticleImages() {
+    // コンテナ内の全img
     var containers = document.querySelectorAll('.post-content, .prose, article .content, [data-lightbox]');
     containers.forEach(function (container) {
-      container.querySelectorAll('img').forEach(function (img) {
-        if (img.closest('#lb-modal')) return; // モーダル内は除外
-        if (img.dataset.lbBound) return;      // 二重バインド防止
-        img.dataset.lbBound = '1';
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function () {
-          openLb(this.src, this.alt);
-        });
-      });
+      container.querySelectorAll('img').forEach(bindImg);
+    });
+    // 個別クラス指定
+    document.querySelectorAll('img.lightbox-target').forEach(bindImg);
+  }
+  function bindImg(img) {
+    if (img.closest('#lb-modal')) return;
+    if (img.dataset.lbBound) return;
+    img.dataset.lbBound = '1';
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () {
+      openLb(this.src, this.alt);
     });
   }
 
