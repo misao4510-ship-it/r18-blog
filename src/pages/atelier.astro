@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="アトリエ — ゆきねの作画室｜月灯の書架"
+  description=""
+>
+  <meta name="robots" content="noindex,nofollow" slot="head" />
+
+  <div class="atelier-wrap">
+    <div class="atelier-card">
+      <img src="/images/yukine/profile.png" alt="白鳥ゆきね" class="atelier-avatar" />
+      <h1 class="atelier-title">🎨 アトリエ</h1>
+      <p class="atelier-sub">ゆきねの作画室</p>
+      <p class="atelier-hint">パスワードを入力してくださいませ</p>
+
+      <form id="atelier-form" class="atelier-form" onsubmit="return false;">
+        <input
+          type="password"
+          id="atelier-pw"
+          class="atelier-input"
+          placeholder="パスワード"
+          autocomplete="current-password"
+          maxlength="32"
+        />
+        <button type="submit" id="atelier-btn" class="atelier-btn">入室する</button>
+      </form>
+
+      <p id="atelier-msg" class="atelier-msg" aria-live="polite"></p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .atelier-wrap {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+  .atelier-card {
+    background: #1a0a2e;
+    border: 1px solid #7b2fff55;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(123, 47, 255, 0.2);
+  }
+  .atelier-avatar {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    border: 2px solid #7b2fff;
+    margin-bottom: 1.2rem;
+  }
+  .atelier-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin: 0 0 0.2rem;
+  }
+  .atelier-sub {
+    font-size: 0.85rem;
+    color: #bb86fc;
+    margin: 0 0 1rem;
+  }
+  .atelier-hint {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.4rem;
+  }
+  .atelier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .atelier-input {
+    background: #0d0520;
+    border: 1px solid #7b2fff66;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 0.15em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .atelier-input:focus { border-color: #e040fb; }
+  .atelier-btn {
+    background: linear-gradient(135deg, #7b2fff, #e040fb);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .atelier-btn:hover { opacity: 0.85; }
+  .atelier-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .atelier-msg {
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    min-height: 1.4rem;
+    color: #ff4d8d;
+  }
+  .atelier-msg.success { color: #69f0ae; }
+</style>
+
+<script is:inline>
+(function () {
+  var DEST = 'https://gadget-blog-dxq.pages.dev/prompt-builder/';
+  var PW   = 'zaku';
+  var MAX_FAIL = 3;
+  var LOCK_MS  = 60000;
+
+  // セッション認証済みなら即遷移
+  if (sessionStorage.getItem('atelier_authed') === 'true') {
+    window.location.replace(DEST);
+    return;
+  }
+
+  var form    = document.getElementById('atelier-form');
+  var input   = document.getElementById('atelier-pw');
+  var btn     = document.getElementById('atelier-btn');
+  var msg     = document.getElementById('atelier-msg');
+  var fails   = 0;
+  var locked  = false;
+
+  function setMsg(text, isSuccess) {
+    msg.textContent = text;
+    msg.className = 'atelier-msg' + (isSuccess ? ' success' : '');
+  }
+
+  function lock() {
+    locked = true;
+    btn.disabled = true;
+    input.disabled = true;
+    var remaining = LOCK_MS / 1000;
+    var iv = setInterval(function () {
+      remaining--;
+      setMsg('ロック中… ' + remaining + '秒後に再試行できます');
+      if (remaining <= 0) {
+        clearInterval(iv);
+        locked = false;
+        fails = 0;
+        btn.disabled = false;
+        input.disabled = false;
+        input.value = '';
+        setMsg('');
+      }
+    }, 1000);
+  }
+
+  form.addEventListener('submit', function () {
+    if (locked) return;
+    var val = input.value.trim();
+    if (!val) { setMsg('パスワードを入力してください'); return; }
+
+    if (val === PW) {
+      sessionStorage.setItem('atelier_authed', 'true');
+      setMsg('認証しました。移動します…', true);
+      btn.disabled = true;
+      setTimeout(function () { window.location.href = DEST; }, 600);
+    } else {
+      fails++;
+      if (fails >= MAX_FAIL) {
+        lock();
+      } else {
+        setMsg('パスワードが違います（' + fails + '/' + MAX_FAIL + '回）');
+        input.value = '';
+        input.focus();
+      }
+    }
+  });
+})();
+</script>
