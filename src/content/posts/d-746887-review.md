@@ -9,6 +9,12 @@ work_id: "d_746887"
 voice_actresses: []
 circle: "ひやしまくら"
 ---
+![【レビュー】とある夏休みの膣内放尿練習日誌 ～ひやしまくらの衝撃作～](https://doujin-assets.dmm.co.jp/digital/comic/d_746887/d_746887pl.jpg)
+
+**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_746887%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+
+---
+
 
 こんにちは、ゆきねです♪
 
@@ -106,12 +112,6 @@ circle: "ひやしまくら"
 こういった少し刺激的な作品もしっかりレビューしていきますね。
 また気になる作品があればぜひ覗きにきてください！
 
----
-
-<div class="hybrid-thumb">
-  <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_746887/d_746887pl.jpg" alt="【レビュー】とある夏休みの膣内放尿練習日誌 ～ひやしまくらの衝撃作～" loading="lazy" />
-  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
-</div>
 
 ## 🛒 作品を試してみる
 

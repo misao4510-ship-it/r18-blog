@@ -9,6 +9,12 @@ work_id: "d_540594"
 voice_actresses: ["陽向葵ゅか"]
 circle: "ちょこうさぎ"
 ---
+![【レビュー】推しの中の人が幼馴染！？ ～陽向葵ゅか1人2役の3時間KU100～](https://doujin-assets.dmm.co.jp/digital/voice/d_540594/d_540594pl.jpg)
+
+**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_540594%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+
+---
+
 
 こんにちは、ゆきねです♪
 
@@ -144,12 +150,6 @@ KU100バイノーラルで、ぜひヘッドホンをつけて聴いてみてく
 
 また素敵な作品を見つけたら紹介しますね。いつも応援してくれてありがとうございます。
 
----
-
-<div class="hybrid-thumb">
-  <img src="https://doujin-assets.dmm.co.jp/digital/voice/d_540594/d_540594pl.jpg" alt="【レビュー】推しの中の人が幼馴染！？ ～陽向葵ゅか1人2役の3時間KU100～" loading="lazy" />
-  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
-</div>
 
 ## 🛒 作品を試してみる
 

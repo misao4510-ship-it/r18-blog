@@ -9,6 +9,12 @@ work_id: "d_358385"
 voice_actresses: ["陽向葵ゅか"]
 circle: "ao"
 ---
+![【レビュー】パパ活JKおまこレンタル ～単調喘ぎからのわからせKU100～](https://doujin-assets.dmm.co.jp/digital/voice/d_358385/d_358385pl.jpg)
+
+**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_358385%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+
+---
+
 
 こんにちは、ゆきねです♪
 
@@ -166,12 +172,6 @@ KU100の解像度があってこそ伝わるニュアンスが満載で、良い
 
 みなさんも、お気に入りの一本を見つけてみてくださいね。
 
----
-
-<div class="hybrid-thumb">
-  <img src="https://doujin-assets.dmm.co.jp/digital/voice/d_358385/d_358385pl.jpg" alt="【レビュー】パパ活JKおまこレンタル ～単調喘ぎからのわからせKU100～" loading="lazy" />
-  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
-</div>
 
 ## 🛒 作品を試してみる
 

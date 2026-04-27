@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  voiceActresses?: string[];
+  circle?: string;
+  tags?: string[];
+  maxItems?: number;
+}
+
+const { currentSlug, voiceActresses = [], circle, tags = [], maxItems = 4 } = Astro.props;
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+function score(post: any): number {
+  let s = 0;
+  const d = post.data;
+  if (circle && d.circle === circle) s += 3;
+  if (voiceActresses.length && d.voice_actresses?.some((v: string) => voiceActresses.includes(v))) s += 2;
+  if (tags.length && d.tags?.some((t: string) => tags.includes(t))) s += 1;
+  return s;
+}
+
+const related = allPosts
+  .filter(p => p.id !== currentSlug)
+  .map(p => ({ post: p, score: score(p) }))
+  .filter(x => x.score > 0)
+  .sort((a, b) => b.score - a.score || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
+  .slice(0, maxItems)
+  .map(x => x.post);
+---
+
+{related.length > 0 && (
+  <section class="related-posts">
+    <h2 class="related-posts__title">📖 関連記事</h2>
+    <div class="related-posts__grid">
+      {related.map(post => (
+        <a href={`/posts/${post.id}/`} class="related-post-card">
+          {post.data.heroImage && (
+            <img src={post.data.heroImage} alt={post.data.title} loading="lazy" class="related-post-card__img" />
+          )}
+          <div class="related-post-card__body">
+            <div class="related-post-card__title">{post.data.title}</div>
+            <div class="related-post-card__date">
+              {new Date(post.data.pubDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+.related-posts {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, #2a2a40);
+}
+.related-posts__title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--color-text, #e8e8f0);
+  margin: 0 0 1rem;
+  padding-left: 0.7rem;
+  border-left: 4px solid var(--color-accent, #c084fc);
+}
+.related-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+@media (min-width: 640px) {
+  .related-posts__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.related-post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-raised, #1a1a2e);
+  border: 1px solid var(--color-border, #2a2a40);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-post-card:hover {
+  border-color: var(--color-accent, #c084fc);
+  transform: translateY(-2px);
+}
+.related-post-card__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.related-post-card__body {
+  padding: 0.6rem;
+}
+.related-post-card__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text, #e8e8f0);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.related-post-card__date {
+  font-size: 0.72rem;
+  color: var(--color-text-muted, #888);
+}
+</style>

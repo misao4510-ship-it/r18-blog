@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# DMM API credentials
+config/dmm_auth.env
+
 # macOS-specific files
 .DS_Store
 
