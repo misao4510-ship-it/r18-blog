@@ -140,6 +140,6 @@ voice_actresses: ["陽向葵ゅか"]
 
 ## 🛒 作品を試してみる
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_666782%2F&af_id=yukine0423-990&ch=api)**（アフィリエイトリンク）
+**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_666782%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
 
 > **PR** ※本記事はアフィリエイトプログラムに参加しています。記事内のリンクから購入された場合、サイト運営者に報酬が発生することがあります。
