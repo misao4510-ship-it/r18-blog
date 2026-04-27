@@ -105,6 +105,11 @@ circle: "DKsha"
 
 ---
 
+<div class="hybrid-thumb">
+  <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_731781/d_731781pl.jpg" alt="【レビュー】ぐいぐいくる10歳年下のいとこちゃん。 ～DKsha加瀬大輝の超話題作～" loading="lazy" />
+  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
+</div>
+
 ## 🛒 作品を試してみる
 
 **[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_731781%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）

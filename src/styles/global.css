@@ -191,6 +191,27 @@ h1, h2, h3, h4 { line-height: 1.3; }
 .scroll-top-btn.visible { opacity: 1; visibility: visible; }
 .scroll-top-btn:hover { transform: scale(1.1); }
 
+/* === Hybrid Thumb (DMM作品画像 × ゆきね横並び) === */
+.hybrid-thumb {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+}
+.hybrid-thumb img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+@media (max-width: 640px) {
+  .hybrid-thumb {
+    flex-direction: column;
+  }
+  .hybrid-thumb img {
+    max-width: 100%;
+  }
+}
+
 /* === Responsive === */
 @media (max-width: 600px) {
   .site-header__nav { display: none; }

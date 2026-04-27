@@ -130,6 +130,11 @@ KU100の囁き体験という技術的なすごさと、幼馴染という感情
 
 ---
 
+<div class="hybrid-thumb">
+  <img src="https://doujin-assets.dmm.co.jp/digital/voice/d_236155/d_236155pl.jpg" alt="【レビュー】カレからワタシを奪ってみてよ♪ ～幼馴染お姉ちゃんの密着囁きBSS～" loading="lazy" />
+  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
+</div>
+
 ## 🛒 作品を試してみる
 
 **[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_236155%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）

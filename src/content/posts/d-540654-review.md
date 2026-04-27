@@ -133,6 +133,11 @@ KU100は音の方向性・距離感の再現精度が非常に高く、ヘッド
 
 ---
 
+<div class="hybrid-thumb">
+  <img src="https://doujin-assets.dmm.co.jp/digital/voice/d_540654/d_540654pl.jpg" alt="【レビュー】巨乳ゲーマー女友達が帰ってくれない件 ～KU100で味わう無防備な距離感～" loading="lazy" />
+  <img src="/images/yukine/standing.png" alt="ゆきねのおすすめ" loading="lazy" />
+</div>
+
 ## 🛒 作品を試してみる
 
 **[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_540654%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
