@@ -6,7 +6,7 @@ interface Props {
   label?: string;
 }
 
-const { cid, label = 'FANZAで購入する' } = Astro.props;
+const { cid, label = 'FANZAで試聴・購入する' } = Astro.props;
 const url = fanzaAffiliateUrl(cid);
 ---
 
