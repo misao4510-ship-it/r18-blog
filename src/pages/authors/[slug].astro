@@ -7,7 +7,7 @@ export function getStaticPaths() {
   const works = worksData.works;
   const authorMap = new Map<string, { name: string; slug: string }>();
   works.forEach(w => {
-    if (!authorMap.has(w.author_slug)) {
+    if (w.author_slug && !authorMap.has(w.author_slug)) {
       authorMap.set(w.author_slug, { name: w.author, slug: w.author_slug });
     }
   });
