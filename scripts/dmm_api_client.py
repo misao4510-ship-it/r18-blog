@@ -208,14 +208,18 @@ def get_doujin(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
     return [_map_item_full(i, "doujin") for i in data.get("result", {}).get("items", [])]
 
 
+VOICE_ASMR_GENRE_ID = 160004  # FANZA doujin ASMRジャンルID（男性向け9000件超、女性向け混入ゼロ確認済み）
+
 def get_voice(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
-    """ボイス・ASMRカテゴリ作品を取得（digital_doujin_tl: オーディオドラマフロア）
-    FloorList確認済み: doujin専用voiceフロアなし。digital_doujin_bl=BL専用フロアのため除外。
-    digital_doujin_tl(らぶカルTL)はオーディオドラマ系コンテンツを含む。BL genre_idsはupdate_works側でフィルタ。"""
+    """男性向けASMR/ボイス作品取得（digital_doujin + article=genre:ASMR(160004)）
+    FloorList確認済み: doujinサービスに専用voiceフロアなし（digital_doujin/BL/TLの3フロアのみ）。
+    digital_doujin_tl=らぶカルTL（女性向け恋愛）→全件女性向けのため廃止。
+    digital_doujin + ASMR genre(160004)が男性向けボイス9098件・女性向けヒット0件で最適。"""
     try:
         data = _request({
             "site": _DEFAULT_SITE, "service": "doujin",
-            "floor": "digital_doujin_tl", "sort": sort, "hits": hits, "offset": offset,
+            "floor": "digital_doujin", "sort": sort, "hits": hits, "offset": offset,
+            "article": "genre", "article_id": VOICE_ASMR_GENRE_ID,
         })
         return [_map_item_full(i, "voice") for i in data.get("result", {}).get("items", [])]
     except Exception:
