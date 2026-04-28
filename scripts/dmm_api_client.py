@@ -37,6 +37,7 @@ def _load_env():
 _load_env()
 
 DMM_API_BASE = "https://api.dmm.com/affiliate/v3/ItemList"
+DMM_API_ACTRESS_SEARCH = "https://api.dmm.com/affiliate/v3/ActressSearch"
 _DEFAULT_SITE    = "FANZA"
 _DEFAULT_SERVICE = "digital"
 _DEFAULT_FLOOR   = "videoa"
@@ -104,16 +105,29 @@ def _map_item(item: dict) -> dict:
     }
 
 
-def _request(params: dict) -> dict:
+def _request(params: dict, endpoint: str = "ItemList") -> dict:
     api_id, affiliate_id = _get_credentials()
     params.update({
         "api_id":       api_id,
         "affiliate_id": affiliate_id,
         "output":       "json",
     })
-    resp = requests.get(DMM_API_BASE, params=params, timeout=30)
+    url = DMM_API_ACTRESS_SEARCH if endpoint == "ActressSearch" else DMM_API_BASE
+    resp = requests.get(url, params=params, timeout=30)
     resp.raise_for_status()
     return resp.json()
+
+
+def search_actress_id(name: str) -> int | None:
+    """声優名でActressSearch APIを呼び出してIDを返す。見つからなければNone。"""
+    data = _request({"keyword": name, "hits": 5, "offset": 1}, endpoint="ActressSearch")
+    actresses = data.get("result", {}).get("actress", [])
+    for a in actresses:
+        if a.get("name", "") == name:
+            return int(a["id"])
+    if actresses:
+        return int(actresses[0]["id"])
+    return None
 
 
 # ─── 公開 API ─────────────────────────────────────────────────────────────────

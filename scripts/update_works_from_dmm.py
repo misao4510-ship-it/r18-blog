@@ -23,7 +23,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from dmm_api_client import get_doujin, get_voice, _request, VOICE_ASMR_GENRE_ID
+from dmm_api_client import get_doujin, get_voice, _request, VOICE_ASMR_GENRE_ID, _map_item_full
 
 PROJECT_ROOT = Path(__file__).parent.parent
 WORKS_JSON = PROJECT_ROOT / "data" / "works.json"
@@ -33,9 +33,48 @@ RANKINGS_JSON = PROJECT_ROOT / "data" / "rankings.json"
 EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
 
 # voice (digital_doujin + ASMR genre 160004) 除外ジャンルID: doujinと同じセットを適用
-# digital_doujin + ASMR(160004)は男性向け主体（9098件・女性向けヒット0件確認済み）のため
-# doujinと同じEXCLUDE_GENRE_IDSで十分。TLフロアと異なり156006(女性向け)除外しても件数は維持される。
 VOICE_EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
+
+# cmd_323t: 声優TOP20ホワイトリスト（販売数順）
+# ActressSearch APIはFANZA video声優のみ対応のためIDなし。keyword+ASMR絞り込みで代替。
+VOICE_ACTRESS_WHITELIST = [
+    "涼花みなせ", "山田じぇみ子", "乙倉ゅい", "雲八はち", "恋鈴桃歌",
+    "みもりあいの", "未想可みいろ", "柚木つばめ", "藤村莉央", "餅梨あむ",
+    "陽向葵ゅか", "御子柴泉", "西瓜すいか", "秋野かえで", "春乃つくし",
+    "浅木式", "藍沢夏癒", "小花衣こっこ", "田中", "天知遥",
+]
+
+
+def get_voice_by_whitelist(hits_per_actress: int = 20) -> list:
+    """声優TOP20ホワイトリストでASMR voice作品取得（keyword+genre:ASMR絞り込み、重複排除）。
+    注: ActressSearch APIはFANZA video actress専用のためdoujin声優IDは取得不可。
+    keyword=声優名 + article=genre:ASMR(160004)で代替実装。"""
+    all_items = []
+    seen_cids: set[str] = set()
+    per_actress_counts: dict[str, int] = {}
+    for name in VOICE_ACTRESS_WHITELIST:
+        try:
+            data = _request({
+                "site": "FANZA", "service": "doujin",
+                "floor": "digital_doujin",
+                "keyword": name,
+                "article": "genre", "article_id": VOICE_ASMR_GENRE_ID,
+                "sort": "rank", "hits": hits_per_actress, "offset": 1,
+            })
+            items = data.get("result", {}).get("items", [])
+            added = 0
+            for item in items:
+                cid = item.get("content_id", "")
+                if cid and cid not in seen_cids:
+                    seen_cids.add(cid)
+                    all_items.append(_map_item_full(item, "voice"))
+                    added += 1
+            per_actress_counts[name] = added
+        except Exception as e:
+            log(f"[WARN] whitelist {name}: {e}")
+            per_actress_counts[name] = 0
+    log(f"voice whitelist: 合計{len(all_items)}件取得（声優別: {per_actress_counts}）")
+    return all_items
 
 
 def log(msg: str):
@@ -96,13 +135,18 @@ def update_works() -> bool:
     updated_count = 0
     excluded_cids: set[str] = set()
 
-    for fetch_fn, category in [
-        (get_doujin, "doujin"),
-        (get_voice,  "voice"),
+    # voice は声優TOP20ホワイトリスト方式で取得（cmd_323t）
+    voice_items_raw = get_voice_by_whitelist(hits_per_actress=20)
+
+    for fetch_fn, category, pre_fetched in [
+        (get_doujin, "doujin", None),
+        (None,       "voice",  voice_items_raw),
     ]:
-        # voiceはdigital_doujin_tlフロア（TLオーディオドラマ）。BL系除外のみ適用。
         exclude_ids = VOICE_EXCLUDE_GENRE_IDS if category == "voice" else EXCLUDE_GENRE_IDS
-        items = fetch_category_300(fetch_fn, category)
+        if pre_fetched is not None:
+            items = pre_fetched
+        else:
+            items = fetch_category_300(fetch_fn, category)
         log(f"{category}: 合計 {len(items)} 件")
 
         for item in items:
