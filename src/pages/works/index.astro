@@ -112,6 +112,13 @@ const saleCount = works.filter(w => w.is_on_sale).length;
     <p id="no-results" class="no-results" style="display:none;">
       条件に一致する作品が見つかりませんでした。
     </p>
+
+    <!-- もっと見るボタン -->
+    <div style="text-align:center; margin:2rem 0;">
+      <button id="load-more-btn" class="load-more-btn" style="display:none;">
+        もっと見る
+      </button>
+    </div>
   </div>
 </BaseLayout>
 
@@ -132,6 +139,43 @@ const saleCount = works.filter(w => w.is_on_sale).length;
     sort: 'date-desc',
     category: ''
   };
+
+  var currentFilteredWorks = [];
+  var displayLimit = 30;
+
+  function renderVisible() {
+    var count = currentFilteredWorks.length;
+    var limitedIds = new Set(currentFilteredWorks.slice(0, displayLimit).map(function(w) { return w.id; }));
+    var filteredIds = new Set(currentFilteredWorks.map(function(w) { return w.id; }));
+
+    // カードの表示/非表示 & 順序変更
+    currentFilteredWorks.forEach(function(w) {
+      var card = document.querySelector('.work-card[data-id="' + w.id + '"]');
+      if (card) grid.appendChild(card);
+    });
+    cards.forEach(function(card) {
+      if (!filteredIds.has(card.dataset.id)) {
+        card.style.display = 'none';
+      } else {
+        card.style.display = limitedIds.has(card.dataset.id) ? '' : 'none';
+      }
+    });
+
+    if (resultCount) resultCount.textContent = count;
+    if (noResults) noResults.style.display = count === 0 ? '' : 'none';
+
+    // もっと見るボタン更新
+    var btn = document.getElementById('load-more-btn');
+    if (btn) {
+      var remaining = count - displayLimit;
+      if (remaining > 0) {
+        btn.textContent = 'もっと見る（残り' + remaining + '件）';
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    }
+  }
 
   function applyFilters() {
     var text = state.text.toLowerCase();
@@ -165,20 +209,9 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       }
     });
 
-    var visibleIds = new Set(visibleWorks.map(function(w) { return w.id; }));
-
-    // カードの表示/非表示 & 順序変更
-    visibleWorks.forEach(function(w) {
-      var card = document.querySelector('.work-card[data-id="' + w.id + '"]');
-      if (card) grid.appendChild(card);
-    });
-    cards.forEach(function(card) {
-      card.style.display = visibleIds.has(card.dataset.id) ? '' : 'none';
-    });
-
-    var count = visibleWorks.length;
-    if (resultCount) resultCount.textContent = count;
-    if (noResults) noResults.style.display = count === 0 ? '' : 'none';
+    currentFilteredWorks = visibleWorks;
+    displayLimit = 30;
+    renderVisible();
   }
 
   // イベントリスナー
@@ -243,6 +276,18 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       applyFilters();
     });
   });
+
+  // もっと見るボタン
+  var loadMoreBtn = document.getElementById('load-more-btn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+      displayLimit += 30;
+      renderVisible();
+    });
+  }
+
+  // 初期表示（30件制限）
+  applyFilters();
 })();
 </script>
 
@@ -418,4 +463,19 @@ const saleCount = works.filter(w => w.is_on_sale).length;
   padding: 3rem 0;
   font-size: 1rem;
 }
+
+.load-more-btn {
+  background: var(--color-accent, #ff4d8d);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(224, 64, 251, 0.35);
+  transition: opacity 0.15s, transform 0.1s;
+}
+.load-more-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 </style>
