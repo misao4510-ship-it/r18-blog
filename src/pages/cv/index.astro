@@ -24,14 +24,25 @@ const cvList = [...cvMap.entries()].sort((a, b) => b[1].length - a[1].length);
       <a href="/">ホーム</a><span>›</span><span>声優一覧</span>
     </nav>
     <h1 style="font-size:1.6rem;font-weight:900;margin-bottom:0.4rem;color:#e040fb;">🎤 声優別作品一覧</h1>
-    <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:0.9rem;">好きな声優さんの出演作品をまとめて探せます♪</p>
+    <p class="cv-count">全 {cvList.length} 名の声優</p>
+    <p style="color:var(--color-text-muted);margin-bottom:1rem;font-size:0.9rem;">好きな声優さんの出演作品をまとめて探せます♪</p>
+
+    <div class="cv-search-wrap">
+      <input type="text" id="cv-search" class="cv-search" placeholder="🔍 声優名を検索..." />
+    </div>
+
+    <div class="cv-kana-index" id="cv-kana-index">
+      {['全', 'あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ', '他'].map(row => (
+        <button class={`kana-btn${row === '全' ? ' active' : ''}`} data-row={row}>{row}</button>
+      ))}
+    </div>
 
     {cvList.length === 0 ? (
       <p style="color:var(--color-text-muted);">声優情報を準備中です。</p>
     ) : (
-      <div class="cv-grid">
+      <div class="cv-grid" id="cv-grid">
         {cvList.map(([name, posts]) => (
-          <a href={`/cv/${cvToSlug(name)}/`} class="cv-card">
+          <a href={`/cv/${cvToSlug(name)}/`} class="cv-card" data-cv-name={name}>
             <div class="cv-card__icon">🎤</div>
             <div class="cv-card__body">
               <div class="cv-card__name">{name}</div>
@@ -48,6 +59,10 @@ const cvList = [...cvMap.entries()].sort((a, b) => b[1].length - a[1].length);
       </div>
     )}
 
+    <p id="cv-no-results" style="display:none;color:var(--color-text-muted);text-align:center;padding:2rem;">
+      該当する声優が見つかりません
+    </p>
+
     <div style="margin-top:2rem;">
       <a href="/" style="color:var(--color-accent);">← 記事一覧に戻る</a>
     </div>
@@ -57,6 +72,47 @@ const cvList = [...cvMap.entries()].sort((a, b) => b[1].length - a[1].length);
 <style>
   .breadcrumb { display:flex; gap:0.5rem; align-items:center; font-size:0.85rem; color:var(--color-text-muted); margin-bottom:1.5rem; }
   .breadcrumb a { color:var(--color-accent); text-decoration:none; }
+  .cv-count { color:var(--color-accent); font-size:0.9rem; font-weight:700; margin-bottom:0.5rem; }
+  .cv-search-wrap { margin-bottom:1rem; }
+  .cv-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .cv-search:focus { border-color: var(--color-accent); }
+  .cv-kana-index {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .kana-btn {
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .kana-btn.active {
+    background: linear-gradient(135deg, #e040fb, #ff4d8d);
+    color: #fff;
+    border-color: transparent;
+  }
+  .kana-btn:hover:not(.active) {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
   .cv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.2rem; }
   .cv-card { display:flex; gap:1rem; align-items:flex-start; background:var(--color-surface-raised); border:1px solid var(--color-border); border-radius:12px; padding:1.2rem; text-decoration:none; transition:border-color 0.2s,transform 0.2s; }
   .cv-card:hover { border-color:#e040fb; transform:translateY(-2px); }
@@ -66,3 +122,66 @@ const cvList = [...cvMap.entries()].sort((a, b) => b[1].length - a[1].length);
   .cv-card__work-title { font-size:0.75rem; color:var(--color-text); margin-bottom:0.2rem; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
   .cv-card__more { font-size:0.72rem; color:var(--color-text-muted); }
 </style>
+
+<script is:inline>
+  (function() {
+    function getRow(name) {
+      var first = name[0];
+      var map = {
+        'あいうえおぁぃぅぇぉ': 'あ',
+        'かきくけこがぎぐげごっ': 'か',
+        'さしすせそざじずぜぞ': 'さ',
+        'たちつてとだぢづでど': 'た',
+        'なにぬねの': 'な',
+        'はひふへほばびぶべぼぱぴぷぺぽ': 'は',
+        'まみむめも': 'ま',
+        'やゆよゃゅょ': 'や',
+        'らりるれろ': 'ら',
+        'わをんゐゑ': 'わ',
+      };
+      for (var chars in map) {
+        if (chars.indexOf(first) !== -1) return map[chars];
+      }
+      return '他';
+    }
+
+    var searchInput = document.getElementById('cv-search');
+    var kanaButtons = document.querySelectorAll('.kana-btn');
+    var cards = document.querySelectorAll('.cv-card');
+    var noResults = document.getElementById('cv-no-results');
+    var currentRow = '全';
+    var currentSearch = '';
+
+    function applyFilter() {
+      var visible = 0;
+      cards.forEach(function(card) {
+        var name = card.dataset.cvName || '';
+        var matchRow = currentRow === '全' || getRow(name) === currentRow;
+        var matchSearch = currentSearch === '' || name.indexOf(currentSearch) !== -1;
+        if (matchRow && matchSearch) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        currentSearch = searchInput.value.trim();
+        applyFilter();
+      });
+    }
+
+    kanaButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        kanaButtons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentRow = btn.dataset.row;
+        applyFilter();
+      });
+    });
+  })();
+</script>
