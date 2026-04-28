@@ -7,7 +7,8 @@ DMM API 2カテゴリ取得 → works.json + rankings.json 自動更新 → buil
   2. 既存 works.json から adult_book・dsample-* を除外
   3. 既存 doujin/voice エントリと content_id でマージ（review_slug / fanza_link は保持）
   4. 4ランキング(コミック/ボイス×月間/24h)を rankings.json に保存
-  5. 変更があれば npm run build → wrangler deploy (--branch=main) → git push
+  5. レビュー記事 frontmatter の voice_actresses を works.json に転記
+  6. 変更があれば npm run build → wrangler deploy (--branch=main) → git push
 
 使い方:
   python3 scripts/update_works_from_dmm.py
@@ -15,6 +16,7 @@ DMM API 2カテゴリ取得 → works.json + rankings.json 自動更新 → buil
 """
 import argparse
 import json
+import re
 import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
@@ -239,6 +241,70 @@ def update_rankings() -> None:
     log(f"rankings.json 保存完了 (各カテゴリ最大30件)")
 
 
+def sync_voice_actresses_from_posts(works_list: list) -> list:
+    """レビュー記事 frontmatter の voice_actresses を works.json に転記。
+    未登録レビュー作品は最小エントリで追加する。"""
+    post_dir = Path('/home/misao/r18-blog/src/content/posts')
+    va_map: dict[str, list[str]] = {}
+    meta_map: dict[str, dict] = {}
+
+    for md in post_dir.glob('*.md'):
+        content = md.read_text(encoding='utf-8')
+        m_id = re.search(r'^work_id:\s*["\']?([^"\'\n]+)["\']?', content, re.M)
+        m_va = re.search(r'^voice_actresses:\s*\[([^\]]*)\]', content, re.M)
+        m_title = re.search(r'^title:\s*["\'](.+?)["\']', content, re.M)
+        m_fanza = re.search(r'https://al\.fanza\.co\.jp/[^\s)]+', content)
+        if m_id:
+            wid = m_id.group(1).strip()
+            vas = []
+            if m_va and m_va.group(1).strip():
+                vas = [v.strip().strip('"\'') for v in m_va.group(1).split(',') if v.strip().strip('"\'')]
+            va_map[wid] = vas
+            meta_map[wid] = {
+                'title': m_title.group(1) if m_title else '',
+                'fanza_link': m_fanza.group(0) if m_fanza else '',
+                'review_slug': md.stem,
+            }
+
+    existing_ids = {w.get('id', '') for w in works_list}
+
+    for w in works_list:
+        wid = w.get('id', '')
+        if wid in va_map:
+            w['voice_actresses'] = va_map[wid]
+            if meta_map[wid].get('review_slug'):
+                w.setdefault('review_slug', meta_map[wid]['review_slug'])
+
+    # 未登録のレビュー作品を追加
+    for wid, vas in va_map.items():
+        if wid not in existing_ids:
+            meta = meta_map[wid]
+            new_entry = {
+                'id': wid,
+                'title': meta['title'],
+                'author': '',
+                'author_slug': '',
+                'price': 0,
+                'release_date': '',
+                'genres': [],
+                'thumbnail': '',
+                'fanza_link': meta['fanza_link'],
+                'review_slug': meta['review_slug'],
+                'voice_actresses': vas,
+                'category': 'voice',
+                'price_original': None,
+                'price_sale': None,
+                'discount_rate': None,
+                'sale_end_date': None,
+                'is_on_sale': False,
+            }
+            works_list.append(new_entry)
+            log(f"review作品を追加: {wid} ({meta['title'][:30]})")
+
+    log(f"voice_actresses転記完了: {len(va_map)} 件のレビュー記事を処理")
+    return works_list
+
+
 def build_and_deploy() -> bool:
     log("=== build 開始 ===")
     if not run("source ~/.nvm/nvm.sh && nvm use 22 && npm run build"):
@@ -272,6 +338,13 @@ def main():
 
     changed = update_works()
     update_rankings()
+    # レビュー記事の voice_actresses を works.json に転記
+    if WORKS_JSON.exists():
+        with open(WORKS_JSON) as f:
+            data = json.load(f)
+        data['works'] = sync_voice_actresses_from_posts(data['works'])
+        with open(WORKS_JSON, 'w') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
     if args.no_deploy:
         log("--no-deploy: build/deploy スキップ")
