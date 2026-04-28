@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FanzaBanner from '../../components/FanzaBanner.astro';
 import rankingsData from '../../../data/rankings.json';
 
 type RankItem = {
@@ -56,6 +57,8 @@ const lists = [
       <h1>🏆 ランキング</h1>
       <p class="ranking-updated">最終更新: {updatedDate}</p>
     </div>
+
+    <FanzaBanner bannerId="1899_300_250" />
 
     <!-- カテゴリタブ（上段） -->
     <div class="tab-group" id="category-tabs">

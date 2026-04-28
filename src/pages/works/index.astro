@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WorkCard from '../../components/WorkCard.astro';
+import FanzaBanner from '../../components/FanzaBanner.astro';
 import worksData from '../../../data/works.json';
 
 const works = worksData.works;
@@ -23,6 +24,8 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       <h1>📚 作品一覧・検索</h1>
       <p class="works-header__sub">全 <span id="result-count">{totalCount}</span> 件 / {totalCount}件中</p>
     </div>
+
+    <FanzaBanner bannerId="1900_300_250" />
 
     <!-- セールCTA -->
     {saleCount > 0 && (
