@@ -137,7 +137,7 @@ const saleCount = works.filter(w => w.is_on_sale).length;
     var text = state.text.toLowerCase();
     var visibleWorks = works.filter(function(w) {
       // テキスト検索
-      if (text && !w.title.toLowerCase().includes(text) && !(w.author||'').toLowerCase().includes(text)) return false;
+      if (text) { var target = (w.title + ' ' + (w.author||'') + ' ' + (w.voice_actresses||[]).join(' ') + ' ' + (w.circle||'') + ' ' + (w.series||'')).toLowerCase(); if (!target.includes(text)) return false; }
       // 作者
       if (state.author && w.author !== state.author) return false;
       // 価格

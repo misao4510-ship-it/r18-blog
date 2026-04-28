@@ -32,9 +32,10 @@ RANKINGS_JSON = PROJECT_ROOT / "data" / "rankings.json"
 # doujin floor (digital_doujin) 除外ジャンルID: 乙女受け/乙女向け/女性向け/BL/百合/レズビアン
 EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
 
-# voice floor (digital_doujin_tl) 除外ジャンルID: BL/百合/レズビアンのみ
-# digital_doujin_tl は TL（ティーンズラブ）フロアで全件 156006(女性向け) が付くため
-# 女性向け系IDを除外すると全件0件になる。BL系のみ最小限除外する。
+# voice floor (digital_doujin_tl) 除外ジャンルID: BL/百合/レズビアン
+# FloorList確認済み: doujinに専用voiceフロアなし。digital_doujin_bl=BL専用フロアのため除外。
+# digital_doujin_tl(らぶカルTL)はオーディオドラマ系コンテンツを含む。BL系のみ除外。
+# 156006(女性向け)を追加すると全件0件になるため除外しない。
 VOICE_EXCLUDE_GENRE_IDS: set[int] = {558, 153030, 4013}
 
 
@@ -100,7 +101,7 @@ def update_works() -> bool:
         (get_doujin, "doujin"),
         (get_voice,  "voice"),
     ]:
-        # voiceはdigital_doujin_tl（TL）フロアのため女性向け除外なし、BLのみ除外
+        # voiceはdigital_doujin_tlフロア（TLオーディオドラマ）。BL系除外のみ適用。
         exclude_ids = VOICE_EXCLUDE_GENRE_IDS if category == "voice" else EXCLUDE_GENRE_IDS
         items = fetch_category_300(fetch_fn, category)
         log(f"{category}: 合計 {len(items)} 件")
@@ -211,7 +212,7 @@ VOICE_RANKING_FLOOR = "digital_doujin_tl"
 
 def _fetch_ranking_raw(floor: str, hits: int = 30, gte_date: str = None) -> list:
     """_request 直接使用でランキング取得（raw DMM APIレスポンスアイテム）。BL/女性向け除外フィルタ適用。"""
-    # voiceフロア(digital_doujin_tl)はTL全件156006(女性向け)のためBL除外のみ適用
+    # voiceフロア(digital_doujin_tl)はTLオーディオドラマ。BL除外のみ適用（156006除外すると0件）。
     exclude_ids = VOICE_EXCLUDE_GENRE_IDS if floor == VOICE_RANKING_FLOOR else EXCLUDE_GENRE_IDS
     api_hits = hits if gte_date else min(hits * 3, 90)  # gte_date使用時はhitsをそのまま使用（API制限回避）
     params = {
@@ -254,14 +255,18 @@ def update_rankings() -> None:
         comic_daily = comic_monthly[:]
     log(f"コミック24h: {len(comic_daily)} 件")
 
-    voice_monthly = _fetch_ranking_raw("digital_doujin_tl", hits=30)
+    voice_monthly = _fetch_ranking_raw(VOICE_RANKING_FLOOR, hits=30)
     log(f"ボイス月間: {len(voice_monthly)} 件")
 
-    voice_daily = _fetch_ranking_raw("digital_doujin_tl", hits=30, gte_date=yesterday)
+    voice_daily = _fetch_ranking_raw(VOICE_RANKING_FLOOR, hits=30, gte_date=yesterday)
     if not voice_daily:
         log("[WARN] ボイス24h件数0、月間で代替")
         voice_daily = voice_monthly[:]
     log(f"ボイス24h: {len(voice_daily)} 件")
+    # BL検証: voice_monthlyにBLタイトルが含まれていないことを確認
+    bl_check = [item.get("title", "") for item in voice_monthly if any(kw in item.get("title", "") for kw in ["BL", "ボーイズラブ", "男同士"])]
+    if bl_check:
+        log(f"[WARN] voice_monthlyにBLタイトル検出: {bl_check}")
 
     rankings = {
         "comic_monthly": comic_monthly,

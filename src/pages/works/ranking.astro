@@ -26,17 +26,9 @@ const updatedDate = new Date(rankingsData.updated_at).toLocaleString('ja-JP', {
   year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
 });
 
-function medalEmoji(rank: number): string {
-  if (rank === 1) return '🥇';
-  if (rank === 2) return '🥈';
-  if (rank === 3) return '🥉';
-  return '';
-}
 
 function renderRankingList(items: RankItem[], listId: string, hidden: boolean) {
-  const top3 = items.filter(i => i.rank <= 3);
-  const rest  = items.filter(i => i.rank > 3);
-  return { top3, rest, listId, hidden };
+  return { items, listId, hidden };
 }
 
 const lists = [
@@ -45,6 +37,13 @@ const lists = [
   renderRankingList(voiceMonthly,  'list-voice_monthly',  true),
   renderRankingList(voiceDaily,    'list-voice_daily',    true),
 ];
+
+function medalOrRank(rank: number): string {
+  if (rank === 1) return '🥇';
+  if (rank === 2) return '🥈';
+  if (rank === 3) return '🥉';
+  return String(rank) + '位';
+}
 ---
 
 <BaseLayout
@@ -72,78 +71,46 @@ const lists = [
       <button class="tab" data-period="daily">🆕 24時間TOP30</button>
     </div>
 
-    {lists.map(({ top3, rest, listId, hidden }) => (
+    {lists.map(({ items, listId, hidden }) => (
       <div class="ranking-list" id={listId}
         data-category={listId.replace('list-', '').replace(/_monthly|_daily/, '')}
         data-period={listId.includes('monthly') ? 'monthly' : 'daily'}
         style={hidden ? 'display:none' : ''}>
 
-        <!-- TOP3 グリッド -->
-        {top3.length > 0 && (
-          <div class="ranking-top3">
-            {top3.map(item => (
-              <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-                class="ranking-card ranking-card--top3"
-                data-rank={item.rank}>
-                <div class="card-img-wrap">
-                  <span class="medal-badge">{medalEmoji(item.rank)}</span>
-                  <img src={item.imageURL} alt={item.title} loading="lazy" />
-                  {item.is_on_sale && item.discount_rate && (
-                    <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
-                  )}
-                </div>
-                <div class="card-body">
-                  <p class="card-rank">第{item.rank}位</p>
-                  <p class="card-title">{item.title}</p>
-                  <div class="card-price-row">
-                    {item.is_on_sale && item.price_original && item.price_sale ? (
-                      <>
-                        <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-                        <span class="price-sale">¥{item.price_sale.toLocaleString()}</span>
-                      </>
-                    ) : (
-                      <span class="price-normal">¥{item.price.toLocaleString()}</span>
-                    )}
-                  </div>
-                  <span class="fanza-btn">✨ FANZAで購入</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
-
-        <!-- 4位以下 グリッド -->
-        {rest.length > 0 && (
-          <div class="ranking-grid">
-            {rest.map(item => (
-              <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-                class="ranking-card"
-                data-rank={item.rank}>
-                <div class="card-img-wrap">
+        <!-- 全件統一グリッド（TOP3も4位以下も同じ3カラム） -->
+        <div class="ranking-grid">
+          {items.map(item => (
+            <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+              class={`ranking-card${item.rank <= 3 ? ' ranking-card--top3' : ''}`}
+              data-rank={item.rank}>
+              <div class="card-img-wrap">
+                {item.rank <= 3 ? (
+                  <span class="medal-badge">{medalOrRank(item.rank)}</span>
+                ) : (
                   <span class="rank-num-badge">{item.rank}位</span>
-                  <img src={item.imageURL} alt={item.title} loading="lazy" />
-                  {item.is_on_sale && item.discount_rate && (
-                    <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+                )}
+                <img src={item.imageURL} alt={item.title} loading="lazy" />
+                {item.is_on_sale && item.discount_rate && (
+                  <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+                )}
+              </div>
+              <div class="card-body">
+                <p class="card-title">{item.title}</p>
+                <div class="card-price-row">
+                  {item.is_on_sale && item.price_original && item.price_sale ? (
+                    <>
+                      <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+                      <span class="price-sale">¥{item.price_sale.toLocaleString()}</span>
+                    </>
+                  ) : (
+                    <span class="price-normal">¥{item.price.toLocaleString()}</span>
                   )}
                 </div>
-                <div class="card-body">
-                  <p class="card-title card-title--sm">{item.title}</p>
-                  <div class="card-price-row">
-                    {item.is_on_sale && item.price_original && item.price_sale ? (
-                      <>
-                        <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-                        <span class="price-sale">¥{item.price_sale.toLocaleString()}</span>
-                      </>
-                    ) : (
-                      <span class="price-normal">¥{item.price.toLocaleString()}</span>
-                    )}
-                  </div>
-                  <span class="fanza-btn fanza-btn--sm">FANZAで見る →</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
+                <span class="fanza-btn">✨ FANZAで見る</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     ))}
   </div>
@@ -195,19 +162,11 @@ const lists = [
       color: var(--color-accent);
     }
 
-    /* TOP3 グリッド */
-    .ranking-top3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* 4位以下 グリッド */
+    /* 全件統一グリッド（3カラム） */
     .ranking-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
     /* カード共通 */
@@ -346,8 +305,7 @@ const lists = [
     }
 
     /* モバイル：1列 */
-    @media (max-width: 640px) {
-      .ranking-top3,
+    @media (max-width: 768px) {
       .ranking-grid {
         grid-template-columns: 1fr;
       }

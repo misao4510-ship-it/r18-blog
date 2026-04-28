@@ -209,7 +209,9 @@ def get_doujin(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
 
 
 def get_voice(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
-    """ボイス・ASMRカテゴリ人気順作品を取得（doujin_tl フロア）"""
+    """ボイス・ASMRカテゴリ作品を取得（digital_doujin_tl: オーディオドラマフロア）
+    FloorList確認済み: doujin専用voiceフロアなし。digital_doujin_bl=BL専用フロアのため除外。
+    digital_doujin_tl(らぶカルTL)はオーディオドラマ系コンテンツを含む。BL genre_idsはupdate_works側でフィルタ。"""
     try:
         data = _request({
             "site": _DEFAULT_SITE, "service": "doujin",
