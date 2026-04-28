@@ -13,37 +13,101 @@ for (const post of allPosts) {
     circleMap.get(c)!.push(post);
   }
 }
-const circles = [...circleMap.entries()].sort((a, b) => b[1].length - a[1].length);
+
+// TOP50サークルホワイトリスト（販売数順）
+const TOP50_CIRCLES = [
+  "聖華快楽書店", "巨乳大好き屋", "かずたまそふと", "にゅう工房", "嘘つき屋",
+  "Deep；Dahlia", "一億万軒茶屋", "甘噛本舗", "StudioSR", "すいのせ",
+  "あまとろすいーつ", "バーニング姉妹", "パコラボ", "種付け出版", "初井つも",
+  "Maritozzo", "フグタ家", "よったんち", "かみか堂", "バタリンコちゃん",
+  "一番乳搾り", "mamaya", "生食デ腹壊ス民", "人生横滑り", "リンゴヤ",
+  "アウェイ田", "漫画喫茶瀬戸（瀬戸涼子）", "すいーとみるく", "うこんちゃん☆かんぱにぃ", "やまなし娘。",
+  "ご奉仕プレイ", "陸の孤島亭", "クリムゾン", "パステル×トリップ", "わさびどん",
+  "J〇ほんぽ", "アトリエTODO", "SigMart", "okita", "EsuEsu",
+  "M屋", "たつわの里", "千本トリイ", "三崎", "星野竜一",
+  "新鮮搾りたて生牛乳", "Cior", "箱舟", "フリテン堂（仮）", "まかろんシュガー",
+];
+
+// TOP50でレビューがあるもの
+const top50WithReviews = TOP50_CIRCLES.map((name, idx) => ({
+  name,
+  rank: idx + 1,
+  posts: circleMap.get(name) ?? [],
+  inTop50: true,
+}));
+
+// TOP50以外のサークル（五十音順）
+const otherCircles = [...circleMap.entries()]
+  .filter(([name]) => !TOP50_CIRCLES.includes(name))
+  .sort((a, b) => a[0].localeCompare(b[0], 'ja'))
+  .map(([name, posts]) => ({ name, rank: null, posts, inTop50: false }));
+
+const totalCircles = new Set([...circleMap.keys(), ...TOP50_CIRCLES]).size;
 ---
 <BaseLayout
-  title="サークル・作者別レビュー一覧"
-  description="月灯の書架のサークル・作者別レビュー一覧。お気に入りサークルの作品をまとめてチェックできます。"
+  title="サークル一覧 TOP50"
+  description="FANZA同人人気サークルTOP50と月灯の書架のレビュー一覧。お気に入りサークルの作品をまとめてチェックできます。"
   yukineVariant="works"
 >
   <div class="container" style="padding:2rem 1rem;">
-    <h1 style="font-size:1.6rem;font-weight:900;margin-bottom:0.5rem;color:#e040fb;">🏷️ サークル・作者別</h1>
-    <p style="color:var(--color-text-muted);margin-bottom:2rem;font-size:0.9rem;">お気に入りサークルや作者の作品をまとめて見つけられます♪</p>
+    <div class="circles-header">
+      <h1>🏷️ サークル一覧</h1>
+      <p class="circles-sub">全 <span id="circle-visible-count">{totalCircles}</span> サークル</p>
+    </div>
 
-    {circles.length === 0 ? (
-      <p style="color:var(--color-text-muted);">サークル情報を準備中です。</p>
-    ) : (
-      <div class="circle-grid">
-        {circles.map(([name, posts]) => (
-          <a href={`/circles/${name}/`} class="circle-card">
-            <div class="circle-card__name">{name}</div>
-            <div class="circle-card__count">{posts.length}本のレビュー</div>
+    <div class="circle-search-wrap">
+      <input
+        id="circle-search"
+        type="text"
+        placeholder="🔍 サークル名を検索..."
+        class="circle-search-input"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- TOP50 サークル -->
+    <h2 class="section-heading">🏆 人気TOP50サークル</h2>
+    <div class="circle-grid" id="top50-grid">
+      {top50WithReviews.map(({ name, rank, posts }) => (
+        <a href={`/circles/${encodeURIComponent(name)}/`} class="circle-card circle-card--top"
+          data-name={name}>
+          <div class="circle-card__rank">#{rank}</div>
+          <div class="circle-card__name">{name}</div>
+          <div class="circle-card__count">
+            {posts.length > 0 ? `${posts.length}本のレビュー` : 'レビュー準備中'}
+          </div>
+          {posts.length > 0 && (
             <div class="circle-card__works">
               {posts.slice(0, 2).map(p => (
                 <div class="circle-card__work-title">{p.data.title.replace(/^【レビュー】/, '')}</div>
               ))}
               {posts.length > 2 && <div class="circle-card__more">他{posts.length - 2}本...</div>}
             </div>
-            {posts[0]?.data.voice_actresses && posts[0].data.voice_actresses.length > 0 && (
-              <div class="circle-card__va">CV: {posts[0].data.voice_actresses.join(' / ')}</div>
-            )}
-          </a>
-        ))}
-      </div>
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- その他サークル（レビューあり） -->
+    {otherCircles.length > 0 && (
+      <>
+        <h2 class="section-heading" id="other-heading">📚 その他のサークル（五十音順）</h2>
+        <div class="circle-grid" id="other-grid">
+          {otherCircles.map(({ name, posts }) => (
+            <a href={`/circles/${encodeURIComponent(name)}/`} class="circle-card"
+              data-name={name}>
+              <div class="circle-card__name">{name}</div>
+              <div class="circle-card__count">{posts.length}本のレビュー</div>
+              <div class="circle-card__works">
+                {posts.slice(0, 2).map(p => (
+                  <div class="circle-card__work-title">{p.data.title.replace(/^【レビュー】/, '')}</div>
+                ))}
+                {posts.length > 2 && <div class="circle-card__more">他{posts.length - 2}本...</div>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </>
     )}
 
     <div style="margin-top:2rem;">
@@ -53,17 +117,54 @@ const circles = [...circleMap.entries()].sort((a, b) => b[1].length - a[1].lengt
 </BaseLayout>
 
 <style>
+  .circles-header {
+    margin-bottom: 1rem;
+  }
+  .circles-header h1 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin-bottom: 0.3rem;
+  }
+  .circles-sub {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+  .circle-search-wrap {
+    margin-bottom: 1.5rem;
+  }
+  .circle-search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .circle-search-input:focus {
+    border-color: #e040fb;
+  }
+  .section-heading {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 1.5rem 0 0.8rem;
+  }
   .circle-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
   }
   .circle-card {
     display: block;
     background: var(--color-surface-raised);
     border: 1px solid var(--color-border);
     border-radius: 12px;
-    padding: 1.2rem 1.4rem;
+    padding: 1rem 1.2rem;
     text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
   }
@@ -71,32 +172,62 @@ const circles = [...circleMap.entries()].sort((a, b) => b[1].length - a[1].lengt
     border-color: #ff4d8d;
     transform: translateY(-2px);
   }
+  .circle-card--top {
+    border-color: rgba(224, 64, 251, 0.3);
+  }
+  .circle-card__rank {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #e040fb;
+    margin-bottom: 0.2rem;
+  }
   .circle-card__name {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 900;
     color: #ff4d8d;
     margin-bottom: 0.3rem;
   }
   .circle-card__count {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-text-muted);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
   .circle-card__work-title {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--color-text);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
   .circle-card__more {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--color-text-muted);
   }
-  .circle-card__va {
-    margin-top: 0.5rem;
-    font-size: 0.78rem;
-    color: #e040fb;
-  }
+  .circle-card[style*="display:none"] { display: none !important; }
 </style>
+
+<script is:inline>
+(function() {
+  var searchInput = document.getElementById('circle-search');
+  var cards = document.querySelectorAll('.circle-card');
+  var visibleCountEl = document.getElementById('circle-visible-count');
+  var otherHeading = document.getElementById('other-heading');
+
+  function filterCircles() {
+    var q = searchInput.value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(card) {
+      var name = (card.getAttribute('data-name') || '').toLowerCase();
+      var show = !q || name.includes(q);
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (visibleCountEl) visibleCountEl.textContent = visible;
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCircles);
+  }
+})();
+</script>

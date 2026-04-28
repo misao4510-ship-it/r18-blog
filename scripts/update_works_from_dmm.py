@@ -45,6 +45,91 @@ VOICE_ACTRESS_WHITELIST = [
 ]
 
 
+# cmd_323u: サークルTOP50ホワイトリスト（販売数順・IDはItemList maker fieldから取得）
+CIRCLE_WHITELIST = [
+    {"name": "聖華快楽書店",       "id": 202464},
+    {"name": "巨乳大好き屋",       "id": 208729},
+    {"name": "かずたまそふと",     "id": 212223},
+    {"name": "にゅう工房",         "id": 29143},
+    {"name": "嘘つき屋",           "id": 28639},
+    {"name": "Deep；Dahlia",        "id": 78983},
+    {"name": "一億万軒茶屋",       "id": 77571},
+    {"name": "甘噛本舗",           "id": 206684},
+    {"name": "StudioSR",            "id": 210477},
+    {"name": "すいのせ",           "id": None},
+    {"name": "あまとろすいーつ",   "id": 204918},
+    {"name": "バーニング姉妹",     "id": 77552},
+    {"name": "パコラボ",           "id": None},
+    {"name": "種付け出版",         "id": None},
+    {"name": "初井つも",           "id": 77015},
+    {"name": "Maritozzo",           "id": 204485},
+    {"name": "フグタ家",           "id": 203156},
+    {"name": "よったんち",         "id": 73675},
+    {"name": "かみか堂",           "id": 25961},
+    {"name": "バタリンコちゃん",   "id": 206048},
+    {"name": "一番乳搾り",         "id": 211355},
+    {"name": "mamaya",              "id": 211163},
+    {"name": "生食デ腹壊ス民",     "id": 76116},
+    {"name": "人生横滑り",         "id": 77538},
+    {"name": "リンゴヤ",           "id": None},
+    {"name": "アウェイ田",         "id": 79536},
+    {"name": "漫画喫茶瀬戸（瀬戸涼子）", "id": 213086},
+    {"name": "すいーとみるく",     "id": 206558},
+    {"name": "うこんちゃん☆かんぱにぃ", "id": 208857},
+    {"name": "やまなし娘。",       "id": 75924},
+    {"name": "ご奉仕プレイ",       "id": None},
+    {"name": "陸の孤島亭",         "id": 78670},
+    {"name": "クリムゾン",         "id": 20002},
+    {"name": "パステル×トリップ",  "id": 204960},
+    {"name": "わさびどん",         "id": 206979},
+    {"name": "J〇ほんぽ",          "id": 203467},
+    {"name": "アトリエTODO",       "id": 204643},
+    {"name": "SigMart",             "id": 204379},
+    {"name": "okita",               "id": 210532},
+    {"name": "EsuEsu",              "id": None},
+    {"name": "M屋",                 "id": 206047},
+    {"name": "たつわの里",         "id": 206923},
+    {"name": "千本トリイ",         "id": 27131},
+    {"name": "三崎",               "id": 75698},
+    {"name": "星野竜一",           "id": 77263},
+    {"name": "新鮮搾りたて生牛乳", "id": None},
+    {"name": "Cior",                "id": 76956},
+    {"name": "箱舟",               "id": 28059},
+    {"name": "フリテン堂（仮）",   "id": 71149},
+    {"name": "まかろんシュガー",   "id": 72360},
+]
+
+
+def get_works_by_circles(hits_per_circle: int = 10) -> list:
+    """サークルTOP50ホワイトリストでdoujin作品補強取得（article=maker&article_id絞り込み、重複排除）"""
+    all_items = []
+    seen_cids: set[str] = set()
+    for circle in CIRCLE_WHITELIST:
+        if circle["id"] is None:
+            continue
+        try:
+            data = _request({
+                "site": "FANZA", "service": "doujin",
+                "floor": "digital_doujin",
+                "article": "maker", "article_id": str(circle["id"]),
+                "sort": "rank", "hits": hits_per_circle, "offset": 1,
+            })
+            items = data.get("result", {}).get("items", [])
+            added = 0
+            for item in items:
+                cid = item.get("content_id", "")
+                if cid and cid not in seen_cids:
+                    seen_cids.add(cid)
+                    mapped = _map_item_full(item, "doujin")
+                    mapped["circle"] = circle["name"]
+                    all_items.append(mapped)
+                    added += 1
+        except Exception as e:
+            log(f"[WARN] circle {circle['name']}: {e}")
+    log(f"circle whitelist: 合計{len(all_items)}件取得")
+    return all_items
+
+
 def get_voice_by_whitelist(hits_per_actress: int = 20) -> list:
     """声優TOP20ホワイトリストでASMR voice作品取得（keyword+genre:ASMR絞り込み、重複排除）。
     注: ActressSearch APIはFANZA video actress専用のためdoujin声優IDは取得不可。
@@ -137,10 +222,13 @@ def update_works() -> bool:
 
     # voice は声優TOP20ホワイトリスト方式で取得（cmd_323t）
     voice_items_raw = get_voice_by_whitelist(hits_per_actress=20)
+    # circle は サークルTOP50ホワイトリスト方式で取得（cmd_323u）
+    circle_items_raw = get_works_by_circles(hits_per_circle=10)
 
     for fetch_fn, category, pre_fetched in [
         (get_doujin, "doujin", None),
         (None,       "voice",  voice_items_raw),
+        (None,       "doujin", circle_items_raw),
     ]:
         exclude_ids = VOICE_EXCLUDE_GENRE_IDS if category == "voice" else EXCLUDE_GENRE_IDS
         if pre_fetched is not None:
@@ -171,6 +259,8 @@ def update_works() -> bool:
 
             if cid in existing_by_cid:
                 existing_by_cid[cid].update(sale_fields)
+                if item.get("circle"):
+                    existing_by_cid[cid]["circle"] = item["circle"]
                 updated_count += 1
             else:
                 new_entry = {
@@ -186,6 +276,8 @@ def update_works() -> bool:
                     "review_slug":  None,
                     **sale_fields,
                 }
+                if item.get("circle"):
+                    new_entry["circle"] = item["circle"]
                 works.append(new_entry)
                 existing_by_cid[cid] = new_entry
                 new_count += 1
