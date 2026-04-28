@@ -25,16 +25,25 @@ const updatedDate = new Date(rankingsData.updated_at).toLocaleString('ja-JP', {
   year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
 });
 
-function medalLabel(rank: number): string {
+function medalEmoji(rank: number): string {
   if (rank === 1) return '🥇';
   if (rank === 2) return '🥈';
   if (rank === 3) return '🥉';
-  return String(rank);
+  return '';
 }
 
-function isTop3(rank: number): boolean {
-  return rank < 4;
+function renderRankingList(items: RankItem[], listId: string, hidden: boolean) {
+  const top3 = items.filter(i => i.rank <= 3);
+  const rest  = items.filter(i => i.rank > 3);
+  return { top3, rest, listId, hidden };
 }
+
+const lists = [
+  renderRankingList(comicMonthly,  'list-comic_monthly',  false),
+  renderRankingList(comicDaily,    'list-comic_daily',    true),
+  renderRankingList(voiceMonthly,  'list-voice_monthly',  true),
+  renderRankingList(voiceDaily,    'list-voice_daily',    true),
+];
 ---
 
 <BaseLayout
@@ -60,139 +69,86 @@ function isTop3(rank: number): boolean {
       <button class="tab" data-period="daily">🆕 24時間TOP30</button>
     </div>
 
-    <!-- コミック月間 -->
-    <div class="ranking-list" id="list-comic_monthly" data-category="comic" data-period="monthly">
-      {comicMonthly.map(item => (
-        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
-          data-rank={item.rank}>
-          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
-            {medalLabel(item.rank)}
-          </div>
-          <div class="ranking-item__thumb">
-            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
-            {item.is_on_sale && item.discount_rate && (
-              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="ranking-item__body">
-            <div class="ranking-item__title">{item.title}</div>
-            <div class="ranking-item__price-row">
-              {item.is_on_sale && item.price_original && item.price_sale && (
-                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-              )}
-              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
-                ¥{(item.price_sale ?? item.price).toLocaleString()}
-              </span>
-            </div>
-            <div class="ranking-item__date">📅 {item.release_date}</div>
-          </div>
-          <div class="ranking-item__cta">FANZAで見る →</div>
-        </a>
-      ))}
-    </div>
+    {lists.map(({ top3, rest, listId, hidden }) => (
+      <div class="ranking-list" id={listId}
+        data-category={listId.replace('list-', '').replace(/_monthly|_daily/, '')}
+        data-period={listId.includes('monthly') ? 'monthly' : 'daily'}
+        style={hidden ? 'display:none' : ''}>
 
-    <!-- コミック24h -->
-    <div class="ranking-list" id="list-comic_daily" data-category="comic" data-period="daily" style="display:none">
-      {comicDaily.map(item => (
-        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
-          data-rank={item.rank}>
-          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
-            {medalLabel(item.rank)}
+        <!-- TOP3 グリッド -->
+        {top3.length > 0 && (
+          <div class="ranking-top3">
+            {top3.map(item => (
+              <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+                class="ranking-card ranking-card--top3"
+                data-rank={item.rank}>
+                <div class="card-img-wrap">
+                  <span class="medal-badge">{medalEmoji(item.rank)}</span>
+                  <img src={item.imageURL} alt={item.title} loading="lazy" />
+                  {item.is_on_sale && item.discount_rate && (
+                    <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+                  )}
+                </div>
+                <div class="card-body">
+                  <p class="card-rank">第{item.rank}位</p>
+                  <p class="card-title">{item.title}</p>
+                  <div class="card-price-row">
+                    {item.is_on_sale && item.price_original && item.price_sale ? (
+                      <>
+                        <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+                        <span class="price-sale">¥{item.price_sale.toLocaleString()}</span>
+                      </>
+                    ) : (
+                      <span class="price-normal">¥{item.price.toLocaleString()}</span>
+                    )}
+                  </div>
+                  <span class="fanza-btn">✨ FANZAで購入</span>
+                </div>
+              </a>
+            ))}
           </div>
-          <div class="ranking-item__thumb">
-            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
-            {item.is_on_sale && item.discount_rate && (
-              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="ranking-item__body">
-            <div class="ranking-item__title">{item.title}</div>
-            <div class="ranking-item__price-row">
-              {item.is_on_sale && item.price_original && item.price_sale && (
-                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-              )}
-              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
-                ¥{(item.price_sale ?? item.price).toLocaleString()}
-              </span>
-            </div>
-            <div class="ranking-item__date">📅 {item.release_date}</div>
-          </div>
-          <div class="ranking-item__cta">FANZAで見る →</div>
-        </a>
-      ))}
-    </div>
+        )}
 
-    <!-- ボイス月間 -->
-    <div class="ranking-list" id="list-voice_monthly" data-category="voice" data-period="monthly" style="display:none">
-      {voiceMonthly.map(item => (
-        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
-          data-rank={item.rank}>
-          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
-            {medalLabel(item.rank)}
+        <!-- 4位以下 グリッド -->
+        {rest.length > 0 && (
+          <div class="ranking-grid">
+            {rest.map(item => (
+              <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+                class="ranking-card"
+                data-rank={item.rank}>
+                <div class="card-img-wrap">
+                  <span class="rank-num-badge">{item.rank}位</span>
+                  <img src={item.imageURL} alt={item.title} loading="lazy" />
+                  {item.is_on_sale && item.discount_rate && (
+                    <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+                  )}
+                </div>
+                <div class="card-body">
+                  <p class="card-title card-title--sm">{item.title}</p>
+                  <div class="card-price-row">
+                    {item.is_on_sale && item.price_original && item.price_sale ? (
+                      <>
+                        <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+                        <span class="price-sale">¥{item.price_sale.toLocaleString()}</span>
+                      </>
+                    ) : (
+                      <span class="price-normal">¥{item.price.toLocaleString()}</span>
+                    )}
+                  </div>
+                  <span class="fanza-btn fanza-btn--sm">FANZAで見る →</span>
+                </div>
+              </a>
+            ))}
           </div>
-          <div class="ranking-item__thumb">
-            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
-            {item.is_on_sale && item.discount_rate && (
-              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="ranking-item__body">
-            <div class="ranking-item__title">{item.title}</div>
-            <div class="ranking-item__price-row">
-              {item.is_on_sale && item.price_original && item.price_sale && (
-                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-              )}
-              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
-                ¥{(item.price_sale ?? item.price).toLocaleString()}
-              </span>
-            </div>
-            <div class="ranking-item__date">📅 {item.release_date}</div>
-          </div>
-          <div class="ranking-item__cta">FANZAで見る →</div>
-        </a>
-      ))}
-    </div>
-
-    <!-- ボイス24h -->
-    <div class="ranking-list" id="list-voice_daily" data-category="voice" data-period="daily" style="display:none">
-      {voiceDaily.map(item => (
-        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
-          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
-          data-rank={item.rank}>
-          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
-            {medalLabel(item.rank)}
-          </div>
-          <div class="ranking-item__thumb">
-            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
-            {item.is_on_sale && item.discount_rate && (
-              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="ranking-item__body">
-            <div class="ranking-item__title">{item.title}</div>
-            <div class="ranking-item__price-row">
-              {item.is_on_sale && item.price_original && item.price_sale && (
-                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
-              )}
-              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
-                ¥{(item.price_sale ?? item.price).toLocaleString()}
-              </span>
-            </div>
-            <div class="ranking-item__date">📅 {item.release_date}</div>
-          </div>
-          <div class="ranking-item__cta">FANZAで見る →</div>
-        </a>
-      ))}
-    </div>
+        )}
+      </div>
+    ))}
   </div>
 
   <style>
     .ranking-page {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .ranking-header {
@@ -236,109 +192,165 @@ function isTop3(rank: number): boolean {
       color: var(--color-accent);
     }
 
-    .ranking-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .ranking-item {
-      display: flex;
-      align-items: center;
+    /* TOP3 グリッド */
+    .ranking-top3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* 4位以下 グリッド */
+    .ranking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    /* カード共通 */
+    .ranking-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
       text-decoration: none;
       color: var(--color-text);
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
-    .ranking-item:hover {
-      background: var(--color-surface-raised);
+    .ranking-card:hover {
+      transform: scale(1.03);
       border-color: var(--color-accent);
-      transform: translateX(3px);
+      box-shadow: 0 4px 16px rgba(224, 64, 251, 0.25);
       text-decoration: none;
       color: var(--color-text);
     }
-    .ranking-item--top3 {
-      border-width: 2px;
-    }
-    .ranking-item[data-rank="1"] { border-color: #ffd700; }
-    .ranking-item[data-rank="2"] { border-color: #c0c0c0; }
-    .ranking-item[data-rank="3"] { border-color: #cd7f32; }
+    .ranking-card--top3[data-rank="1"] { border-color: #ffd700; border-width: 2px; }
+    .ranking-card--top3[data-rank="2"] { border-color: #c0c0c0; border-width: 2px; }
+    .ranking-card--top3[data-rank="3"] { border-color: #cd7f32; border-width: 2px; }
 
-    .rank-badge {
-      min-width: 2.2rem;
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--color-text-muted);
+    /* 画像ラッパー */
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* メダルバッジ（TOP3） */
+    .medal-badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 2.2rem;
+      z-index: 10;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.85));
       line-height: 1;
     }
-    .rank-badge--1, .rank-badge--2, .rank-badge--3 {
-      font-size: 1.8rem;
+
+    /* 順位バッジ（4位以下） */
+    .rank-num-badge {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: rgba(20, 0, 30, 0.78);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 900;
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+      z-index: 10;
     }
 
-    .ranking-item__thumb {
-      position: relative;
-      flex-shrink: 0;
-      width: 60px;
-    }
-    .ranking-item__thumb img {
-      width: 60px;
-      height: 84px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
+    /* セールバッジ */
     .sale-badge {
       position: absolute;
-      top: -4px;
-      left: -4px;
+      top: 6px;
+      right: 6px;
       background: linear-gradient(135deg, #ff4500, #ff8c00);
       color: #fff;
       font-size: 0.65rem;
       font-weight: 900;
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
+      padding: 0.15rem 0.4rem;
+      border-radius: 5px;
+      z-index: 10;
     }
 
-    .ranking-item__body {
+    /* カード本文 */
+    .card-body {
+      padding: 0.6rem 0.7rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
       flex: 1;
-      min-width: 0;
     }
-    .ranking-item__title {
-      font-size: 0.9rem;
+    .card-rank {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 0;
+    }
+    .card-title {
+      font-size: 0.88rem;
       font-weight: 700;
       line-height: 1.4;
+      margin: 0;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      margin-bottom: 0.3rem;
     }
-    .ranking-item__price-row {
+    .card-title--sm {
+      font-size: 0.82rem;
+      -webkit-line-clamp: 2;
+    }
+    .card-price-row {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
     }
-    .price-normal { font-size: 0.95rem; font-weight: 900; color: #ff4d8d; }
-    .price-orig { font-size: 0.78rem; color: var(--color-text-muted); text-decoration: line-through; }
-    .price-sale { font-size: 0.95rem; font-weight: 900; color: #ff4500; }
-    .ranking-item__date { font-size: 0.75rem; color: var(--color-text-muted); }
+    .price-normal { font-size: 0.9rem; font-weight: 900; color: #ff4d8d; }
+    .price-orig   { font-size: 0.76rem; color: var(--color-text-muted); text-decoration: line-through; }
+    .price-sale   { font-size: 0.9rem; font-weight: 900; color: #ff4500; }
 
-    .ranking-item__cta {
-      flex-shrink: 0;
-      font-size: 0.78rem;
+    .fanza-btn {
+      display: block;
+      background: linear-gradient(135deg, #ff4d8d, #e040fb);
+      color: #fff;
+      text-align: center;
+      padding: 0.55rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: var(--color-accent);
-      white-space: nowrap;
+      margin-top: auto;
+      transition: opacity 0.15s;
+    }
+    .fanza-btn:hover { opacity: 0.88; }
+    .fanza-btn--sm {
+      padding: 0.45rem 0.4rem;
+      font-size: 0.76rem;
     }
 
-    @media (max-width: 480px) {
-      .ranking-item { padding: 0.6rem 0.75rem; gap: 0.6rem; }
-      .ranking-item__cta { display: none; }
-      .ranking-item__title { font-size: 0.82rem; }
+    /* モバイル：1列 */
+    @media (max-width: 640px) {
+      .ranking-top3,
+      .ranking-grid {
+        grid-template-columns: 1fr;
+      }
+      .ranking-card img {
+        aspect-ratio: 2 / 3;
+        max-width: 90vw;
+        margin: 0 auto;
+      }
+      .medal-badge { font-size: 1.8rem; }
     }
   </style>
 
@@ -353,7 +365,7 @@ function isTop3(rank: number): boolean {
       function showList() {
         var targetId = 'list-' + currentCategory + '_' + currentPeriod;
         lists.forEach(function(list) {
-          list.style.display = list.id === targetId ? 'flex' : 'none';
+          list.style.display = list.id === targetId ? 'block' : 'none';
         });
       }
 
