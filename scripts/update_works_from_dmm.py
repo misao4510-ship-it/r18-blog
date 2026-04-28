@@ -26,6 +26,9 @@ from dmm_api_client import get_doujin, get_voice
 PROJECT_ROOT = Path(__file__).parent.parent
 WORKS_JSON = PROJECT_ROOT / "data" / "works.json"
 
+# 女性向け除外ジャンルID (GenreSearch floor_id=81 で特定: 乙女受け/乙女向け/女性向け/BL/百合/レズビアン)
+EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
+
 
 def log(msg: str):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -96,6 +99,11 @@ def update_works() -> bool:
             if not cid:
                 continue
 
+            # 女性向けジャンル除外: genre_ids が空なら通過（ジャンル情報なし作品は除外しない）
+            item_genre_ids = item.get("genre_ids", [])
+            if item_genre_ids and EXCLUDE_GENRE_IDS.intersection(item_genre_ids):
+                continue
+
             sale_fields = {
                 "category":       item["category"],
                 "price_original": item["price_original"],
@@ -157,7 +165,7 @@ def build_and_deploy() -> bool:
 
     run(
         "git -C /home/misao/r18-blog add -A && "
-        'git -C /home/misao/r18-blog commit -m "cmd_323e: 書籍除去・rank人気順・600件・ジャンルUI撤去・セールCTA" && '
+        'git -C /home/misao/r18-blog commit -m "cmd_323f: 男性向け同人絞り込み（BL/GL/女性向け除外）" && '
         "git -C /home/misao/r18-blog push origin main"
     )
     return True

@@ -180,6 +180,9 @@ def _map_item_full(item: dict, category: str) -> dict:
     pi = _parse_prices_full(prices)
     img = item.get("imageURL", {})
     date_str = item.get("date", "")
+    info = item.get("iteminfo", {})
+    genres_raw = info.get("genre", []) or []
+    genre_ids = [int(g["id"]) for g in genres_raw if isinstance(g, dict) and "id" in g]
     return {
         "content_id":     item.get("content_id", ""),
         "title":          item.get("title", ""),
@@ -192,6 +195,7 @@ def _map_item_full(item: dict, category: str) -> dict:
         "discount_rate":  pi["discount_rate"],
         "sale_end_date":  None,
         "is_on_sale":     pi["is_on_sale"],
+        "genre_ids":      genre_ids,
     }
 
 
