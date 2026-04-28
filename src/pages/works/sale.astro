@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import worksData from '../../../data/works.json';
+
+const allWorks = worksData.works;
+const saleWorks = allWorks.filter(w => w.is_on_sale);
+const under100 = saleWorks.filter(w => (w.price_sale ?? w.price) <= 100).sort((a, b) => (a.price_sale ?? a.price) - (b.price_sale ?? b.price));
+const under500 = saleWorks.filter(w => (w.price_sale ?? w.price) <= 500).sort((a, b) => (a.price_sale ?? a.price) - (b.price_sale ?? b.price));
+const halfOff  = saleWorks.filter(w => (w.discount_rate ?? 0) >= 50).sort((a, b) => (b.discount_rate ?? 0) - (a.discount_rate ?? 0));
+const allSale  = [...saleWorks].sort((a, b) => (a.price_sale ?? a.price) - (b.price_sale ?? b.price));
+
+type Work = typeof allWorks[number];
+
+function saleItems(works: Work[]) {
+  return works;
+}
+---
+
+<BaseLayout
+  title="セール作品一覧 | 月灯の書架"
+  description={`現在${saleWorks.length}件がセール中！100円以下・ワンコイン・半額以下など価格帯別にFANZA同人作品を探せます。`}
+  yukineVariant="works"
+>
+  <div class="container sale-page">
+    <div class="sale-header">
+      <h1>💰 セール作品</h1>
+      <p class="sale-sub">お得な作品を価格帯別で探そう</p>
+    </div>
+
+    <!-- 価格帯タブ -->
+    <div class="tab-group" id="price-tabs" role="tablist">
+      <button class="tab active" data-tab="under100" role="tab" aria-selected="true">
+        🪙 100円以下
+        <span class="tab-count">{under100.length}件</span>
+      </button>
+      <button class="tab" data-tab="under500" role="tab" aria-selected="false">
+        💰 ワンコイン〜500円
+        <span class="tab-count">{under500.length}件</span>
+      </button>
+      <button class="tab" data-tab="half" role="tab" aria-selected="false">
+        🔥 半額以下
+        <span class="tab-count">{halfOff.length}件</span>
+      </button>
+      <button class="tab" data-tab="all" role="tab" aria-selected="false">
+        🎯 全セール
+        <span class="tab-count">{allSale.length}件</span>
+      </button>
+    </div>
+
+    <!-- 100円以下 -->
+    <div class="sale-list" id="tab-under100">
+      {saleItems(under100).map(w => (
+        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
+          <div class="sale-item__thumb">
+            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
+            {w.discount_rate && w.discount_rate > 0 && (
+              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="sale-item__body">
+            <div class="sale-item__title">{w.title}</div>
+            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
+            <div class="sale-item__price-row">
+              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
+                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
+              )}
+              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
+              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
+            </div>
+          </div>
+          <div class="sale-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+      {under100.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
+    </div>
+
+    <!-- ワンコイン〜500円 -->
+    <div class="sale-list" id="tab-under500" style="display:none">
+      {saleItems(under500).map(w => (
+        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
+          <div class="sale-item__thumb">
+            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
+            {w.discount_rate && w.discount_rate > 0 && (
+              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="sale-item__body">
+            <div class="sale-item__title">{w.title}</div>
+            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
+            <div class="sale-item__price-row">
+              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
+                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
+              )}
+              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
+              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
+            </div>
+          </div>
+          <div class="sale-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+      {under500.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
+    </div>
+
+    <!-- 半額以下 -->
+    <div class="sale-list" id="tab-half" style="display:none">
+      {saleItems(halfOff).map(w => (
+        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
+          <div class="sale-item__thumb">
+            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
+            {w.discount_rate && w.discount_rate > 0 && (
+              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="sale-item__body">
+            <div class="sale-item__title">{w.title}</div>
+            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
+            <div class="sale-item__price-row">
+              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
+                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
+              )}
+              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
+              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
+            </div>
+          </div>
+          <div class="sale-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+      {halfOff.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
+    </div>
+
+    <!-- 全セール -->
+    <div class="sale-list" id="tab-all" style="display:none">
+      {saleItems(allSale).map(w => (
+        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
+          <div class="sale-item__thumb">
+            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
+            {w.discount_rate && w.discount_rate > 0 && (
+              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="sale-item__body">
+            <div class="sale-item__title">{w.title}</div>
+            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
+            <div class="sale-item__price-row">
+              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
+                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
+              )}
+              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
+              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
+            </div>
+          </div>
+          <div class="sale-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+      {allSale.length === 0 && <p class="sale-empty">現在セール中の作品はありません</p>}
+    </div>
+  </div>
+
+  <style>
+    .sale-page {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .sale-header {
+      margin-bottom: 1.5rem;
+    }
+    .sale-header h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--color-text);
+      margin-bottom: 0.3rem;
+    }
+    .sale-sub {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .tab.active {
+      background: linear-gradient(135deg, #e040fb, #ff4d8d);
+      color: #fff;
+      border-color: transparent;
+    }
+    .tab:hover:not(.active) {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    .tab-count {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    .sale-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .sale-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .sale-item:hover {
+      background: var(--color-surface-raised);
+      border-color: var(--color-accent);
+      transform: translateX(3px);
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    .sale-item__thumb {
+      position: relative;
+      flex-shrink: 0;
+      width: 60px;
+    }
+    .sale-item__thumb img {
+      width: 60px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .sale-badge {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      background: linear-gradient(135deg, #ff4500, #ff8c00);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 900;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .sale-item__body {
+      flex: 1;
+      min-width: 0;
+    }
+    .sale-item__title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.25rem;
+    }
+    .sale-item__author {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .sale-item__price-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .price-orig {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+    .price-sale {
+      font-size: 1rem;
+      font-weight: 900;
+      color: #ff4500;
+    }
+    .sale-item__cat {
+      font-size: 0.85rem;
+      margin-left: 0.2rem;
+    }
+
+    .sale-item__cta {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+
+    .sale-empty {
+      text-align: center;
+      color: var(--color-text-muted);
+      padding: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      .sale-item { padding: 0.6rem 0.75rem; gap: 0.6rem; }
+      .sale-item__cta { display: none; }
+      .sale-item__title { font-size: 0.82rem; }
+      .tab { font-size: 0.78rem; padding: 0.4rem 0.75rem; }
+    }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var tabs = document.querySelectorAll('#price-tabs .tab');
+      var lists = document.querySelectorAll('.sale-list');
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var target = tab.dataset.tab;
+          tabs.forEach(function(t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          lists.forEach(function(list) {
+            list.style.display = list.id === 'tab-' + target ? 'flex' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
