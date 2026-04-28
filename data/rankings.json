@@ -379,16 +379,16 @@
     },
     {
       "rank": 30,
-      "id": "d_753082",
-      "title": "妻達は今、海外にいます  前編",
-      "price": 693,
-      "price_original": 990,
-      "price_sale": 693,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_753082/d_753082pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753082%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-21"
+      "id": "d_738506",
+      "title": "姉弟でシたらいけません",
+      "price": 1980,
+      "price_original": 1980,
+      "price_sale": 1980,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_738506/d_738506pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_738506%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-28"
     }
   ],
   "comic_daily": [
@@ -771,16 +771,16 @@
     },
     {
       "rank": 30,
-      "id": "d_753082",
-      "title": "妻達は今、海外にいます  前編",
-      "price": 693,
-      "price_original": 990,
-      "price_sale": 693,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_753082/d_753082pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753082%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-21"
+      "id": "d_738506",
+      "title": "姉弟でシたらいけません",
+      "price": 1980,
+      "price_original": 1980,
+      "price_sale": 1980,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_738506/d_738506pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_738506%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-28"
     }
   ],
   "voice_monthly": [
@@ -1567,5 +1567,5 @@
       "release_date": "2026-04-25"
     }
   ],
-  "updated_at": "2026-04-28T18:17:59.337082+09:00"
+  "updated_at": "2026-04-28T18:31:08.784806+09:00"
 }

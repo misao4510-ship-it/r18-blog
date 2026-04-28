@@ -163,6 +163,28 @@ CIRCLE_WHITELIST = [
     {"name": "ごさいじ",           "id": None},
     {"name": "ぼるしち",           "id": None},
     {"name": "ろうか",             "id": 205030},
+    # cmd_323u 追加指示6+7+最終 (2026-04-28)
+    # 指示6 (9件)
+    {"name": "文哉",               "id": None},
+    {"name": "砂漠",               "id": None},
+    {"name": "丸居まる",           "id": None},
+    {"name": "まめぞう",           "id": None},
+    {"name": "史鬼匠人",           "id": None},
+    {"name": "ももこ",             "id": None},
+    {"name": "みちきんぐ",         "id": None},
+    {"name": "くまっこ",           "id": None},
+    {"name": "こーり",             "id": None},
+    # 指示7 (7件)
+    {"name": "餅田こゆび",         "id": None},
+    {"name": "蛸田こぬ",           "id": None},
+    {"name": "阿賀まりの",         "id": None},
+    {"name": "ビフィダス",         "id": None},
+    {"name": "ギリギリ舞",         "id": None},
+    {"name": "花兄けい",           "id": None},
+    {"name": "湊ゆう",             "id": None},
+    # 最終2件
+    {"name": "kakao",              "id": None},
+    {"name": "DATE",               "id": None},
 ]
 
 
