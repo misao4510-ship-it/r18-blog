@@ -24,11 +24,19 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       <p class="works-header__sub">全 <span id="result-count">{totalCount}</span> 件 / {totalCount}件中</p>
     </div>
 
+    <!-- セールCTA -->
+    {saleCount > 0 && (
+      <div class="sale-cta">
+        <button class="sale-cta-btn" onclick="document.querySelector('[data-cat=sale]').click()">
+          🔥 SALE中 {saleCount}件を見る
+        </button>
+      </div>
+    )}
+
     <!-- カテゴリタブ -->
     <div class="category-tabs" id="category-tabs">
       <button class="category-tab active" data-cat="">全て</button>
       <button class="category-tab" data-cat="doujin">同人</button>
-      <button class="category-tab" data-cat="adult_book">書籍</button>
       <button class="category-tab" data-cat="voice">ボイス</button>
       {saleCount > 0 && (
         <button class="category-tab category-tab--sale" data-cat="sale">🔥 セール中 <span class="sale-count">{saleCount}</span></button>
@@ -88,20 +96,6 @@ const saleCount = works.filter(w => w.is_on_sale).length;
         </div>
       </div>
 
-      <!-- ジャンルチェックボックス -->
-      <div class="filter-row">
-        <div class="filter-group filter-group--wide">
-          <label class="filter-label">🏷 ジャンル</label>
-          <div class="genre-checks" id="genre-checks">
-            {allGenres.map(g => (
-              <label class="genre-check-label">
-                <input type="checkbox" class="genre-check" value={g} /> {g}
-              </label>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <button id="filter-reset" class="filter-reset-btn">フィルタをリセット</button>
     </div>
 
@@ -132,7 +126,6 @@ const saleCount = works.filter(w => w.is_on_sale).length;
     author: '',
     priceMin: priceMin,
     priceMax: priceMax,
-    genres: [],
     sort: 'date-desc',
     category: ''
   };
@@ -147,11 +140,6 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       // 価格
       var wPrice = w.price_sale || w.price || 0;
       if (wPrice < state.priceMin || wPrice > state.priceMax) return false;
-      // ジャンル
-      if (state.genres.length > 0) {
-        var hasAll = state.genres.every(function(g) { return (w.genres||[]).includes(g); });
-        if (!hasAll) return false;
-      }
       // カテゴリ
       if (state.category === 'sale') {
         if (!w.is_on_sale) return false;
@@ -229,26 +217,14 @@ const saleCount = works.filter(w => w.is_on_sale).length;
     applyFilters();
   });
 
-  document.querySelectorAll('.genre-check').forEach(function(cb) {
-    cb.addEventListener('change', function() {
-      if (this.checked) {
-        state.genres.push(this.value);
-      } else {
-        state.genres = state.genres.filter(function(g) { return g !== this.value; }.bind(this));
-      }
-      applyFilters();
-    });
-  });
-
   var resetBtn = document.getElementById('filter-reset');
   if (resetBtn) resetBtn.addEventListener('click', function() {
-    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, genres: [], sort: 'date-desc', category: '' };
+    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, sort: 'date-desc', category: '' };
     if (searchInput) searchInput.value = '';
     if (authorSelect) authorSelect.value = '';
     if (sortSelect) sortSelect.value = 'date-desc';
     if (priceMinInput) { priceMinInput.value = priceMin; if (priceMinDisplay) priceMinDisplay.textContent = priceMin.toLocaleString(); }
     if (priceMaxInput) { priceMaxInput.value = priceMax; if (priceMaxDisplay) priceMaxDisplay.textContent = priceMax.toLocaleString(); }
-    document.querySelectorAll('.genre-check').forEach(function(cb) { cb.checked = false; });
     document.querySelectorAll('.category-tab').forEach(function(btn) { btn.classList.remove('active'); });
     var allTab = document.querySelector('.category-tab[data-cat=""]');
     if (allTab) allTab.classList.add('active');
@@ -268,6 +244,24 @@ const saleCount = works.filter(w => w.is_on_sale).length;
 </script>
 
 <style>
+.sale-cta {
+  margin-bottom: 1rem;
+}
+.sale-cta-btn {
+  background: linear-gradient(135deg, #ff4500, #ff6a00);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(255,69,0,0.35);
+  transition: opacity 0.15s, transform 0.1s;
+}
+.sale-cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
 .works-header {
   margin-bottom: 1.5rem;
 }
@@ -385,30 +379,6 @@ const saleCount = works.filter(w => w.is_on_sale).length;
 .price-label { font-size: 0.85rem; color: var(--color-text); white-space: nowrap; }
 .price-sep { color: var(--color-text-muted); }
 
-.genre-checks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.genre-check-label {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  padding: 0.25rem 0.6rem;
-  border-radius: 20px;
-  transition: border-color 0.15s, background 0.15s;
-}
-.genre-check-label:hover { border-color: var(--color-accent); }
-.genre-check-label:has(.genre-check:checked) {
-  background: rgba(224, 64, 251, 0.15);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-.genre-check { accent-color: var(--color-accent); }
 
 .filter-reset-btn {
   align-self: flex-start;

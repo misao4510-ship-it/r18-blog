@@ -195,31 +195,21 @@ def _map_item_full(item: dict, category: str) -> dict:
     }
 
 
-def get_doujin(hits: int = 50) -> list:
-    """同人カテゴリ新着作品を取得（service=doujin, floor=digital_doujin）"""
+def get_doujin(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
+    """同人カテゴリ人気順作品を取得（service=doujin, floor=digital_doujin）"""
     data = _request({
         "site": _DEFAULT_SITE, "service": "doujin",
-        "floor": "digital_doujin", "sort": "date", "hits": hits,
+        "floor": "digital_doujin", "sort": sort, "hits": hits, "offset": offset,
     })
     return [_map_item_full(i, "doujin") for i in data.get("result", {}).get("items", [])]
 
 
-def get_adult_book(hits: int = 50) -> list:
-    """成人向けコミックカテゴリ新着作品を取得（FANZAブックス/コミック）"""
-    data = _request({
-        "site": _DEFAULT_SITE, "service": "ebook",
-        "floor": "comic", "sort": "date", "hits": hits,
-    })
-    return [_map_item_full(i, "adult_book") for i in data.get("result", {}).get("items", [])]
-
-
-def get_voice(hits: int = 50) -> list:
-    """ボイス・ASMRカテゴリ新着作品を取得（doujin_bl/doujin_tl含む試行）"""
-    # FANZAにボイス専用フロアは存在しないため doujin_tl フロアで代替
+def get_voice(hits: int = 100, offset: int = 1, sort: str = "rank") -> list:
+    """ボイス・ASMRカテゴリ人気順作品を取得（doujin_tl フロア）"""
     try:
         data = _request({
             "site": _DEFAULT_SITE, "service": "doujin",
-            "floor": "digital_doujin_tl", "sort": "date", "hits": hits,
+            "floor": "digital_doujin_tl", "sort": sort, "hits": hits, "offset": offset,
         })
         return [_map_item_full(i, "voice") for i in data.get("result", {}).get("items", [])]
     except Exception:

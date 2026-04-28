@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-DMM API 3カテゴリ取得 → works.json 自動更新 → build & deploy
+DMM API 2カテゴリ取得 → works.json 自動更新 → build & deploy
 
 処理:
-  1. doujin / adult_book / voice 各 50 件を DMM API から取得
-  2. 既存 works.json と content_id でマージ（review_slug / fanza_link は保持）
-  3. 新着エントリを追加（review_slug=null）
-  4. 変更があれば npm run build → wrangler deploy → git push
+  1. doujin / voice 各 300 件を sort=rank（人気順）で DMM API から取得
+     （hits=100 × offset 3ページで計300件）
+  2. 既存 works.json から adult_book・dsample-* を除外
+  3. 既存 doujin/voice エントリと content_id でマージ（review_slug / fanza_link は保持）
+  4. 変更があれば npm run build → wrangler deploy (--branch=main) → git push
 
 使い方:
   python3 scripts/update_works_from_dmm.py
@@ -20,7 +21,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from dmm_api_client import get_doujin, get_adult_book, get_voice
+from dmm_api_client import get_doujin, get_voice
 
 PROJECT_ROOT = Path(__file__).parent.parent
 WORKS_JSON = PROJECT_ROOT / "data" / "works.json"
@@ -46,6 +47,22 @@ def run(cmd: str) -> bool:
     return r.returncode == 0
 
 
+def fetch_category_300(fetch_fn, category: str) -> list:
+    """hits=100 × 3ページ（offset 1/101/201）で最大300件取得"""
+    items = []
+    for page_offset in [0, 100, 200]:
+        try:
+            batch = fetch_fn(hits=100, offset=page_offset + 1, sort="rank")
+            log(f"{category} offset={page_offset+1}: {len(batch)} 件取得")
+            items.extend(batch)
+            if len(batch) < 100:
+                break
+        except Exception as e:
+            log(f"[WARN] {category} offset={page_offset+1} 取得失敗: {e}")
+            break
+    return items
+
+
 def update_works() -> bool:
     if WORKS_JSON.exists():
         with open(WORKS_JSON) as f:
@@ -55,25 +72,24 @@ def update_works() -> bool:
 
     works = data["works"]
 
-    # Build index by content_id (dsample- エントリはスキップ)
-    existing_by_cid: dict = {
-        w["id"]: w for w in works if not w.get("id", "").startswith("dsample")
-    }
+    # adult_book・dsample-* を除外してクリーンな既存エントリ一覧を作成
+    works = [
+        w for w in works
+        if w.get("category", "doujin") != "adult_book"
+        and not w.get("id", "").startswith("dsample")
+    ]
+
+    existing_by_cid: dict = {w["id"]: w for w in works}
 
     new_count = 0
     updated_count = 0
 
     for fetch_fn, category in [
-        (get_doujin,     "doujin"),
-        (get_adult_book, "adult_book"),
-        (get_voice,      "voice"),
+        (get_doujin, "doujin"),
+        (get_voice,  "voice"),
     ]:
-        try:
-            items = fetch_fn(hits=50)
-            log(f"{category}: {len(items)} 件取得")
-        except Exception as e:
-            log(f"[WARN] {category} 取得失敗: {e}")
-            items = []
+        items = fetch_category_300(fetch_fn, category)
+        log(f"{category}: 合計 {len(items)} 件")
 
         for item in items:
             cid = item.get("content_id", "")
@@ -110,7 +126,7 @@ def update_works() -> bool:
                 existing_by_cid[cid] = new_entry
                 new_count += 1
 
-    # 既存エントリに新フィールドのデフォルト値を保証
+    # 既存エントリのデフォルト値保証
     for w in works:
         w.setdefault("category",       "doujin")
         w.setdefault("price_original", None)
@@ -123,7 +139,8 @@ def update_works() -> bool:
     with open(WORKS_JSON, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    log(f"works.json 更新完了: +{new_count} 新規, {updated_count} 更新, 合計 {len(works)} 件")
+    sale_count = sum(1 for w in works if w.get("is_on_sale"))
+    log(f"works.json 更新完了: +{new_count} 新規, {updated_count} 更新, 合計 {len(works)} 件, セール {sale_count} 件")
     return new_count + updated_count > 0
 
 
@@ -134,13 +151,13 @@ def build_and_deploy() -> bool:
         return False
 
     log("=== deploy 開始 ===")
-    if not run("source ~/.nvm/nvm.sh && nvm use 22 && npx wrangler pages deploy dist --project-name=r18-blog"):
+    if not run("source ~/.nvm/nvm.sh && nvm use 22 && npx wrangler pages deploy dist --project-name=r18-blog --branch=main"):
         log("[ERROR] deploy 失敗")
         return False
 
     run(
         "git -C /home/misao/r18-blog add -A && "
-        'git -C /home/misao/r18-blog commit -m "chore: update works.json from DMM API" && '
+        'git -C /home/misao/r18-blog commit -m "cmd_323e: 書籍除去・rank人気順・600件・ジャンルUI撤去・セールCTA" && '
         "git -C /home/misao/r18-blog push origin main"
     )
     return True
