@@ -29,10 +29,13 @@ PROJECT_ROOT = Path(__file__).parent.parent
 WORKS_JSON = PROJECT_ROOT / "data" / "works.json"
 RANKINGS_JSON = PROJECT_ROOT / "data" / "rankings.json"
 
-# 女性向け/BL除外ジャンルID
-# doujin floor (digital_doujin): 乙女受け/乙女向け/女性向け/BL/百合/レズビアン
-# voice floor (digital_doujin_tl): 上記に加え 男性受け(160064) を追加 (cmd_323l)
-EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013, 160064}
+# doujin floor (digital_doujin) 除外ジャンルID: 乙女受け/乙女向け/女性向け/BL/百合/レズビアン
+EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
+
+# voice floor (digital_doujin_tl) 除外ジャンルID: BL/百合/レズビアンのみ
+# digital_doujin_tl は TL（ティーンズラブ）フロアで全件 156006(女性向け) が付くため
+# 女性向け系IDを除外すると全件0件になる。BL系のみ最小限除外する。
+VOICE_EXCLUDE_GENRE_IDS: set[int] = {558, 153030, 4013}
 
 
 def log(msg: str):
@@ -97,6 +100,8 @@ def update_works() -> bool:
         (get_doujin, "doujin"),
         (get_voice,  "voice"),
     ]:
+        # voiceはdigital_doujin_tl（TL）フロアのため女性向け除外なし、BLのみ除外
+        exclude_ids = VOICE_EXCLUDE_GENRE_IDS if category == "voice" else EXCLUDE_GENRE_IDS
         items = fetch_category_300(fetch_fn, category)
         log(f"{category}: 合計 {len(items)} 件")
 
@@ -105,9 +110,9 @@ def update_works() -> bool:
             if not cid:
                 continue
 
-            # 女性向け/BLジャンル除外: genre_ids が空なら通過（ジャンル情報なし作品は除外しない）
+            # ジャンル除外: genre_ids が空なら通過（ジャンル情報なし作品は除外しない）
             item_genre_ids = item.get("genre_ids", [])
-            if item_genre_ids and EXCLUDE_GENRE_IDS.intersection(item_genre_ids):
+            if item_genre_ids and exclude_ids.intersection(item_genre_ids):
                 excluded_cids.add(cid)  # works.json から削除対象としてマーク
                 continue
 
@@ -201,8 +206,13 @@ def _parse_ranking_item(item: dict, rank: int) -> dict:
     }
 
 
+VOICE_RANKING_FLOOR = "digital_doujin_tl"
+
+
 def _fetch_ranking_raw(floor: str, hits: int = 30, gte_date: str = None) -> list:
     """_request 直接使用でランキング取得（raw DMM APIレスポンスアイテム）。BL/女性向け除外フィルタ適用。"""
+    # voiceフロア(digital_doujin_tl)はTL全件156006(女性向け)のためBL除外のみ適用
+    exclude_ids = VOICE_EXCLUDE_GENRE_IDS if floor == VOICE_RANKING_FLOOR else EXCLUDE_GENRE_IDS
     api_hits = hits if gte_date else min(hits * 3, 90)  # gte_date使用時はhitsをそのまま使用（API制限回避）
     params = {
         "site": "FANZA", "service": "doujin",
@@ -213,13 +223,13 @@ def _fetch_ranking_raw(floor: str, hits: int = 30, gte_date: str = None) -> list
     try:
         data = _request(params)
         items = data.get("result", {}).get("items", [])
-        # BL/女性向け除外フィルタ
+        # ジャンル除外フィルタ
         filtered = []
         for item in items:
             info = item.get("iteminfo", {})
             genres_raw = info.get("genre", []) or []
             genre_ids = {int(g["id"]) for g in genres_raw if isinstance(g, dict) and "id" in g}
-            if genre_ids and EXCLUDE_GENRE_IDS.intersection(genre_ids):
+            if genre_ids and exclude_ids.intersection(genre_ids):
                 continue
             filtered.append(item)
         return [_parse_ranking_item(item, i+1) for i, item in enumerate(filtered[:hits])]
