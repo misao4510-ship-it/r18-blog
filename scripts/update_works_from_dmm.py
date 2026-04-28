@@ -46,6 +46,8 @@ VOICE_ACTRESS_WHITELIST = [
 
 
 # cmd_323u: サークルTOP50ホワイトリスト（販売数順・IDはItemList maker fieldから取得）
+MAX_WORKS = 500  # works.json 最大件数
+
 CIRCLE_WHITELIST = [
     {"name": "聖華快楽書店",       "id": 202464},
     {"name": "巨乳大好き屋",       "id": 208729},
@@ -255,6 +257,41 @@ def get_voice_by_whitelist(hits_per_actress: int = 20) -> list:
             per_actress_counts[name] = 0
     log(f"voice whitelist: 合計{len(all_items)}件取得（声優別: {per_actress_counts}）")
     return all_items
+
+
+def trim_to_limit(works: list, limit: int = MAX_WORKS) -> list:
+    """優先度ロジックで limit 件にトリミング。
+    優先度: ①review_slug有り(全件) → ②声優whitelist → ③サークルwhitelist → ④人気上位（残り枠）"""
+    if len(works) <= limit:
+        log(f"trim不要: {len(works)} 件 ≤ {limit}")
+        return works
+
+    actress_set = set(VOICE_ACTRESS_WHITELIST)
+    circle_name_set = {c["name"] for c in CIRCLE_WHITELIST}
+
+    tier1, tier2, tier3, tier4 = [], [], [], []
+    for w in works:
+        if w.get("review_slug"):
+            tier1.append(w)
+        elif any(a in actress_set for a in (w.get("voice_actresses") or [])):
+            tier2.append(w)
+        elif w.get("circle") in circle_name_set:
+            tier3.append(w)
+        else:
+            tier4.append(w)
+
+    result = tier1[:]
+    for tier in (tier2, tier3, tier4):
+        remaining = limit - len(result)
+        if remaining <= 0:
+            break
+        result += tier[:remaining]
+
+    log(f"trim完了: {len(works)} → {len(result)} 件 "
+        f"(review={len(tier1)}, voice={sum(1 for w in result if w in tier2)}, "
+        f"circle={sum(1 for w in result if w in tier3)}, "
+        f"other={sum(1 for w in result if w in tier4)})")
+    return result
 
 
 def log(msg: str):
@@ -622,13 +659,15 @@ def main():
 
     changed = update_works()
     update_rankings()
-    # レビュー記事の voice_actresses を works.json に転記
+    # レビュー記事の voice_actresses を works.json に転記 → 500件制限適用
     if WORKS_JSON.exists():
         with open(WORKS_JSON) as f:
             data = json.load(f)
         data['works'] = sync_voice_actresses_from_posts(data['works'])
+        data['works'] = trim_to_limit(data['works'])
         with open(WORKS_JSON, 'w') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
+        log(f"works.json 最終件数: {len(data['works'])} 件")
 
     if args.no_deploy:
         log("--no-deploy: build/deploy スキップ")
