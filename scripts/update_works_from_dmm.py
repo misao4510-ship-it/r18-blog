@@ -152,8 +152,15 @@ def get_voice_by_whitelist(hits_per_actress: int = 20) -> list:
                 cid = item.get("content_id", "")
                 if cid and cid not in seen_cids:
                     seen_cids.add(cid)
-                    all_items.append(_map_item_full(item, "voice"))
+                    mapped = _map_item_full(item, "voice")
+                    mapped["_matched_actress"] = name
+                    all_items.append(mapped)
                     added += 1
+                elif cid:
+                    for existing in all_items:
+                        if existing.get("content_id") == cid:
+                            existing.setdefault("_matched_actress_list", []).append(name)
+                            break
             per_actress_counts[name] = added
         except Exception as e:
             log(f"[WARN] whitelist {name}: {e}")
@@ -261,8 +268,18 @@ def update_works() -> bool:
                 existing_by_cid[cid].update(sale_fields)
                 if item.get("circle"):
                     existing_by_cid[cid]["circle"] = item["circle"]
+                if item.get("_matched_actress"):
+                    actresses = [item["_matched_actress"]] + item.get("_matched_actress_list", [])
+                    existing_by_cid[cid].setdefault("voice_actresses", [])
+                    for a in actresses:
+                        if a not in existing_by_cid[cid]["voice_actresses"]:
+                            existing_by_cid[cid]["voice_actresses"].append(a)
                 updated_count += 1
             else:
+                if item.get("_matched_actress"):
+                    actresses = [item["_matched_actress"]] + item.get("_matched_actress_list", [])
+                else:
+                    actresses = []
                 new_entry = {
                     "id":           cid,
                     "title":        item["title"],
@@ -274,6 +291,7 @@ def update_works() -> bool:
                     "thumbnail":    item.get("imageURL", ""),
                     "fanza_link":   item.get("affiliateURL", "").replace("yukine0423-990", "yukine0423-002"),
                     "review_slug":  None,
+                    "voice_actresses": actresses,
                     **sale_fields,
                 }
                 if item.get("circle"):
