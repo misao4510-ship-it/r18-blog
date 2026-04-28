@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-DMM API 2カテゴリ取得 → works.json 自動更新 → build & deploy
+DMM API 2カテゴリ取得 → works.json + rankings.json 自動更新 → build & deploy
 
 処理:
   1. doujin / voice 各 300 件を sort=rank（人気順）で DMM API から取得
-     （hits=100 × offset 3ページで計300件）
   2. 既存 works.json から adult_book・dsample-* を除外
   3. 既存 doujin/voice エントリと content_id でマージ（review_slug / fanza_link は保持）
-  4. 変更があれば npm run build → wrangler deploy (--branch=main) → git push
+  4. 4ランキング(コミック/ボイス×月間/24h)を rankings.json に保存
+  5. 変更があれば npm run build → wrangler deploy (--branch=main) → git push
 
 使い方:
   python3 scripts/update_works_from_dmm.py
@@ -17,14 +17,15 @@ import argparse
 import json
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from dmm_api_client import get_doujin, get_voice
+from dmm_api_client import get_doujin, get_voice, _request
 
 PROJECT_ROOT = Path(__file__).parent.parent
 WORKS_JSON = PROJECT_ROOT / "data" / "works.json"
+RANKINGS_JSON = PROJECT_ROOT / "data" / "rankings.json"
 
 # 女性向け除外ジャンルID (GenreSearch floor_id=81 で特定: 乙女受け/乙女向け/女性向け/BL/百合/レズビアン)
 EXCLUDE_GENRE_IDS: set[int] = {155011, 160026, 156006, 558, 153030, 4013}
@@ -152,6 +153,92 @@ def update_works() -> bool:
     return new_count + updated_count > 0
 
 
+def _parse_ranking_item(item: dict, rank: int) -> dict:
+    """DMM APIアイテム → ランキングエントリ"""
+    prices = item.get("prices", {})
+    def to_int(val):
+        if val is None:
+            return None
+        try:
+            return int(str(val).replace(",", "").replace("円", ""))
+        except (ValueError, TypeError):
+            return None
+
+    price_sale = to_int(prices.get("price"))
+    price_original = to_int(prices.get("list_price")) or price_sale
+    is_on_sale = bool(price_sale and price_original and price_original > price_sale)
+    discount_rate = int((1 - price_sale / price_original) * 100) if is_on_sale and price_original else None
+    img = item.get("imageURL", {})
+    af_url = item.get("affiliateURL", "").replace("yukine0423-990", "yukine0423-002")
+    return {
+        "rank":          rank,
+        "id":            item.get("content_id", ""),
+        "title":         item.get("title", ""),
+        "price":         price_sale or price_original or 0,
+        "price_original": price_original,
+        "price_sale":    price_sale,
+        "discount_rate": discount_rate,
+        "is_on_sale":    is_on_sale,
+        "imageURL":      img.get("large", img.get("list", "")) if isinstance(img, dict) else "",
+        "affiliateURL":  af_url,
+        "release_date":  (item.get("date", "") or "")[:10],
+    }
+
+
+def _fetch_ranking_raw(floor: str, hits: int = 30, gte_date: str = None) -> list:
+    """_request 直接使用でランキング取得（raw DMM APIレスポンスアイテム）"""
+    params = {
+        "site": "FANZA", "service": "doujin",
+        "floor": floor, "sort": "rank", "hits": hits, "offset": 1,
+    }
+    if gte_date:
+        params["gte_date"] = gte_date
+    try:
+        data = _request(params)
+        items = data.get("result", {}).get("items", [])
+        return [_parse_ranking_item(item, i+1) for i, item in enumerate(items[:hits])]
+    except Exception as e:
+        log(f"[WARN] ランキング取得失敗 floor={floor}: {e}")
+        return []
+
+
+def update_rankings() -> None:
+    """4ランキング(コミック/ボイス×月間/24h)を rankings.json に保存"""
+    jst = timezone(timedelta(hours=9))
+    yesterday = (datetime.now(jst) - timedelta(days=1)).strftime("%Y-%m-%d")
+
+    log("=== ランキング更新開始 ===")
+
+    comic_monthly = _fetch_ranking_raw("digital_doujin", hits=30)
+    log(f"コミック月間: {len(comic_monthly)} 件")
+
+    comic_daily = _fetch_ranking_raw("digital_doujin", hits=30, gte_date=yesterday)
+    if not comic_daily:
+        log("[WARN] コミック24h件数0、月間で代替")
+        comic_daily = comic_monthly[:]
+    log(f"コミック24h: {len(comic_daily)} 件")
+
+    voice_monthly = _fetch_ranking_raw("digital_doujin_tl", hits=30)
+    log(f"ボイス月間: {len(voice_monthly)} 件")
+
+    voice_daily = _fetch_ranking_raw("digital_doujin_tl", hits=30, gte_date=yesterday)
+    if not voice_daily:
+        log("[WARN] ボイス24h件数0、月間で代替")
+        voice_daily = voice_monthly[:]
+    log(f"ボイス24h: {len(voice_daily)} 件")
+
+    rankings = {
+        "comic_monthly": comic_monthly,
+        "comic_daily":   comic_daily,
+        "voice_monthly": voice_monthly,
+        "voice_daily":   voice_daily,
+        "updated_at":    datetime.now(jst).isoformat(),
+    }
+    with open(RANKINGS_JSON, "w") as f:
+        json.dump(rankings, f, ensure_ascii=False, indent=2)
+    log(f"rankings.json 保存完了 (各カテゴリ最大30件)")
+
+
 def build_and_deploy() -> bool:
     log("=== build 開始 ===")
     if not run("source ~/.nvm/nvm.sh && nvm use 22 && npm run build"):
@@ -165,24 +252,31 @@ def build_and_deploy() -> bool:
 
     run(
         "git -C /home/misao/r18-blog add -A && "
-        'git -C /home/misao/r18-blog commit -m "cmd_323f: 男性向け同人絞り込み（BL/GL/女性向け除外）" && '
+        'git -C /home/misao/r18-blog commit -m "cron: works.json + rankings.json 自動更新" && '
         "git -C /home/misao/r18-blog push origin main"
     )
     return True
 
 
 def main():
-    parser = argparse.ArgumentParser(description="DMM API works.json 自動更新")
+    parser = argparse.ArgumentParser(description="DMM API works.json + rankings.json 自動更新")
     parser.add_argument("--no-deploy", action="store_true", help="works.json のみ更新（build/deploy スキップ）")
+    parser.add_argument("--rankings-only", action="store_true", help="rankings.json のみ更新（works.json スキップ）")
     args = parser.parse_args()
 
+    if args.rankings_only:
+        update_rankings()
+        if not args.no_deploy:
+            build_and_deploy()
+        return
+
     changed = update_works()
+    update_rankings()
+
     if args.no_deploy:
         log("--no-deploy: build/deploy スキップ")
-    elif changed:
-        build_and_deploy()
     else:
-        log("変更なし: build/deploy スキップ")
+        build_and_deploy()
 
 
 if __name__ == "__main__":

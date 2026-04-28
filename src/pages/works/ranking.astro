@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import rankingsData from '../../../data/rankings.json';
+
+type RankItem = {
+  rank: number;
+  id: string;
+  title: string;
+  price: number;
+  price_original: number | null;
+  price_sale: number | null;
+  discount_rate: number | null;
+  is_on_sale: boolean;
+  imageURL: string;
+  affiliateURL: string;
+  release_date: string;
+};
+
+const comicMonthly = rankingsData.comic_monthly as RankItem[];
+const comicDaily   = rankingsData.comic_daily   as RankItem[];
+const voiceMonthly = rankingsData.voice_monthly as RankItem[];
+const voiceDaily   = rankingsData.voice_daily   as RankItem[];
+
+const updatedDate = new Date(rankingsData.updated_at).toLocaleString('ja-JP', {
+  year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+});
+
+function medalLabel(rank: number): string {
+  if (rank === 1) return '🥇';
+  if (rank === 2) return '🥈';
+  if (rank === 3) return '🥉';
+  return String(rank);
+}
+
+function isTop3(rank: number): boolean {
+  return rank < 4;
+}
+---
+
+<BaseLayout
+  title="ランキング"
+  description="FANZA同人コミック・ボイス作品の月間・24時間ランキング。人気TOP30を一覧で確認できます。"
+  yukineVariant="works"
+>
+  <div class="container ranking-page">
+    <div class="ranking-header">
+      <h1>🏆 ランキング</h1>
+      <p class="ranking-updated">最終更新: {updatedDate}</p>
+    </div>
+
+    <!-- カテゴリタブ（上段） -->
+    <div class="tab-group" id="category-tabs">
+      <button class="tab active" data-category="comic">📖 コミック</button>
+      <button class="tab" data-category="voice">🎤 ボイス</button>
+    </div>
+
+    <!-- 期間タブ（下段） -->
+    <div class="tab-group" id="period-tabs">
+      <button class="tab active" data-period="monthly">🔥 月間TOP30</button>
+      <button class="tab" data-period="daily">🆕 24時間TOP30</button>
+    </div>
+
+    <!-- コミック月間 -->
+    <div class="ranking-list" id="list-comic_monthly" data-category="comic" data-period="monthly">
+      {comicMonthly.map(item => (
+        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
+          data-rank={item.rank}>
+          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
+            {medalLabel(item.rank)}
+          </div>
+          <div class="ranking-item__thumb">
+            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
+            {item.is_on_sale && item.discount_rate && (
+              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="ranking-item__body">
+            <div class="ranking-item__title">{item.title}</div>
+            <div class="ranking-item__price-row">
+              {item.is_on_sale && item.price_original && item.price_sale && (
+                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+              )}
+              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
+                ¥{(item.price_sale ?? item.price).toLocaleString()}
+              </span>
+            </div>
+            <div class="ranking-item__date">📅 {item.release_date}</div>
+          </div>
+          <div class="ranking-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+    </div>
+
+    <!-- コミック24h -->
+    <div class="ranking-list" id="list-comic_daily" data-category="comic" data-period="daily" style="display:none">
+      {comicDaily.map(item => (
+        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
+          data-rank={item.rank}>
+          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
+            {medalLabel(item.rank)}
+          </div>
+          <div class="ranking-item__thumb">
+            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
+            {item.is_on_sale && item.discount_rate && (
+              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="ranking-item__body">
+            <div class="ranking-item__title">{item.title}</div>
+            <div class="ranking-item__price-row">
+              {item.is_on_sale && item.price_original && item.price_sale && (
+                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+              )}
+              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
+                ¥{(item.price_sale ?? item.price).toLocaleString()}
+              </span>
+            </div>
+            <div class="ranking-item__date">📅 {item.release_date}</div>
+          </div>
+          <div class="ranking-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+    </div>
+
+    <!-- ボイス月間 -->
+    <div class="ranking-list" id="list-voice_monthly" data-category="voice" data-period="monthly" style="display:none">
+      {voiceMonthly.map(item => (
+        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
+          data-rank={item.rank}>
+          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
+            {medalLabel(item.rank)}
+          </div>
+          <div class="ranking-item__thumb">
+            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
+            {item.is_on_sale && item.discount_rate && (
+              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="ranking-item__body">
+            <div class="ranking-item__title">{item.title}</div>
+            <div class="ranking-item__price-row">
+              {item.is_on_sale && item.price_original && item.price_sale && (
+                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+              )}
+              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
+                ¥{(item.price_sale ?? item.price).toLocaleString()}
+              </span>
+            </div>
+            <div class="ranking-item__date">📅 {item.release_date}</div>
+          </div>
+          <div class="ranking-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+    </div>
+
+    <!-- ボイス24h -->
+    <div class="ranking-list" id="list-voice_daily" data-category="voice" data-period="daily" style="display:none">
+      {voiceDaily.map(item => (
+        <a href={item.affiliateURL} target="_blank" rel="noopener noreferrer nofollow"
+          class={isTop3(item.rank) ? 'ranking-item ranking-item--top3' : 'ranking-item'}
+          data-rank={item.rank}>
+          <div class={isTop3(item.rank) ? `rank-badge rank-badge--${item.rank}` : 'rank-badge'}>
+            {medalLabel(item.rank)}
+          </div>
+          <div class="ranking-item__thumb">
+            <img src={item.imageURL} alt={item.title} loading="lazy" width="60" height="84" />
+            {item.is_on_sale && item.discount_rate && (
+              <span class="sale-badge">🔥{item.discount_rate}%OFF</span>
+            )}
+          </div>
+          <div class="ranking-item__body">
+            <div class="ranking-item__title">{item.title}</div>
+            <div class="ranking-item__price-row">
+              {item.is_on_sale && item.price_original && item.price_sale && (
+                <span class="price-orig">¥{item.price_original.toLocaleString()}</span>
+              )}
+              <span class={item.is_on_sale ? 'price-sale' : 'price-normal'}>
+                ¥{(item.price_sale ?? item.price).toLocaleString()}
+              </span>
+            </div>
+            <div class="ranking-item__date">📅 {item.release_date}</div>
+          </div>
+          <div class="ranking-item__cta">FANZAで見る →</div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .ranking-page {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .ranking-header {
+      margin-bottom: 1.5rem;
+    }
+    .ranking-header h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--color-text);
+      margin-bottom: 0.3rem;
+    }
+    .ranking-updated {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .tab-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .tab.active {
+      background: linear-gradient(135deg, #e040fb, #ff4d8d);
+      color: #fff;
+      border-color: transparent;
+    }
+    .tab:hover:not(.active) {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .ranking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--color-text);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .ranking-item:hover {
+      background: var(--color-surface-raised);
+      border-color: var(--color-accent);
+      transform: translateX(3px);
+      text-decoration: none;
+      color: var(--color-text);
+    }
+    .ranking-item--top3 {
+      border-width: 2px;
+    }
+    .ranking-item[data-rank="1"] { border-color: #ffd700; }
+    .ranking-item[data-rank="2"] { border-color: #c0c0c0; }
+    .ranking-item[data-rank="3"] { border-color: #cd7f32; }
+
+    .rank-badge {
+      min-width: 2.2rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--color-text-muted);
+      line-height: 1;
+    }
+    .rank-badge--1, .rank-badge--2, .rank-badge--3 {
+      font-size: 1.8rem;
+    }
+
+    .ranking-item__thumb {
+      position: relative;
+      flex-shrink: 0;
+      width: 60px;
+    }
+    .ranking-item__thumb img {
+      width: 60px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .sale-badge {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      background: linear-gradient(135deg, #ff4500, #ff8c00);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 900;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .ranking-item__body {
+      flex: 1;
+      min-width: 0;
+    }
+    .ranking-item__title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.3rem;
+    }
+    .ranking-item__price-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+    .price-normal { font-size: 0.95rem; font-weight: 900; color: #ff4d8d; }
+    .price-orig { font-size: 0.78rem; color: var(--color-text-muted); text-decoration: line-through; }
+    .price-sale { font-size: 0.95rem; font-weight: 900; color: #ff4500; }
+    .ranking-item__date { font-size: 0.75rem; color: var(--color-text-muted); }
+
+    .ranking-item__cta {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .ranking-item { padding: 0.6rem 0.75rem; gap: 0.6rem; }
+      .ranking-item__cta { display: none; }
+      .ranking-item__title { font-size: 0.82rem; }
+    }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var categoryBtns = document.querySelectorAll('#category-tabs .tab');
+      var periodBtns = document.querySelectorAll('#period-tabs .tab');
+      var lists = document.querySelectorAll('.ranking-list');
+      var currentCategory = 'comic';
+      var currentPeriod = 'monthly';
+
+      function showList() {
+        var targetId = 'list-' + currentCategory + '_' + currentPeriod;
+        lists.forEach(function(list) {
+          list.style.display = list.id === targetId ? 'flex' : 'none';
+        });
+      }
+
+      categoryBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          categoryBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentCategory = btn.dataset.category;
+          showList();
+        });
+      });
+
+      periodBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          periodBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentPeriod = btn.dataset.period;
+          showList();
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
