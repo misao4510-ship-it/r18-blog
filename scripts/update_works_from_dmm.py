@@ -102,7 +102,7 @@ def update_works() -> bool:
                     "release_date": item.get("date", ""),
                     "genres":       [],
                     "thumbnail":    item.get("imageURL", ""),
-                    "fanza_link":   item.get("affiliateURL", ""),
+                    "fanza_link":   item.get("affiliateURL", "").replace("yukine0423-990", "yukine0423-002"),
                     "review_slug":  None,
                     **sale_fields,
                 }
