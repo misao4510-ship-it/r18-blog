@@ -1,12 +1,18 @@
 ---
-interface Props { bannerId: string; }
-const { bannerId } = Astro.props;
+const ALL_BANNER_IDS = [
+  '1900_300_250',
+  '1899_300_250',
+  '1921_300_250',
+  '1894_300_250',
+  '1895_300_250',
+];
+const randomBannerId = ALL_BANNER_IDS[Math.floor(Math.random() * ALL_BANNER_IDS.length)];
 ---
 <div class="fanza-banner-wrapper">
   <ins class="widget-banner"></ins>
   <script
     class="widget-banner-script"
-    src={`https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=yukine0423-002&banner_id=${bannerId}`}
+    src={`https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=yukine0423-002&banner_id=${randomBannerId}`}
   ></script>
 </div>
 

@@ -25,7 +25,7 @@ const saleCount = works.filter(w => w.is_on_sale).length;
       <p class="works-header__sub">全 <span id="result-count">{totalCount}</span> 件 / {totalCount}件中</p>
     </div>
 
-    <FanzaBanner bannerId="1900_300_250" />
+    <FanzaBanner />
 
     <!-- セールCTA -->
     {saleCount > 0 && (
