@@ -152,6 +152,80 @@ def make_affiliate_link(cid: str) -> str:
     return f"https://al.dmm.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdigital%2Fvideoa%2F-%2Fdetail%2F%3D%2Fcid%3D{cid}%2F&af_id={affiliate_id}&ch=link"
 
 
+def _parse_prices_full(prices: dict) -> dict:
+    """価格情報を完全解析してセール情報を含む辞書を返す"""
+    def to_int(val):
+        if val is None:
+            return None
+        try:
+            return int(str(val).replace(",", "").replace("円", ""))
+        except (ValueError, TypeError):
+            return None
+
+    price_sale = to_int(prices.get("price"))
+    price_original = to_int(prices.get("list_price")) or price_sale
+    is_on_sale = bool(price_sale and price_original and price_original > price_sale)
+    discount_rate = int((1 - price_sale / price_original) * 100) if is_on_sale else None
+    return {
+        "price_sale":     price_sale,
+        "price_original": price_original,
+        "is_on_sale":     is_on_sale,
+        "discount_rate":  discount_rate,
+    }
+
+
+def _map_item_full(item: dict, category: str) -> dict:
+    """DMM API item → works.json 拡張形式（カテゴリ・セール情報付き）"""
+    prices = item.get("prices", {})
+    pi = _parse_prices_full(prices)
+    img = item.get("imageURL", {})
+    date_str = item.get("date", "")
+    return {
+        "content_id":     item.get("content_id", ""),
+        "title":          item.get("title", ""),
+        "affiliateURL":   item.get("affiliateURL", ""),
+        "imageURL":       img.get("large", img.get("list", "")),
+        "date":           date_str[:10] if date_str else "",
+        "category":       category,
+        "price_original": pi["price_original"],
+        "price_sale":     pi["price_sale"],
+        "discount_rate":  pi["discount_rate"],
+        "sale_end_date":  None,
+        "is_on_sale":     pi["is_on_sale"],
+    }
+
+
+def get_doujin(hits: int = 50) -> list:
+    """同人カテゴリ新着作品を取得（service=doujin, floor=digital_doujin）"""
+    data = _request({
+        "site": _DEFAULT_SITE, "service": "doujin",
+        "floor": "digital_doujin", "sort": "date", "hits": hits,
+    })
+    return [_map_item_full(i, "doujin") for i in data.get("result", {}).get("items", [])]
+
+
+def get_adult_book(hits: int = 50) -> list:
+    """成人向けコミックカテゴリ新着作品を取得（FANZAブックス/コミック）"""
+    data = _request({
+        "site": _DEFAULT_SITE, "service": "ebook",
+        "floor": "comic", "sort": "date", "hits": hits,
+    })
+    return [_map_item_full(i, "adult_book") for i in data.get("result", {}).get("items", [])]
+
+
+def get_voice(hits: int = 50) -> list:
+    """ボイス・ASMRカテゴリ新着作品を取得（doujin_bl/doujin_tl含む試行）"""
+    # FANZAにボイス専用フロアは存在しないため doujin_tl フロアで代替
+    try:
+        data = _request({
+            "site": _DEFAULT_SITE, "service": "doujin",
+            "floor": "digital_doujin_tl", "sort": "date", "hits": hits,
+        })
+        return [_map_item_full(i, "voice") for i in data.get("result", {}).get("items", [])]
+    except Exception:
+        return []
+
+
 # ─── CLI テスト ───────────────────────────────────────────────────────────────
 
 def main():

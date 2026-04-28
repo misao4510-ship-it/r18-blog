@@ -4,11 +4,13 @@ import WorkCard from '../../components/WorkCard.astro';
 import worksData from '../../../data/works.json';
 
 const works = worksData.works;
-const allGenres = [...new Set(works.flatMap(w => w.genres))].sort();
-const allAuthors = [...new Set(works.map(w => w.author))].sort();
-const priceMin = Math.min(...works.map(w => w.price));
-const priceMax = Math.max(...works.map(w => w.price));
+const allGenres = [...new Set(works.flatMap(w => w.genres))].filter(Boolean).sort();
+const allAuthors = [...new Set(works.map(w => w.author))].filter(Boolean).sort();
+const prices = works.map(w => w.price_sale ?? w.price).filter(p => p > 0);
+const priceMin = prices.length > 0 ? Math.min(...prices) : 0;
+const priceMax = prices.length > 0 ? Math.max(...prices) : 9999;
 const totalCount = works.length;
+const saleCount = works.filter(w => w.is_on_sale).length;
 ---
 
 <BaseLayout
@@ -20,6 +22,17 @@ const totalCount = works.length;
     <div class="works-header">
       <h1>📚 作品一覧・検索</h1>
       <p class="works-header__sub">全 <span id="result-count">{totalCount}</span> 件 / {totalCount}件中</p>
+    </div>
+
+    <!-- カテゴリタブ -->
+    <div class="category-tabs" id="category-tabs">
+      <button class="category-tab active" data-cat="">全て</button>
+      <button class="category-tab" data-cat="doujin">同人</button>
+      <button class="category-tab" data-cat="adult_book">書籍</button>
+      <button class="category-tab" data-cat="voice">ボイス</button>
+      {saleCount > 0 && (
+        <button class="category-tab category-tab--sale" data-cat="sale">🔥 セール中 <span class="sale-count">{saleCount}</span></button>
+      )}
     </div>
 
     <!-- 検索・絞り込みUI -->
@@ -120,22 +133,30 @@ const totalCount = works.length;
     priceMin: priceMin,
     priceMax: priceMax,
     genres: [],
-    sort: 'date-desc'
+    sort: 'date-desc',
+    category: ''
   };
 
   function applyFilters() {
     var text = state.text.toLowerCase();
     var visibleWorks = works.filter(function(w) {
       // テキスト検索
-      if (text && !w.title.toLowerCase().includes(text) && !w.author.toLowerCase().includes(text)) return false;
+      if (text && !w.title.toLowerCase().includes(text) && !(w.author||'').toLowerCase().includes(text)) return false;
       // 作者
       if (state.author && w.author !== state.author) return false;
       // 価格
-      if (w.price < state.priceMin || w.price > state.priceMax) return false;
+      var wPrice = w.price_sale || w.price || 0;
+      if (wPrice < state.priceMin || wPrice > state.priceMax) return false;
       // ジャンル
       if (state.genres.length > 0) {
-        var hasAll = state.genres.every(function(g) { return w.genres.includes(g); });
+        var hasAll = state.genres.every(function(g) { return (w.genres||[]).includes(g); });
         if (!hasAll) return false;
+      }
+      // カテゴリ
+      if (state.category === 'sale') {
+        if (!w.is_on_sale) return false;
+      } else if (state.category) {
+        if ((w.category || 'doujin') !== state.category) return false;
       }
       return true;
     });
@@ -221,14 +242,27 @@ const totalCount = works.length;
 
   var resetBtn = document.getElementById('filter-reset');
   if (resetBtn) resetBtn.addEventListener('click', function() {
-    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, genres: [], sort: 'date-desc' };
+    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, genres: [], sort: 'date-desc', category: '' };
     if (searchInput) searchInput.value = '';
     if (authorSelect) authorSelect.value = '';
     if (sortSelect) sortSelect.value = 'date-desc';
     if (priceMinInput) { priceMinInput.value = priceMin; if (priceMinDisplay) priceMinDisplay.textContent = priceMin.toLocaleString(); }
     if (priceMaxInput) { priceMaxInput.value = priceMax; if (priceMaxDisplay) priceMaxDisplay.textContent = priceMax.toLocaleString(); }
     document.querySelectorAll('.genre-check').forEach(function(cb) { cb.checked = false; });
+    document.querySelectorAll('.category-tab').forEach(function(btn) { btn.classList.remove('active'); });
+    var allTab = document.querySelector('.category-tab[data-cat=""]');
+    if (allTab) allTab.classList.add('active');
     applyFilters();
+  });
+
+  // カテゴリタブ
+  document.querySelectorAll('.category-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.category-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.category = btn.dataset.cat || '';
+      applyFilters();
+    });
   });
 })();
 </script>
@@ -246,6 +280,51 @@ const totalCount = works.length;
 .works-header__sub {
   font-size: 0.9rem;
   color: var(--color-text-muted);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.category-tab {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.category-tab:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.category-tab.active {
+  background: rgba(224, 64, 251, 0.2);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.category-tab--sale {
+  border-color: #ff4500;
+  color: #ff4500;
+}
+.category-tab--sale.active {
+  background: rgba(255, 69, 0, 0.15);
+  border-color: #ff4500;
+  color: #ff4500;
+}
+.sale-count {
+  background: #ff4500;
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+  margin-left: 0.2rem;
 }
 
 .filter-panel {

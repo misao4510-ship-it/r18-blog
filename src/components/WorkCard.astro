@@ -12,18 +12,25 @@ interface Props {
   review_slug: string | null;
   pages?: number;
   rating?: number;
+  category?: string;
+  is_on_sale?: boolean;
+  discount_rate?: number | null;
+  price_original?: number | null;
+  price_sale?: number | null;
 }
 
-const { id, title, author, author_slug, price, release_date, genres, thumbnail, fanza_link, review_slug, pages, rating } = Astro.props;
+const { id, title, author, author_slug, price, release_date, genres, thumbnail, fanza_link, review_slug, pages, rating, category, is_on_sale, discount_rate, price_original, price_sale } = Astro.props;
 
 const releaseDateFormatted = new Date(release_date).toLocaleDateString('ja-JP', {
   year: 'numeric', month: 'long', day: 'numeric'
 });
 
 const ratingStars = rating ? Math.round(rating) : 0;
+const displayPrice = price_sale ?? price;
+const showSale = is_on_sale && discount_rate && price_original && price_sale && price_original > price_sale;
 ---
 
-<article class="work-card" data-id={id} data-title={title} data-author={author} data-price={price} data-date={release_date} data-genres={genres.join(',')}>
+<article class="work-card" data-id={id} data-title={title} data-author={author} data-price={price} data-date={release_date} data-genres={genres.join(',')} data-category={category || 'doujin'} data-sale={is_on_sale ? 'true' : 'false'}>
   <div class="work-card__thumb">
     <img src={thumbnail} alt={title} loading="lazy" width="300" height="420" />
     {rating && (
@@ -32,6 +39,9 @@ const ratingStars = rating ? Math.round(rating) : 0;
         <span class="work-card__rating-num">{rating.toFixed(1)}</span>
       </div>
     )}
+    {showSale && (
+      <div class="work-card__sale-badge">🔥 {discount_rate}%OFF</div>
+    )}
     <button class="work-card__fav-btn" data-work-id={id} aria-label="お気に入り">
       <svg class="fav-icon fav-icon--off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       <svg class="fav-icon fav-icon--on" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -39,9 +49,20 @@ const ratingStars = rating ? Math.round(rating) : 0;
   </div>
   <div class="work-card__body">
     <div class="work-card__title">{title}</div>
-    <a href={`/authors/${author_slug}/`} class="work-card__author">✍ {author}</a>
+    {author_slug ? (
+      <a href={`/authors/${author_slug}/`} class="work-card__author">✍ {author}</a>
+    ) : author ? (
+      <span class="work-card__author">✍ {author}</span>
+    ) : null}
     <div class="work-card__meta">
-      <span class="work-card__price">¥{price.toLocaleString()}</span>
+      {showSale ? (
+        <span class="work-card__price-wrap">
+          <span class="work-card__price-orig">¥{price_original!.toLocaleString()}</span>
+          <span class="work-card__price work-card__price--sale">¥{price_sale!.toLocaleString()}</span>
+        </span>
+      ) : (
+        <span class="work-card__price">¥{displayPrice.toLocaleString()}</span>
+      )}
       {pages && <span class="work-card__pages">{pages}P</span>}
       <span class="work-card__date">{releaseDateFormatted}</span>
     </div>
@@ -100,6 +121,32 @@ const ratingStars = rating ? Math.round(rating) : 0;
   color: var(--color-text);
   margin-left: 0.3rem;
   font-size: 0.8rem;
+}
+.work-card__sale-badge {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  background: linear-gradient(135deg, #ff4500, #ff8c00);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(255,69,0,0.5);
+}
+.work-card__price-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.work-card__price-orig {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+.work-card__price--sale {
+  color: #ff4500;
 }
 .work-card__body {
   padding: 0.9rem;
