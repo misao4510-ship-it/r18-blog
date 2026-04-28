@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FanzaBanner from '../../components/FanzaBanner.astro';
+import WorkCard from '../../components/WorkCard.astro';
 import worksData from '../../../data/works.json';
 
 const allWorks = worksData.works;
@@ -9,12 +10,6 @@ const under100 = saleWorks.filter(w => (w.price_sale ?? w.price) <= 100).sort((a
 const under500 = saleWorks.filter(w => (w.price_sale ?? w.price) <= 500).sort((a, b) => (a.price_sale ?? a.price) - (b.price_sale ?? b.price));
 const halfOff  = saleWorks.filter(w => (w.discount_rate ?? 0) >= 50).sort((a, b) => (b.discount_rate ?? 0) - (a.discount_rate ?? 0));
 const allSale  = [...saleWorks].sort((a, b) => (a.price_sale ?? a.price) - (b.price_sale ?? b.price));
-
-type Work = typeof allWorks[number];
-
-function saleItems(works: Work[]) {
-  return works;
-}
 ---
 
 <BaseLayout
@@ -51,109 +46,97 @@ function saleItems(works: Work[]) {
     </div>
 
     <!-- 100円以下 -->
-    <div class="sale-list" id="tab-under100">
-      {saleItems(under100).map(w => (
-        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
-          <div class="sale-item__thumb">
-            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
-            {w.discount_rate && w.discount_rate > 0 && (
-              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="sale-item__body">
-            <div class="sale-item__title">{w.title}</div>
-            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
-            <div class="sale-item__price-row">
-              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
-                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
-              )}
-              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
-              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
-            </div>
-          </div>
-          <div class="sale-item__cta">FANZAで見る →</div>
-        </a>
+    <div class="sale-grid" id="tab-under100">
+      {under100.map(w => (
+        <WorkCard
+          id={w.id}
+          title={w.title}
+          author={w.author}
+          author_slug={w.author_slug}
+          price={w.price}
+          release_date={w.release_date}
+          genres={w.genres}
+          thumbnail={w.thumbnail}
+          fanza_link={w.fanza_link}
+          review_slug={w.review_slug}
+          category={w.category}
+          is_on_sale={w.is_on_sale}
+          discount_rate={w.discount_rate}
+          price_original={w.price_original}
+          price_sale={w.price_sale}
+        />
       ))}
       {under100.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
     </div>
 
     <!-- ワンコイン〜500円 -->
-    <div class="sale-list" id="tab-under500" style="display:none">
-      {saleItems(under500).map(w => (
-        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
-          <div class="sale-item__thumb">
-            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
-            {w.discount_rate && w.discount_rate > 0 && (
-              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="sale-item__body">
-            <div class="sale-item__title">{w.title}</div>
-            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
-            <div class="sale-item__price-row">
-              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
-                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
-              )}
-              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
-              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
-            </div>
-          </div>
-          <div class="sale-item__cta">FANZAで見る →</div>
-        </a>
+    <div class="sale-grid" id="tab-under500" style="display:none">
+      {under500.map(w => (
+        <WorkCard
+          id={w.id}
+          title={w.title}
+          author={w.author}
+          author_slug={w.author_slug}
+          price={w.price}
+          release_date={w.release_date}
+          genres={w.genres}
+          thumbnail={w.thumbnail}
+          fanza_link={w.fanza_link}
+          review_slug={w.review_slug}
+          category={w.category}
+          is_on_sale={w.is_on_sale}
+          discount_rate={w.discount_rate}
+          price_original={w.price_original}
+          price_sale={w.price_sale}
+        />
       ))}
       {under500.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
     </div>
 
     <!-- 半額以下 -->
-    <div class="sale-list" id="tab-half" style="display:none">
-      {saleItems(halfOff).map(w => (
-        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
-          <div class="sale-item__thumb">
-            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
-            {w.discount_rate && w.discount_rate > 0 && (
-              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="sale-item__body">
-            <div class="sale-item__title">{w.title}</div>
-            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
-            <div class="sale-item__price-row">
-              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
-                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
-              )}
-              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
-              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
-            </div>
-          </div>
-          <div class="sale-item__cta">FANZAで見る →</div>
-        </a>
+    <div class="sale-grid" id="tab-half" style="display:none">
+      {halfOff.map(w => (
+        <WorkCard
+          id={w.id}
+          title={w.title}
+          author={w.author}
+          author_slug={w.author_slug}
+          price={w.price}
+          release_date={w.release_date}
+          genres={w.genres}
+          thumbnail={w.thumbnail}
+          fanza_link={w.fanza_link}
+          review_slug={w.review_slug}
+          category={w.category}
+          is_on_sale={w.is_on_sale}
+          discount_rate={w.discount_rate}
+          price_original={w.price_original}
+          price_sale={w.price_sale}
+        />
       ))}
       {halfOff.length === 0 && <p class="sale-empty">現在該当作品はありません</p>}
     </div>
 
     <!-- 全セール -->
-    <div class="sale-list" id="tab-all" style="display:none">
-      {saleItems(allSale).map(w => (
-        <a href={w.fanza_link} target="_blank" rel="noopener noreferrer nofollow" class="sale-item">
-          <div class="sale-item__thumb">
-            <img src={w.thumbnail} alt={w.title} loading="lazy" width="60" height="84" />
-            {w.discount_rate && w.discount_rate > 0 && (
-              <span class="sale-badge">🔥{w.discount_rate}%OFF</span>
-            )}
-          </div>
-          <div class="sale-item__body">
-            <div class="sale-item__title">{w.title}</div>
-            {w.author && <div class="sale-item__author">✍ {w.author}</div>}
-            <div class="sale-item__price-row">
-              {w.price_original && w.price_sale && w.price_original > w.price_sale && (
-                <span class="price-orig">¥{w.price_original.toLocaleString()}</span>
-              )}
-              <span class="price-sale">¥{(w.price_sale ?? w.price).toLocaleString()}</span>
-              <span class="sale-item__cat">{w.category === 'voice' ? '🎤' : '📖'}</span>
-            </div>
-          </div>
-          <div class="sale-item__cta">FANZAで見る →</div>
-        </a>
+    <div class="sale-grid" id="tab-all" style="display:none">
+      {allSale.map(w => (
+        <WorkCard
+          id={w.id}
+          title={w.title}
+          author={w.author}
+          author_slug={w.author_slug}
+          price={w.price}
+          release_date={w.release_date}
+          genres={w.genres}
+          thumbnail={w.thumbnail}
+          fanza_link={w.fanza_link}
+          review_slug={w.review_slug}
+          category={w.category}
+          is_on_sale={w.is_on_sale}
+          discount_rate={w.discount_rate}
+          price_original={w.price_original}
+          price_sale={w.price_sale}
+        />
       ))}
       {allSale.length === 0 && <p class="sale-empty">現在セール中の作品はありません</p>}
     </div>
@@ -162,7 +145,7 @@ function saleItems(works: Work[]) {
   <style>
     .sale-page {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .sale-header {
@@ -182,7 +165,7 @@ function saleItems(works: Work[]) {
     .tab-group {
       display: flex;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       flex-wrap: wrap;
     }
     .tab {
@@ -214,123 +197,30 @@ function saleItems(works: Work[]) {
       opacity: 0.85;
     }
 
-    .sale-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .sale-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      color: var(--color-text);
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
-    }
-    .sale-item:hover {
-      background: var(--color-surface-raised);
-      border-color: var(--color-accent);
-      transform: translateX(3px);
-      text-decoration: none;
-      color: var(--color-text);
-    }
-
-    .sale-item__thumb {
-      position: relative;
-      flex-shrink: 0;
-      width: 60px;
-      height: 84px;
-      overflow: hidden;
-      border-radius: 6px;
-      background: #000;
-    }
-    .sale-item__thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    .sale-badge {
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      background: linear-gradient(135deg, #ff4500, #ff8c00);
-      color: #fff;
-      font-size: 0.62rem;
-      font-weight: 900;
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-    }
-
-    .sale-item__body {
-      flex: 1;
-      min-width: 0;
-    }
-    .sale-item__title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      margin-bottom: 0.25rem;
-    }
-    .sale-item__author {
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.25rem;
-    }
-    .sale-item__price-row {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .price-orig {
-      font-size: 0.78rem;
-      color: var(--color-text-muted);
-      text-decoration: line-through;
-    }
-    .price-sale {
-      font-size: 1rem;
-      font-weight: 900;
-      color: #ff4500;
-    }
-    .sale-item__cat {
-      font-size: 0.85rem;
-      margin-left: 0.2rem;
-    }
-
-    .sale-item__cta {
-      flex-shrink: 0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--color-accent);
-      white-space: nowrap;
+    .sale-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
 
     .sale-empty {
       text-align: center;
       color: var(--color-text-muted);
       padding: 2rem;
+      grid-column: 1 / -1;
     }
 
-    @media (max-width: 480px) {
-      .sale-item { padding: 0.6rem 0.75rem; gap: 0.6rem; }
-      .sale-item__cta { display: none; }
-      .sale-item__title { font-size: 0.82rem; }
-      .tab { font-size: 0.78rem; padding: 0.4rem 0.75rem; }
+    @media (max-width: 768px) {
+      .sale-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 
   <script is:inline>
     (function() {
       var tabs = document.querySelectorAll('#price-tabs .tab');
-      var lists = document.querySelectorAll('.sale-list');
+      var grids = document.querySelectorAll('.sale-grid');
 
       tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
@@ -341,8 +231,8 @@ function saleItems(works: Work[]) {
           });
           tab.classList.add('active');
           tab.setAttribute('aria-selected', 'true');
-          lists.forEach(function(list) {
-            list.style.display = list.id === 'tab-' + target ? 'flex' : 'none';
+          grids.forEach(function(grid) {
+            grid.style.display = grid.id === 'tab-' + target ? 'grid' : 'none';
           });
         });
       });
