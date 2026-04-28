@@ -75,6 +75,7 @@ const saleCount = works.filter(w => w.is_on_sale).length;
         <div class="filter-group">
           <label class="filter-label" for="sort-select">🔃 並び替え</label>
           <select id="sort-select" class="filter-select">
+            <option value="rank-asc">人気ランキング順</option>
             <option value="date-desc">新着順</option>
             <option value="date-asc">古い順</option>
             <option value="price-asc">安い順</option>
@@ -131,17 +132,20 @@ const saleCount = works.filter(w => w.is_on_sale).length;
   var noResults = document.getElementById('no-results');
   var resultCount = document.getElementById('result-count');
 
+  // works.json配列順（DMM人気順）をrankとして付与
+  works = works.map(function(w, i) { return Object.assign({}, w, { _rank: i }); });
+
   var state = {
     text: '',
     author: '',
     priceMin: priceMin,
     priceMax: priceMax,
-    sort: 'date-desc',
+    sort: 'rank-asc',
     category: ''
   };
 
   var currentFilteredWorks = [];
-  var displayLimit = 30;
+  var displayLimit = 12;
 
   function renderVisible() {
     var count = currentFilteredWorks.length;
@@ -205,12 +209,13 @@ const saleCount = works.filter(w => w.is_on_sale).length;
         case 'price-desc': return b.price - a.price;
         case 'rating-desc': return (b.rating || 0) - (a.rating || 0);
         case 'author-asc': return a.author.localeCompare(b.author, 'ja');
+        case 'rank-asc': return a._rank - b._rank;
         default: return 0;
       }
     });
 
     currentFilteredWorks = visibleWorks;
-    displayLimit = 30;
+    displayLimit = 12;
     renderVisible();
   }
 
@@ -255,10 +260,10 @@ const saleCount = works.filter(w => w.is_on_sale).length;
 
   var resetBtn = document.getElementById('filter-reset');
   if (resetBtn) resetBtn.addEventListener('click', function() {
-    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, sort: 'date-desc', category: '' };
+    state = { text: '', author: '', priceMin: priceMin, priceMax: priceMax, sort: 'rank-asc', category: '' };
     if (searchInput) searchInput.value = '';
     if (authorSelect) authorSelect.value = '';
-    if (sortSelect) sortSelect.value = 'date-desc';
+    if (sortSelect) sortSelect.value = 'rank-asc';
     if (priceMinInput) { priceMinInput.value = priceMin; if (priceMinDisplay) priceMinDisplay.textContent = priceMin.toLocaleString(); }
     if (priceMaxInput) { priceMaxInput.value = priceMax; if (priceMaxDisplay) priceMaxDisplay.textContent = priceMax.toLocaleString(); }
     document.querySelectorAll('.category-tab').forEach(function(btn) { btn.classList.remove('active'); });
@@ -281,7 +286,7 @@ const saleCount = works.filter(w => w.is_on_sale).length;
   var loadMoreBtn = document.getElementById('load-more-btn');
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener('click', function() {
-      displayLimit += 30;
+      displayLimit += 12;
       renderVisible();
     });
   }
@@ -444,17 +449,11 @@ const saleCount = works.filter(w => w.is_on_sale).length;
 
 .works-grid {
   display: grid;
-  gap: 1.2rem;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
-@media (max-width: 600px) {
-  .works-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-}
-@media (min-width: 900px) {
-  .works-grid { grid-template-columns: repeat(4, 1fr); }
-}
-@media (min-width: 1100px) {
-  .works-grid { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 768px) {
+  .works-grid { grid-template-columns: 1fr; }
 }
 
 .no-results {
