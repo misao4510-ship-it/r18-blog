@@ -7,20 +7,51 @@ const ALL_BANNER_IDS = [
   '1895_300_250',
   '1896_300_250',
 ];
-const randomBannerId = ALL_BANNER_IDS[Math.floor(Math.random() * ALL_BANNER_IDS.length)];
 ---
-<div class="fanza-banner-wrapper">
-  <ins class="widget-banner"></ins>
-  <script
-    class="widget-banner-script"
-    src={`https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=yukine0423-002&banner_id=${randomBannerId}`}
-  ></script>
+<div class="banner-carousel">
+  <div class="banner-track" id="banner-track">
+    {ALL_BANNER_IDS.map((id) => (
+      <div class="banner-slide">
+        <ins class="widget-banner"></ins>
+        <script
+          class="widget-banner-script"
+          src={`https://widget-view.dmm.co.jp/js/banner_placement.js?affiliate_id=yukine0423-002&banner_id=${id}`}
+        ></script>
+      </div>
+    ))}
+  </div>
 </div>
 
 <style>
-  .fanza-banner-wrapper {
-    text-align: center;
+  .banner-carousel {
+    overflow: hidden;
+    max-width: 940px;
     margin: 1.5rem auto 2rem;
+  }
+  .banner-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+  }
+  .banner-slide {
+    flex: 0 0 300px;
     min-height: 250px;
   }
+  @media (max-width: 768px) {
+    .banner-carousel { max-width: 320px; }
+  }
 </style>
+
+<script is:inline>
+  (function() {
+    const track = document.getElementById('banner-track');
+    if (!track) return;
+    let position = 0;
+    const slideWidth = 320; // 300px + 20px gap
+    const total = 6;
+    setInterval(() => {
+      position = (position + 1) % total;
+      track.style.transform = `translateX(-${position * slideWidth}px)`;
+    }, 10000);
+  })();
+</script>

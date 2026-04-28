@@ -203,9 +203,10 @@ def _parse_ranking_item(item: dict, rank: int) -> dict:
 
 def _fetch_ranking_raw(floor: str, hits: int = 30, gte_date: str = None) -> list:
     """_request 直接使用でランキング取得（raw DMM APIレスポンスアイテム）。BL/女性向け除外フィルタ適用。"""
+    api_hits = hits if gte_date else min(hits * 3, 90)  # gte_date使用時はhitsをそのまま使用（API制限回避）
     params = {
         "site": "FANZA", "service": "doujin",
-        "floor": floor, "sort": "rank", "hits": hits * 3, "offset": 1,  # 多めに取得してフィルタ後にhits件確保
+        "floor": floor, "sort": "rank", "hits": api_hits, "offset": 1,
     }
     if gte_date:
         params["gte_date"] = gte_date
