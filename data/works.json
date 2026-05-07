@@ -221,7 +221,7 @@
       "thumbnail": "https://doujin-assets.dmm.co.jp/digital/voice/d_649069/d_649069pl.jpg",
       "fanza_link": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_649069%2F&af_id=yukine0423-002&ch=api",
       "review_slug": null,
-      "category": "doujin",
+      "category": "voice",
       "price_original": 5500,
       "price_sale": 2750,
       "discount_rate": 50,
@@ -4623,10 +4623,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ"
       ]
@@ -4944,7 +4944,8 @@
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
-        "西瓜すいか"
+        "西瓜すいか",
+        "御子柴泉"
       ]
     },
     {
@@ -6459,12 +6460,13 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 10,
+      "discount_rate": 99,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
-        "田中"
+        "田中",
+        "藤村莉央"
       ]
     },
     {
@@ -7859,7 +7861,7 @@
       "voice_actresses": [
         "雲八はち"
       ],
-      "category": "doujin",
+      "category": "voice",
       "price_original": 1100,
       "price_sale": 550,
       "discount_rate": 50,
@@ -8959,10 +8961,10 @@
       ],
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 1320,
-      "discount_rate": 19,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_759310",
