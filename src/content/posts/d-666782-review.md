@@ -10,7 +10,7 @@ voice_actresses: ["陽向葵ゅか"]
 ---
 ![【レビュー】イマジナリー彼女 ～全肯定＆ねっとり耳舐めオナサポ～](https://doujin-assets.dmm.co.jp/digital/voice/d_666782/d_666782pl.jpg)
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_666782%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+**▶ FANZAで視聴・試聴する**（アフィリエイトリンク）
 
 ---
 

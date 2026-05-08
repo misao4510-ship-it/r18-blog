@@ -11,7 +11,7 @@ circle: "Arche-Type"
 ---
 ![【レビュー】大丈夫？おっぱい揉む？ ～ソシャゲ好きOLとの甘いボイス～](https://doujin-assets.dmm.co.jp/digital/voice/d_205407/d_205407pl.jpg)
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_205407%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+**▶ FANZAで視聴・試聴する**（アフィリエイトリンク）
 
 ---
 

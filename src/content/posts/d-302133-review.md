@@ -11,7 +11,7 @@ circle: "青春×フェティシズム"
 ---
 ![【レビュー】超囁き！教え子JK七草姉妹とカテキョー失格背徳えっち](https://doujin-assets.dmm.co.jp/digital/voice/d_302133/d_302133pl.jpg)
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_302133%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+**▶ FANZAで視聴・試聴する**（アフィリエイトリンク）
 
 ---
 

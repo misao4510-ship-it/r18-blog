@@ -11,7 +11,7 @@ circle: "ao"
 ---
 ![【レビュー】パパ活JKおまこレンタル ～単調喘ぎからのわからせKU100～](https://doujin-assets.dmm.co.jp/digital/voice/d_358385/d_358385pl.jpg)
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_358385%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+**▶ FANZAで視聴・試聴する**（アフィリエイトリンク）
 
 ---
 

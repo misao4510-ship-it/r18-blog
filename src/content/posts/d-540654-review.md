@@ -11,7 +11,7 @@ circle: "ちょこうさぎプチ"
 ---
 ![【レビュー】巨乳ゲーマー女友達が帰ってくれない件 ～KU100で味わう無防備な距離感～](https://doujin-assets.dmm.co.jp/digital/voice/d_540654/d_540654pl.jpg)
 
-**[▶ FANZAで視聴・試聴する](https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_540654%2F&af_id=yukine0423-002&ch=api)**（アフィリエイトリンク）
+**▶ FANZAで視聴・試聴する**（アフィリエイトリンク）
 
 ---
 
