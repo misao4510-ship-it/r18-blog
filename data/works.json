@@ -1120,8 +1120,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 100,
-      "discount_rate": 92,
+      "price_sale": 660,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3561,10 +3561,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2640,
-      "price_sale": 1584,
-      "discount_rate": 40,
+      "price_sale": 2640,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "山田じぇみ子",
         "陽向葵ゅか"
@@ -5427,8 +5427,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 132,
-      "discount_rate": 90,
+      "price_sale": 660,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -10078,7 +10078,8 @@
       "fanza_link": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_469095%2F&af_id=yukine0423-002&ch=api",
       "review_slug": null,
       "voice_actresses": [
-        "御子柴泉"
+        "御子柴泉",
+        "柚木つばめ"
       ],
       "category": "voice",
       "price_original": 4620,
