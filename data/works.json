@@ -3477,8 +3477,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 110,
-      "discount_rate": 90,
+      "price_sale": 550,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4645,8 +4645,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 110,
-      "discount_rate": 90,
+      "price_sale": 550,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6720,7 +6720,8 @@
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
-        "天知遥"
+        "天知遥",
+        "みもりあいの"
       ],
       "circle": "パステル×トリップ"
     },
@@ -9113,10 +9114,10 @@
       ],
       "category": "voice",
       "price_original": 990,
-      "price_sale": 990,
-      "discount_rate": null,
+      "price_sale": 495,
+      "discount_rate": 50,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_746878",

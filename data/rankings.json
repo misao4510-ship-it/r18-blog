@@ -15,19 +15,6 @@
     },
     {
       "rank": 2,
-      "id": "d_572607",
-      "title": "げーみんぐはーれむ5",
-      "price": 1078,
-      "price_original": 1540,
-      "price_sale": 1078,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_572607/d_572607pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_572607%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-29"
-    },
-    {
-      "rank": 3,
       "id": "d_752062",
       "title": "僕のお姉ちゃんは世界で一番強くてかっこいいんだ。",
       "price": 986,
@@ -38,6 +25,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_752062/d_752062pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_752062%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-05-07"
+    },
+    {
+      "rank": 3,
+      "id": "d_572607",
+      "title": "げーみんぐはーれむ5",
+      "price": 1078,
+      "price_original": 1540,
+      "price_sale": 1078,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_572607/d_572607pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_572607%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-29"
     },
     {
       "rank": 4,
@@ -54,19 +54,6 @@
     },
     {
       "rank": 5,
-      "id": "d_746537",
-      "title": "カラミざかり 同窓会編",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_746537/d_746537pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_746537%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-24"
-    },
-    {
-      "rank": 6,
       "id": "d_752425",
       "title": "エルフに淫紋を付ける本 LEVEL:5〜8 総集編",
       "price": 3190,
@@ -77,6 +64,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_752425/d_752425pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_752425%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-05-05"
+    },
+    {
+      "rank": 6,
+      "id": "d_746537",
+      "title": "カラミざかり 同窓会編",
+      "price": 1100,
+      "price_original": 1100,
+      "price_sale": 1100,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_746537/d_746537pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_746537%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-24"
     },
     {
       "rank": 7,
@@ -93,19 +93,6 @@
     },
     {
       "rank": 8,
-      "id": "d_756690",
-      "title": "種付ライセンス〜ビーチナンパでやりまくり編〜",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_756690/d_756690pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_756690%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-25"
-    },
-    {
-      "rank": 9,
       "id": "d_724923",
       "title": "ももかちゃんは僕のママになりたいっ！",
       "price": 990,
@@ -118,20 +105,20 @@
       "release_date": "2026-05-04"
     },
     {
-      "rank": 10,
-      "id": "d_753975",
-      "title": "本校の全女子生徒の上の口と下の口は仲良し放題だって知ってるのは俺だけ？！その2",
-      "price": 1210,
+      "rank": 9,
+      "id": "d_706167",
+      "title": "私は妻で母で、ただの雌3  最終章",
+      "price": 968,
       "price_original": 1210,
-      "price_sale": 1210,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753975/d_753975pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753975%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-30"
+      "price_sale": 968,
+      "discount_rate": 19,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_706167/d_706167pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_706167%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-10"
     },
     {
-      "rank": 11,
+      "rank": 10,
       "id": "d_760819",
       "title": "ナンパマスター〜151人のナンパ図鑑完成を目指せ！！〜【いきなり極限リーチ！！ 即興奮！！脳汁ドバドバナンパゲーム！！】",
       "price": 1870,
@@ -144,59 +131,33 @@
       "release_date": "2026-05-02"
     },
     {
-      "rank": 12,
-      "id": "d_682870",
-      "title": "ギャル親子のエグい稼ぎ方",
-      "price": 880,
-      "price_original": 880,
-      "price_sale": 880,
+      "rank": 11,
+      "id": "d_753975",
+      "title": "本校の全女子生徒の上の口と下の口は仲良し放題だって知ってるのは俺だけ？！その2",
+      "price": 1210,
+      "price_original": 1210,
+      "price_sale": 1210,
       "discount_rate": null,
       "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_682870/d_682870pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_682870%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-04"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753975/d_753975pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753975%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-30"
+    },
+    {
+      "rank": 12,
+      "id": "d_756690",
+      "title": "種付ライセンス〜ビーチナンパでやりまくり編〜",
+      "price": 1100,
+      "price_original": 1100,
+      "price_sale": 1100,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_756690/d_756690pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_756690%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-25"
     },
     {
       "rank": 13,
-      "id": "d_568146",
-      "title": "翁計画師走の翁総集編",
-      "price": 3388,
-      "price_original": 8470,
-      "price_sale": 3388,
-      "discount_rate": 60,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_568146/d_568146pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_568146%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-04-29"
-    },
-    {
-      "rank": 14,
-      "id": "d_731666",
-      "title": "死亡淫戯  調伏失敗！？  メカクレキョンシー",
-      "price": 792,
-      "price_original": 880,
-      "price_sale": 792,
-      "discount_rate": 9,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_731666/d_731666pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_731666%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 15,
-      "id": "d_740374",
-      "title": "青水庵＆白金庵コンプリートBOX！！ 2008〜2026",
-      "price": 9955,
-      "price_original": 19910,
-      "price_sale": 9955,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_740374%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-03-16"
-    },
-    {
-      "rank": 16,
       "id": "d_463978",
       "title": "【5時間半↑オナサポ×7】オナサポ人間ドック【6周年記念】",
       "price": 3520,
@@ -209,20 +170,33 @@
       "release_date": "2024-10-25"
     },
     {
-      "rank": 17,
-      "id": "d_713158",
-      "title": "種付ライセンス〜非モテの僕が最強遺伝子？！〜",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "rank": 14,
+      "id": "d_715160",
+      "title": "旧帝大卒のクールな人妻同僚は、俺の雌になります。",
+      "price": 891,
+      "price_original": 990,
+      "price_sale": 891,
+      "discount_rate": 9,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_713158/d_713158pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_713158%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-12-26"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_715160/d_715160pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_715160%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-10"
     },
     {
-      "rank": 18,
+      "rank": 15,
+      "id": "d_568146",
+      "title": "翁計画師走の翁総集編",
+      "price": 3388,
+      "price_original": 8470,
+      "price_sale": 3388,
+      "discount_rate": 60,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_568146/d_568146pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_568146%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-04-29"
+    },
+    {
+      "rank": 16,
       "id": "d_730273",
       "title": "【心情代弁フォーリー/ドスケベ差分イラスト】従妹と叔母の親子丼逆レ●プ〜再会したらおまんこ欲が最高潮なようで汁まみれ捕食3P交尾されました〜【KU100】",
       "price": 2090,
@@ -235,30 +209,56 @@
       "release_date": "2026-02-21"
     },
     {
+      "rank": 17,
+      "id": "d_757586",
+      "title": "ぽりうれたん短編集-惚-",
+      "price": 1155,
+      "price_original": 1650,
+      "price_sale": 1155,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757586/d_757586pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757586%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-09"
+    },
+    {
+      "rank": 18,
+      "id": "d_731666",
+      "title": "死亡淫戯  調伏失敗！？  メカクレキョンシー",
+      "price": 792,
+      "price_original": 880,
+      "price_sale": 792,
+      "discount_rate": 9,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_731666/d_731666pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_731666%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-01"
+    },
+    {
       "rank": 19,
-      "id": "d_571191",
-      "title": "げーみんぐはーれむ総集編I",
-      "price": 1375,
-      "price_original": 2750,
-      "price_sale": 1375,
+      "id": "d_740374",
+      "title": "青水庵＆白金庵コンプリートBOX！！ 2008〜2026",
+      "price": 9955,
+      "price_original": 19910,
+      "price_sale": 9955,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_571191/d_571191pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_571191%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-05-02"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_740374%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-16"
     },
     {
       "rank": 20,
-      "id": "d_706167",
-      "title": "私は妻で母で、ただの雌3  最終章",
-      "price": 968,
-      "price_original": 1210,
-      "price_sale": 968,
-      "discount_rate": 19,
+      "id": "d_713158",
+      "title": "種付ライセンス〜非モテの僕が最強遺伝子？！〜",
+      "price": 550,
+      "price_original": 1100,
+      "price_sale": 550,
+      "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_706167/d_706167pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_706167%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-10"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_713158/d_713158pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_713158%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-12-26"
     },
     {
       "rank": 21,
@@ -275,6 +275,32 @@
     },
     {
       "rank": 22,
+      "id": "d_682870",
+      "title": "ギャル親子のエグい稼ぎ方",
+      "price": 880,
+      "price_original": 880,
+      "price_sale": 880,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_682870/d_682870pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_682870%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-04"
+    },
+    {
+      "rank": 23,
+      "id": "d_571191",
+      "title": "げーみんぐはーれむ総集編I",
+      "price": 1375,
+      "price_original": 2750,
+      "price_sale": 1375,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_571191/d_571191pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_571191%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-05-02"
+    },
+    {
+      "rank": 24,
       "id": "d_762214",
       "title": "にじさ〇じR-18アーカイブ 〜公式じゃ絶対見れない！ライバーたちの秘密〜",
       "price": 1650,
@@ -287,59 +313,7 @@
       "release_date": "2026-05-04"
     },
     {
-      "rank": 23,
-      "id": "d_757586",
-      "title": "ぽりうれたん短編集-惚-",
-      "price": 1155,
-      "price_original": 1650,
-      "price_sale": 1155,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757586/d_757586pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757586%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-09"
-    },
-    {
-      "rank": 24,
-      "id": "d_728516",
-      "title": "【大型アプデ・アニメ対応！】この宿に魔女を泊めるな ver1.1.1",
-      "price": 1430,
-      "price_original": 2860,
-      "price_sale": 1430,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_728516/d_728516pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_728516%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-02-19"
-    },
-    {
       "rank": 25,
-      "id": "d_715160",
-      "title": "旧帝大卒のクールな人妻同僚は、俺の雌になります。",
-      "price": 891,
-      "price_original": 990,
-      "price_sale": 891,
-      "discount_rate": 9,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_715160/d_715160pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_715160%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-10"
-    },
-    {
-      "rank": 26,
-      "id": "d_758854",
-      "title": "俺しか勃起できない世界  〜Mカップパワハラ女上司＆Lカップ保健教師生オナホ化〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_758854/d_758854pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_758854%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 27,
       "id": "d_701217",
       "title": "みちゆくはな作品集 かけら。",
       "price": 825,
@@ -352,20 +326,7 @@
       "release_date": "2025-12-16"
     },
     {
-      "rank": 28,
-      "id": "d_757480",
-      "title": "ヌいてもらいまくり入院性活〜助けたクールギャルは実はスケベでした〜",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757480/d_757480pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757480%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-26"
-    },
-    {
-      "rank": 29,
+      "rank": 26,
       "id": "d_251264",
       "title": "エルフに淫紋を付ける本 LEVEL:1〜4 総集編",
       "price": 1000,
@@ -376,6 +337,45 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_251264/d_251264pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_251264%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2022-12-05"
+    },
+    {
+      "rank": 27,
+      "id": "d_761733",
+      "title": "電車で何度も肩にもたれかかってくる女の子と、子作りセックスしてしまった",
+      "price": 693,
+      "price_original": 990,
+      "price_sale": 693,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_761733/d_761733pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_761733%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-05"
+    },
+    {
+      "rank": 28,
+      "id": "d_728516",
+      "title": "【大型アプデ・アニメ対応！】この宿に魔女を泊めるな ver1.1.1",
+      "price": 1430,
+      "price_original": 2860,
+      "price_sale": 1430,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_728516/d_728516pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_728516%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-02-19"
+    },
+    {
+      "rank": 29,
+      "id": "d_753983",
+      "title": "EDしか生まれない島で唯一の絶倫2",
+      "price": 704,
+      "price_original": 880,
+      "price_sale": 704,
+      "discount_rate": 19,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753983/d_753983pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753983%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-07"
     },
     {
       "rank": 30,
@@ -407,19 +407,6 @@
     },
     {
       "rank": 2,
-      "id": "d_572607",
-      "title": "げーみんぐはーれむ5",
-      "price": 1078,
-      "price_original": 1540,
-      "price_sale": 1078,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_572607/d_572607pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_572607%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-29"
-    },
-    {
-      "rank": 3,
       "id": "d_752062",
       "title": "僕のお姉ちゃんは世界で一番強くてかっこいいんだ。",
       "price": 986,
@@ -430,6 +417,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_752062/d_752062pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_752062%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-05-07"
+    },
+    {
+      "rank": 3,
+      "id": "d_572607",
+      "title": "げーみんぐはーれむ5",
+      "price": 1078,
+      "price_original": 1540,
+      "price_sale": 1078,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_572607/d_572607pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_572607%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-29"
     },
     {
       "rank": 4,
@@ -446,19 +446,6 @@
     },
     {
       "rank": 5,
-      "id": "d_746537",
-      "title": "カラミざかり 同窓会編",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_746537/d_746537pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_746537%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-24"
-    },
-    {
-      "rank": 6,
       "id": "d_752425",
       "title": "エルフに淫紋を付ける本 LEVEL:5〜8 総集編",
       "price": 3190,
@@ -469,6 +456,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_752425/d_752425pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_752425%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-05-05"
+    },
+    {
+      "rank": 6,
+      "id": "d_746537",
+      "title": "カラミざかり 同窓会編",
+      "price": 1100,
+      "price_original": 1100,
+      "price_sale": 1100,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_746537/d_746537pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_746537%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-24"
     },
     {
       "rank": 7,
@@ -485,19 +485,6 @@
     },
     {
       "rank": 8,
-      "id": "d_756690",
-      "title": "種付ライセンス〜ビーチナンパでやりまくり編〜",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_756690/d_756690pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_756690%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-25"
-    },
-    {
-      "rank": 9,
       "id": "d_724923",
       "title": "ももかちゃんは僕のママになりたいっ！",
       "price": 990,
@@ -510,20 +497,20 @@
       "release_date": "2026-05-04"
     },
     {
-      "rank": 10,
-      "id": "d_753975",
-      "title": "本校の全女子生徒の上の口と下の口は仲良し放題だって知ってるのは俺だけ？！その2",
-      "price": 1210,
+      "rank": 9,
+      "id": "d_706167",
+      "title": "私は妻で母で、ただの雌3  最終章",
+      "price": 968,
       "price_original": 1210,
-      "price_sale": 1210,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753975/d_753975pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753975%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-30"
+      "price_sale": 968,
+      "discount_rate": 19,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_706167/d_706167pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_706167%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-10"
     },
     {
-      "rank": 11,
+      "rank": 10,
       "id": "d_760819",
       "title": "ナンパマスター〜151人のナンパ図鑑完成を目指せ！！〜【いきなり極限リーチ！！ 即興奮！！脳汁ドバドバナンパゲーム！！】",
       "price": 1870,
@@ -536,59 +523,33 @@
       "release_date": "2026-05-02"
     },
     {
-      "rank": 12,
-      "id": "d_682870",
-      "title": "ギャル親子のエグい稼ぎ方",
-      "price": 880,
-      "price_original": 880,
-      "price_sale": 880,
+      "rank": 11,
+      "id": "d_753975",
+      "title": "本校の全女子生徒の上の口と下の口は仲良し放題だって知ってるのは俺だけ？！その2",
+      "price": 1210,
+      "price_original": 1210,
+      "price_sale": 1210,
       "discount_rate": null,
       "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_682870/d_682870pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_682870%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-04"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753975/d_753975pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753975%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-30"
+    },
+    {
+      "rank": 12,
+      "id": "d_756690",
+      "title": "種付ライセンス〜ビーチナンパでやりまくり編〜",
+      "price": 1100,
+      "price_original": 1100,
+      "price_sale": 1100,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_756690/d_756690pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_756690%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-04-25"
     },
     {
       "rank": 13,
-      "id": "d_568146",
-      "title": "翁計画師走の翁総集編",
-      "price": 3388,
-      "price_original": 8470,
-      "price_sale": 3388,
-      "discount_rate": 60,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_568146/d_568146pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_568146%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-04-29"
-    },
-    {
-      "rank": 14,
-      "id": "d_731666",
-      "title": "死亡淫戯  調伏失敗！？  メカクレキョンシー",
-      "price": 792,
-      "price_original": 880,
-      "price_sale": 792,
-      "discount_rate": 9,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_731666/d_731666pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_731666%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 15,
-      "id": "d_740374",
-      "title": "青水庵＆白金庵コンプリートBOX！！ 2008〜2026",
-      "price": 9955,
-      "price_original": 19910,
-      "price_sale": 9955,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_740374%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-03-16"
-    },
-    {
-      "rank": 16,
       "id": "d_463978",
       "title": "【5時間半↑オナサポ×7】オナサポ人間ドック【6周年記念】",
       "price": 3520,
@@ -601,20 +562,33 @@
       "release_date": "2024-10-25"
     },
     {
-      "rank": 17,
-      "id": "d_713158",
-      "title": "種付ライセンス〜非モテの僕が最強遺伝子？！〜",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "rank": 14,
+      "id": "d_715160",
+      "title": "旧帝大卒のクールな人妻同僚は、俺の雌になります。",
+      "price": 891,
+      "price_original": 990,
+      "price_sale": 891,
+      "discount_rate": 9,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_713158/d_713158pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_713158%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-12-26"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_715160/d_715160pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_715160%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-10"
     },
     {
-      "rank": 18,
+      "rank": 15,
+      "id": "d_568146",
+      "title": "翁計画師走の翁総集編",
+      "price": 3388,
+      "price_original": 8470,
+      "price_sale": 3388,
+      "discount_rate": 60,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_568146/d_568146pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_568146%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-04-29"
+    },
+    {
+      "rank": 16,
       "id": "d_730273",
       "title": "【心情代弁フォーリー/ドスケベ差分イラスト】従妹と叔母の親子丼逆レ●プ〜再会したらおまんこ欲が最高潮なようで汁まみれ捕食3P交尾されました〜【KU100】",
       "price": 2090,
@@ -627,30 +601,56 @@
       "release_date": "2026-02-21"
     },
     {
+      "rank": 17,
+      "id": "d_757586",
+      "title": "ぽりうれたん短編集-惚-",
+      "price": 1155,
+      "price_original": 1650,
+      "price_sale": 1155,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757586/d_757586pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757586%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-09"
+    },
+    {
+      "rank": 18,
+      "id": "d_731666",
+      "title": "死亡淫戯  調伏失敗！？  メカクレキョンシー",
+      "price": 792,
+      "price_original": 880,
+      "price_sale": 792,
+      "discount_rate": 9,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_731666/d_731666pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_731666%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-01"
+    },
+    {
       "rank": 19,
-      "id": "d_571191",
-      "title": "げーみんぐはーれむ総集編I",
-      "price": 1375,
-      "price_original": 2750,
-      "price_sale": 1375,
+      "id": "d_740374",
+      "title": "青水庵＆白金庵コンプリートBOX！！ 2008〜2026",
+      "price": 9955,
+      "price_original": 19910,
+      "price_sale": 9955,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_571191/d_571191pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_571191%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-05-02"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_740374/d_740374pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_740374%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-16"
     },
     {
       "rank": 20,
-      "id": "d_706167",
-      "title": "私は妻で母で、ただの雌3  最終章",
-      "price": 968,
-      "price_original": 1210,
-      "price_sale": 968,
-      "discount_rate": 19,
+      "id": "d_713158",
+      "title": "種付ライセンス〜非モテの僕が最強遺伝子？！〜",
+      "price": 550,
+      "price_original": 1100,
+      "price_sale": 550,
+      "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_706167/d_706167pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_706167%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-10"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_713158/d_713158pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_713158%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-12-26"
     },
     {
       "rank": 21,
@@ -667,6 +667,32 @@
     },
     {
       "rank": 22,
+      "id": "d_682870",
+      "title": "ギャル親子のエグい稼ぎ方",
+      "price": 880,
+      "price_original": 880,
+      "price_sale": 880,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_682870/d_682870pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_682870%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-04"
+    },
+    {
+      "rank": 23,
+      "id": "d_571191",
+      "title": "げーみんぐはーれむ総集編I",
+      "price": 1375,
+      "price_original": 2750,
+      "price_sale": 1375,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_571191/d_571191pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_571191%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-05-02"
+    },
+    {
+      "rank": 24,
       "id": "d_762214",
       "title": "にじさ〇じR-18アーカイブ 〜公式じゃ絶対見れない！ライバーたちの秘密〜",
       "price": 1650,
@@ -679,59 +705,7 @@
       "release_date": "2026-05-04"
     },
     {
-      "rank": 23,
-      "id": "d_757586",
-      "title": "ぽりうれたん短編集-惚-",
-      "price": 1155,
-      "price_original": 1650,
-      "price_sale": 1155,
-      "discount_rate": 30,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757586/d_757586pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757586%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-09"
-    },
-    {
-      "rank": 24,
-      "id": "d_728516",
-      "title": "【大型アプデ・アニメ対応！】この宿に魔女を泊めるな ver1.1.1",
-      "price": 1430,
-      "price_original": 2860,
-      "price_sale": 1430,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_728516/d_728516pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_728516%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-02-19"
-    },
-    {
       "rank": 25,
-      "id": "d_715160",
-      "title": "旧帝大卒のクールな人妻同僚は、俺の雌になります。",
-      "price": 891,
-      "price_original": 990,
-      "price_sale": 891,
-      "discount_rate": 9,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_715160/d_715160pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_715160%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-10"
-    },
-    {
-      "rank": 26,
-      "id": "d_758854",
-      "title": "俺しか勃起できない世界  〜Mカップパワハラ女上司＆Lカップ保健教師生オナホ化〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_758854/d_758854pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_758854%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 27,
       "id": "d_701217",
       "title": "みちゆくはな作品集 かけら。",
       "price": 825,
@@ -744,20 +718,7 @@
       "release_date": "2025-12-16"
     },
     {
-      "rank": 28,
-      "id": "d_757480",
-      "title": "ヌいてもらいまくり入院性活〜助けたクールギャルは実はスケベでした〜",
-      "price": 1100,
-      "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_757480/d_757480pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_757480%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-04-26"
-    },
-    {
-      "rank": 29,
+      "rank": 26,
       "id": "d_251264",
       "title": "エルフに淫紋を付ける本 LEVEL:1〜4 総集編",
       "price": 1000,
@@ -768,6 +729,45 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_251264/d_251264pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_251264%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2022-12-05"
+    },
+    {
+      "rank": 27,
+      "id": "d_761733",
+      "title": "電車で何度も肩にもたれかかってくる女の子と、子作りセックスしてしまった",
+      "price": 693,
+      "price_original": 990,
+      "price_sale": 693,
+      "discount_rate": 30,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_761733/d_761733pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_761733%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-05"
+    },
+    {
+      "rank": 28,
+      "id": "d_728516",
+      "title": "【大型アプデ・アニメ対応！】この宿に魔女を泊めるな ver1.1.1",
+      "price": 1430,
+      "price_original": 2860,
+      "price_sale": 1430,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_728516/d_728516pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_728516%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-02-19"
+    },
+    {
+      "rank": 29,
+      "id": "d_753983",
+      "title": "EDしか生まれない島で唯一の絶倫2",
+      "price": 704,
+      "price_original": 880,
+      "price_sale": 704,
+      "discount_rate": 19,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/comic/d_753983/d_753983pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_753983%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-07"
     },
     {
       "rank": 30,
@@ -825,19 +825,6 @@
     },
     {
       "rank": 4,
-      "id": "d_759389",
-      "title": "【4Kアニメ】とらぶる☆アイランド！〜中出し無制限の無人島性活♪〜",
-      "price": 1980,
-      "price_original": 3960,
-      "price_sale": 1980,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_759389/d_759389pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_759389%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 5,
       "id": "d_720615",
       "title": "壁尻エロ女更生センター 〜どすけべ女どものエロまんこをつよつよデカチンでお仕置き施設〜",
       "price": 605,
@@ -850,20 +837,20 @@
       "release_date": "2026-02-08"
     },
     {
-      "rank": 6,
-      "id": "d_506249",
-      "title": "【KU100】お嬢様JKオホリフレ 〜プラチナVIP文化祭！ 完全会員制プレミアムリフレ♪〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
+      "rank": 5,
+      "id": "d_759389",
+      "title": "【4Kアニメ】とらぶる☆アイランド！〜中出し無制限の無人島性活♪〜",
+      "price": 1980,
+      "price_original": 3960,
+      "price_sale": 1980,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506249/d_506249pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506249%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-02-03"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_759389/d_759389pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_759389%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-01"
     },
     {
-      "rank": 7,
+      "rank": 6,
       "id": "d_436756",
       "title": "【KU100】2人っきりのトロ声＆甘イキ温泉旅行♪ 仲良しカップルお泊まりラブラブ生ハメTrippin’♪",
       "price": 880,
@@ -876,7 +863,7 @@
       "release_date": "2024-10-07"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "id": "d_286074",
       "title": "【KU100】ドスケベ女神主とクールなドM巫女の吐息アクメ癒やしハーレム 〜耳元から離れず、聖職者が出しちゃいけない雑魚イキ声〜【りふれぼプレミアムシリーズ】",
       "price": 1045,
@@ -887,6 +874,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_286074/d_286074pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_286074%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2023-10-08"
+    },
+    {
+      "rank": 8,
+      "id": "d_506249",
+      "title": "【KU100】お嬢様JKオホリフレ 〜プラチナVIP文化祭！ 完全会員制プレミアムリフレ♪〜",
+      "price": 715,
+      "price_original": 1430,
+      "price_sale": 715,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506249/d_506249pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506249%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-02-03"
     },
     {
       "rank": 9,
@@ -903,19 +903,6 @@
     },
     {
       "rank": 10,
-      "id": "d_724190",
-      "title": "【爆乳七つ子姉妹】屈服願望持ちのデカパイ生意気マゾまんこな七風ちゃんを旦那様ちんぽでたっぷり躾けちゃおう♪【KU100収録】",
-      "price": 1320,
-      "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_724190/d_724190pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_724190%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-03-07"
-    },
-    {
-      "rank": 11,
       "id": "d_282366",
       "title": "【KU100】媚び媚びお姫さまとムッツリ騎士メイドは生ハメ交尾で孕みたい 〜ずーっと耳元で誘惑されながらイチャラブえっち！〜【りふれぼプレミアムシリーズ】",
       "price": 1045,
@@ -926,6 +913,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_282366/d_282366pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_282366%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2023-09-24"
+    },
+    {
+      "rank": 11,
+      "id": "d_724190",
+      "title": "【爆乳七つ子姉妹】屈服願望持ちのデカパイ生意気マゾまんこな七風ちゃんを旦那様ちんぽでたっぷり躾けちゃおう♪【KU100収録】",
+      "price": 1320,
+      "price_original": 1320,
+      "price_sale": 1320,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_724190/d_724190pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_724190%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-07"
     },
     {
       "rank": 12,
@@ -942,19 +942,6 @@
     },
     {
       "rank": 13,
-      "id": "d_491026",
-      "title": "【Live2D×ASMR】ヤっちゃえ！ギャルちゃん2 〜騎乗位編、パイズリ編〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_491026/d_491026pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_491026%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-06-30"
-    },
-    {
-      "rank": 14,
       "id": "d_265830",
       "title": "ドスケベ長乳シスターさんがチンカス汚ちんぽに媚び媚びご奉仕してくれるお話♪【KU100】",
       "price": 825,
@@ -967,20 +954,20 @@
       "release_date": "2023-05-01"
     },
     {
-      "rank": 15,
-      "id": "d_287044",
-      "title": "【母乳フォーリー】学園風俗村ホルスタイン〜ミルクまみれのテーマパーク〜",
-      "price": 1320,
-      "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_287044/d_287044pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_287044%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2023-08-19"
+      "rank": 14,
+      "id": "d_491026",
+      "title": "【Live2D×ASMR】ヤっちゃえ！ギャルちゃん2 〜騎乗位編、パイズリ編〜",
+      "price": 715,
+      "price_original": 1430,
+      "price_sale": 715,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_491026/d_491026pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_491026%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-06-30"
     },
     {
-      "rank": 16,
+      "rank": 15,
       "id": "d_723948",
       "title": "君のがんばり射精サポーター♪〜幼なじみお姉ちゃんに応援されて気持ちよ〜く射精しよう♪〜【KU100収録】",
       "price": 660,
@@ -991,6 +978,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_723948/d_723948pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_723948%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-02-07"
+    },
+    {
+      "rank": 16,
+      "id": "d_287044",
+      "title": "【母乳フォーリー】学園風俗村ホルスタイン〜ミルクまみれのテーマパーク〜",
+      "price": 1320,
+      "price_original": 1320,
+      "price_sale": 1320,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_287044/d_287044pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_287044%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2023-08-19"
     },
     {
       "rank": 17,
@@ -1020,19 +1020,6 @@
     },
     {
       "rank": 19,
-      "id": "d_506272",
-      "title": "【KU100】『イブぱこなう♪』クリスマスコスプレ同棲セックス♪ 2人っきりのホワイトクリスマスおうちデート",
-      "price": 770,
-      "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506272/d_506272pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506272%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-02-17"
-    },
-    {
-      "rank": 20,
       "id": "d_279515",
       "title": "【おしっこフォーリー】屈辱おしっこ喫茶〜イジメっ子更生プログラム〜",
       "price": 1320,
@@ -1045,20 +1032,20 @@
       "release_date": "2023-07-15"
     },
     {
-      "rank": 21,
-      "id": "d_684301",
-      "title": "独占欲強めの王子様系オオカミ少女さんに、甘々擬似新婚’性’活を強●されました♪【KU100収録】",
-      "price": 660,
-      "price_original": 1320,
-      "price_sale": 660,
+      "rank": 20,
+      "id": "d_506272",
+      "title": "【KU100】『イブぱこなう♪』クリスマスコスプレ同棲セックス♪ 2人っきりのホワイトクリスマスおうちデート",
+      "price": 770,
+      "price_original": 1540,
+      "price_sale": 770,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_684301/d_684301pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_684301%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-11-15"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506272/d_506272pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506272%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-02-17"
     },
     {
-      "rank": 22,
+      "rank": 21,
       "id": "d_218302",
       "title": "巨乳後輩チアガールとその母親がチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
       "price": 825,
@@ -1069,6 +1056,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218302/d_218302pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218302%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2021-12-11"
+    },
+    {
+      "rank": 22,
+      "id": "d_684301",
+      "title": "独占欲強めの王子様系オオカミ少女さんに、甘々擬似新婚’性’活を強●されました♪【KU100収録】",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_684301/d_684301pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_684301%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-11-15"
     },
     {
       "rank": 23,
@@ -1098,32 +1098,6 @@
     },
     {
       "rank": 25,
-      "id": "d_563480",
-      "title": "オホ声イグイグメンヘラほいほい甘サド小悪魔痴女松濤院さんASMR【KU100】",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_563480/d_563480pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_563480%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-04-28"
-    },
-    {
-      "rank": 26,
-      "id": "d_218271",
-      "title": "巨乳後輩チアガールがチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
-      "price": 825,
-      "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218271/d_218271pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218271%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2021-12-11"
-    },
-    {
-      "rank": 27,
       "id": "d_517138",
       "title": "絶対処女 神捧ノ聖女 ホーリーバージン・スメルフェチアナルビッチ",
       "price": 10,
@@ -1136,20 +1110,20 @@
       "release_date": "2025-02-02"
     },
     {
-      "rank": 28,
-      "id": "d_268751",
-      "title": "【KU100】囁き皇女さまの甘舐め添い寝お嫁さんエッチ〜溜まってた性欲を全て捧げる密着子作りアクメ！〜",
-      "price": 660,
+      "rank": 26,
+      "id": "d_451438",
+      "title": "【お得なセット割！】金髪ギャル〜3ヒロイン詰め合わせ〜【総集編】",
+      "price": 10,
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 10,
+      "discount_rate": 99,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_268751/d_268751pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_268751%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2023-06-30"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_451438/d_451438pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_451438%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2024-09-25"
     },
     {
-      "rank": 29,
+      "rank": 27,
       "id": "d_732572",
       "title": "【催●×逆レ×処女】むっつりな地味系秘書の身勝手な性処理…「おちんちん犯しちゃいますね…（はーと）」",
       "price": 660,
@@ -1162,17 +1136,43 @@
       "release_date": "2026-02-22"
     },
     {
-      "rank": 30,
-      "id": "d_499553",
-      "title": "排卵日に子作り懇願おほ声イグイグ妹ASMR【KU100】",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
+      "rank": 28,
+      "id": "d_218271",
+      "title": "巨乳後輩チアガールがチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
+      "price": 825,
+      "price_original": 1650,
+      "price_sale": 825,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_499553/d_499553pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_499553%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-01-20"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218271/d_218271pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218271%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2021-12-11"
+    },
+    {
+      "rank": 29,
+      "id": "d_676646",
+      "title": "【寝取らせ】しっかり者の最愛彼女を、最悪なヤリチン元カレに抱かせる〜クズデカチンポでセフレ逆戻り無様オホアクメ〜【KU100】",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_676646/d_676646pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_676646%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-10-18"
+    },
+    {
+      "rank": 30,
+      "id": "d_268751",
+      "title": "【KU100】囁き皇女さまの甘舐め添い寝お嫁さんエッチ〜溜まってた性欲を全て捧げる密着子作りアクメ！〜",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_268751/d_268751pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_268751%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2023-06-30"
     }
   ],
   "voice_daily": [
@@ -1217,19 +1217,6 @@
     },
     {
       "rank": 4,
-      "id": "d_759389",
-      "title": "【4Kアニメ】とらぶる☆アイランド！〜中出し無制限の無人島性活♪〜",
-      "price": 1980,
-      "price_original": 3960,
-      "price_sale": 1980,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_759389/d_759389pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_759389%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-05-01"
-    },
-    {
-      "rank": 5,
       "id": "d_720615",
       "title": "壁尻エロ女更生センター 〜どすけべ女どものエロまんこをつよつよデカチンでお仕置き施設〜",
       "price": 605,
@@ -1242,20 +1229,20 @@
       "release_date": "2026-02-08"
     },
     {
-      "rank": 6,
-      "id": "d_506249",
-      "title": "【KU100】お嬢様JKオホリフレ 〜プラチナVIP文化祭！ 完全会員制プレミアムリフレ♪〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
+      "rank": 5,
+      "id": "d_759389",
+      "title": "【4Kアニメ】とらぶる☆アイランド！〜中出し無制限の無人島性活♪〜",
+      "price": 1980,
+      "price_original": 3960,
+      "price_sale": 1980,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506249/d_506249pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506249%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-02-03"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/cg/d_759389/d_759389pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_759389%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-05-01"
     },
     {
-      "rank": 7,
+      "rank": 6,
       "id": "d_436756",
       "title": "【KU100】2人っきりのトロ声＆甘イキ温泉旅行♪ 仲良しカップルお泊まりラブラブ生ハメTrippin’♪",
       "price": 880,
@@ -1268,7 +1255,7 @@
       "release_date": "2024-10-07"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "id": "d_286074",
       "title": "【KU100】ドスケベ女神主とクールなドM巫女の吐息アクメ癒やしハーレム 〜耳元から離れず、聖職者が出しちゃいけない雑魚イキ声〜【りふれぼプレミアムシリーズ】",
       "price": 1045,
@@ -1279,6 +1266,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_286074/d_286074pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_286074%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2023-10-08"
+    },
+    {
+      "rank": 8,
+      "id": "d_506249",
+      "title": "【KU100】お嬢様JKオホリフレ 〜プラチナVIP文化祭！ 完全会員制プレミアムリフレ♪〜",
+      "price": 715,
+      "price_original": 1430,
+      "price_sale": 715,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506249/d_506249pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506249%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-02-03"
     },
     {
       "rank": 9,
@@ -1295,19 +1295,6 @@
     },
     {
       "rank": 10,
-      "id": "d_724190",
-      "title": "【爆乳七つ子姉妹】屈服願望持ちのデカパイ生意気マゾまんこな七風ちゃんを旦那様ちんぽでたっぷり躾けちゃおう♪【KU100収録】",
-      "price": 1320,
-      "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_724190/d_724190pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_724190%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2026-03-07"
-    },
-    {
-      "rank": 11,
       "id": "d_282366",
       "title": "【KU100】媚び媚びお姫さまとムッツリ騎士メイドは生ハメ交尾で孕みたい 〜ずーっと耳元で誘惑されながらイチャラブえっち！〜【りふれぼプレミアムシリーズ】",
       "price": 1045,
@@ -1318,6 +1305,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_282366/d_282366pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_282366%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2023-09-24"
+    },
+    {
+      "rank": 11,
+      "id": "d_724190",
+      "title": "【爆乳七つ子姉妹】屈服願望持ちのデカパイ生意気マゾまんこな七風ちゃんを旦那様ちんぽでたっぷり躾けちゃおう♪【KU100収録】",
+      "price": 1320,
+      "price_original": 1320,
+      "price_sale": 1320,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_724190/d_724190pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_724190%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2026-03-07"
     },
     {
       "rank": 12,
@@ -1334,19 +1334,6 @@
     },
     {
       "rank": 13,
-      "id": "d_491026",
-      "title": "【Live2D×ASMR】ヤっちゃえ！ギャルちゃん2 〜騎乗位編、パイズリ編〜",
-      "price": 715,
-      "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_491026/d_491026pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_491026%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-06-30"
-    },
-    {
-      "rank": 14,
       "id": "d_265830",
       "title": "ドスケベ長乳シスターさんがチンカス汚ちんぽに媚び媚びご奉仕してくれるお話♪【KU100】",
       "price": 825,
@@ -1359,20 +1346,20 @@
       "release_date": "2023-05-01"
     },
     {
-      "rank": 15,
-      "id": "d_287044",
-      "title": "【母乳フォーリー】学園風俗村ホルスタイン〜ミルクまみれのテーマパーク〜",
-      "price": 1320,
-      "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
-      "is_on_sale": false,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_287044/d_287044pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_287044%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2023-08-19"
+      "rank": 14,
+      "id": "d_491026",
+      "title": "【Live2D×ASMR】ヤっちゃえ！ギャルちゃん2 〜騎乗位編、パイズリ編〜",
+      "price": 715,
+      "price_original": 1430,
+      "price_sale": 715,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/game/d_491026/d_491026pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_491026%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-06-30"
     },
     {
-      "rank": 16,
+      "rank": 15,
       "id": "d_723948",
       "title": "君のがんばり射精サポーター♪〜幼なじみお姉ちゃんに応援されて気持ちよ〜く射精しよう♪〜【KU100収録】",
       "price": 660,
@@ -1383,6 +1370,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_723948/d_723948pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_723948%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2026-02-07"
+    },
+    {
+      "rank": 16,
+      "id": "d_287044",
+      "title": "【母乳フォーリー】学園風俗村ホルスタイン〜ミルクまみれのテーマパーク〜",
+      "price": 1320,
+      "price_original": 1320,
+      "price_sale": 1320,
+      "discount_rate": null,
+      "is_on_sale": false,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_287044/d_287044pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_287044%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2023-08-19"
     },
     {
       "rank": 17,
@@ -1412,19 +1412,6 @@
     },
     {
       "rank": 19,
-      "id": "d_506272",
-      "title": "【KU100】『イブぱこなう♪』クリスマスコスプレ同棲セックス♪ 2人っきりのホワイトクリスマスおうちデート",
-      "price": 770,
-      "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506272/d_506272pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506272%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-02-17"
-    },
-    {
-      "rank": 20,
       "id": "d_279515",
       "title": "【おしっこフォーリー】屈辱おしっこ喫茶〜イジメっ子更生プログラム〜",
       "price": 1320,
@@ -1437,20 +1424,20 @@
       "release_date": "2023-07-15"
     },
     {
-      "rank": 21,
-      "id": "d_684301",
-      "title": "独占欲強めの王子様系オオカミ少女さんに、甘々擬似新婚’性’活を強●されました♪【KU100収録】",
-      "price": 660,
-      "price_original": 1320,
-      "price_sale": 660,
+      "rank": 20,
+      "id": "d_506272",
+      "title": "【KU100】『イブぱこなう♪』クリスマスコスプレ同棲セックス♪ 2人っきりのホワイトクリスマスおうちデート",
+      "price": 770,
+      "price_original": 1540,
+      "price_sale": 770,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_684301/d_684301pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_684301%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-11-15"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_506272/d_506272pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_506272%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-02-17"
     },
     {
-      "rank": 22,
+      "rank": 21,
       "id": "d_218302",
       "title": "巨乳後輩チアガールとその母親がチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
       "price": 825,
@@ -1461,6 +1448,19 @@
       "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218302/d_218302pl.jpg",
       "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218302%2F&af_id=yukine0423-002&ch=api",
       "release_date": "2021-12-11"
+    },
+    {
+      "rank": 22,
+      "id": "d_684301",
+      "title": "独占欲強めの王子様系オオカミ少女さんに、甘々擬似新婚’性’活を強●されました♪【KU100収録】",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_684301/d_684301pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_684301%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-11-15"
     },
     {
       "rank": 23,
@@ -1490,32 +1490,6 @@
     },
     {
       "rank": 25,
-      "id": "d_563480",
-      "title": "オホ声イグイグメンヘラほいほい甘サド小悪魔痴女松濤院さんASMR【KU100】",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_563480/d_563480pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_563480%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-04-28"
-    },
-    {
-      "rank": 26,
-      "id": "d_218271",
-      "title": "巨乳後輩チアガールがチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
-      "price": 825,
-      "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
-      "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218271/d_218271pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218271%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2021-12-11"
-    },
-    {
-      "rank": 27,
       "id": "d_517138",
       "title": "絶対処女 神捧ノ聖女 ホーリーバージン・スメルフェチアナルビッチ",
       "price": 10,
@@ -1528,20 +1502,20 @@
       "release_date": "2025-02-02"
     },
     {
-      "rank": 28,
-      "id": "d_268751",
-      "title": "【KU100】囁き皇女さまの甘舐め添い寝お嫁さんエッチ〜溜まってた性欲を全て捧げる密着子作りアクメ！〜",
-      "price": 660,
+      "rank": 26,
+      "id": "d_451438",
+      "title": "【お得なセット割！】金髪ギャル〜3ヒロイン詰め合わせ〜【総集編】",
+      "price": 10,
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 10,
+      "discount_rate": 99,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_268751/d_268751pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_268751%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2023-06-30"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_451438/d_451438pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_451438%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2024-09-25"
     },
     {
-      "rank": 29,
+      "rank": 27,
       "id": "d_732572",
       "title": "【催●×逆レ×処女】むっつりな地味系秘書の身勝手な性処理…「おちんちん犯しちゃいますね…（はーと）」",
       "price": 660,
@@ -1554,18 +1528,44 @@
       "release_date": "2026-02-22"
     },
     {
-      "rank": 30,
-      "id": "d_499553",
-      "title": "排卵日に子作り懇願おほ声イグイグ妹ASMR【KU100】",
-      "price": 550,
-      "price_original": 1100,
-      "price_sale": 550,
+      "rank": 28,
+      "id": "d_218271",
+      "title": "巨乳後輩チアガールがチンカス汚ちんぽにご奉仕してくれるお話♪【KU100】",
+      "price": 825,
+      "price_original": 1650,
+      "price_sale": 825,
       "discount_rate": 50,
       "is_on_sale": true,
-      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_499553/d_499553pl.jpg",
-      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_499553%2F&af_id=yukine0423-002&ch=api",
-      "release_date": "2025-01-20"
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_218271/d_218271pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_218271%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2021-12-11"
+    },
+    {
+      "rank": 29,
+      "id": "d_676646",
+      "title": "【寝取らせ】しっかり者の最愛彼女を、最悪なヤリチン元カレに抱かせる〜クズデカチンポでセフレ逆戻り無様オホアクメ〜【KU100】",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_676646/d_676646pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_676646%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2025-10-18"
+    },
+    {
+      "rank": 30,
+      "id": "d_268751",
+      "title": "【KU100】囁き皇女さまの甘舐め添い寝お嫁さんエッチ〜溜まってた性欲を全て捧げる密着子作りアクメ！〜",
+      "price": 660,
+      "price_original": 1320,
+      "price_sale": 660,
+      "discount_rate": 50,
+      "is_on_sale": true,
+      "imageURL": "https://doujin-assets.dmm.co.jp/digital/voice/d_268751/d_268751pl.jpg",
+      "affiliateURL": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_268751%2F&af_id=yukine0423-002&ch=api",
+      "release_date": "2023-06-30"
     }
   ],
-  "updated_at": "2026-05-11T06:00:30.770472+09:00"
+  "updated_at": "2026-05-12T06:00:31.001250+09:00"
 }
