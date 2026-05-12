@@ -6231,8 +6231,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 330,
-      "discount_rate": 70,
+      "price_sale": 550,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6420,8 +6420,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 330,
-      "discount_rate": 70,
+      "price_sale": 550,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6441,8 +6441,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 330,
-      "discount_rate": 70,
+      "price_sale": 550,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -7864,7 +7864,7 @@
       "voice_actresses": [
         "雲八はち"
       ],
-      "category": "voice",
+      "category": "doujin",
       "price_original": 1100,
       "price_sale": 550,
       "discount_rate": 50,
@@ -8116,7 +8116,8 @@
       "review_slug": null,
       "voice_actresses": [
         "恋鈴桃歌",
-        "御子柴泉"
+        "御子柴泉",
+        "餅梨あむ"
       ],
       "category": "voice",
       "price_original": 2200,
@@ -8204,8 +8205,8 @@
       ],
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 929,
-      "discount_rate": 35,
+      "price_sale": 715,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true
     },
