@@ -1248,10 +1248,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2090,
-      "price_sale": 1254,
-      "discount_rate": 40,
+      "price_sale": 2090,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ"
       ]
@@ -7715,7 +7715,7 @@
       "voice_actresses": [
         "乙倉ゅい"
       ],
-      "category": "doujin",
+      "category": "voice",
       "price_original": 1320,
       "price_sale": 660,
       "discount_rate": 50,
@@ -8668,10 +8668,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
+      "price_sale": 880,
+      "discount_rate": 19,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_564179",
