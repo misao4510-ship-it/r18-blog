@@ -2543,7 +2543,8 @@
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
-        "柚木つばめ"
+        "柚木つばめ",
+        "陽向葵ゅか"
       ]
     },
     {
@@ -2966,8 +2967,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 100,
-      "discount_rate": 92,
+      "price_sale": 660,
+      "discount_rate": 50,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -7715,7 +7716,7 @@
       "voice_actresses": [
         "乙倉ゅい"
       ],
-      "category": "voice",
+      "category": "doujin",
       "price_original": 1320,
       "price_sale": 660,
       "discount_rate": 50,
@@ -9072,10 +9073,10 @@
       ],
       "category": "voice",
       "price_original": 880,
-      "price_sale": 880,
-      "discount_rate": null,
+      "price_sale": 440,
+      "discount_rate": 50,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_568305",
