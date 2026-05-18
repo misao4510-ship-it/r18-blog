@@ -242,8 +242,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 5500,
-      "price_sale": 2750,
-      "discount_rate": 50,
+      "price_sale": 3850,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -265,8 +265,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1001,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -329,10 +329,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 3080,
-      "price_sale": 3080,
-      "discount_rate": null,
+      "price_sale": 2156,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false,
+      "is_on_sale": true,
       "voice_actresses": [
         "陽向葵ゅか"
       ]
@@ -371,10 +371,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 10,
-      "discount_rate": 99,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥"
       ]
@@ -392,8 +392,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -457,8 +457,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 10,
-      "discount_rate": 99,
+      "price_sale": 847,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -478,10 +478,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "秋野かえで"
       ]
@@ -691,8 +691,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -797,8 +797,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -839,8 +839,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1054,8 +1054,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1096,8 +1096,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1117,8 +1117,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2200,
-      "price_sale": 1100,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1160,8 +1160,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1181,10 +1181,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 1155,
-      "discount_rate": 30,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "柚木つばめ"
       ]
@@ -1202,8 +1202,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1227,8 +1227,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1290,10 +1290,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ"
       ]
@@ -1311,10 +1311,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式"
       ]
@@ -1353,8 +1353,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1001,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1374,8 +1374,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1460,10 +1460,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2970,
-      "price_sale": 2376,
-      "discount_rate": 19,
+      "price_sale": 2970,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ"
       ]
@@ -1481,8 +1481,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 440,
-      "price_sale": 220,
-      "discount_rate": 50,
+      "price_sale": 308,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1502,10 +1502,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 1001,
-      "discount_rate": 30,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "柚木つばめ"
       ]
@@ -1565,10 +1565,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "乙倉ゅい",
         "恋鈴桃歌"
@@ -1692,8 +1692,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1734,8 +1734,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1078,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1797,10 +1797,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ"
       ]
@@ -1839,8 +1839,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2200,
-      "price_sale": 1100,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1902,8 +1902,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1924,8 +1924,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -1945,10 +1945,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 605,
-      "discount_rate": 50,
+      "price_sale": 1210,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -1987,10 +1987,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "陽向葵ゅか",
         "藍沢夏癒"
@@ -2030,8 +2030,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2072,10 +2072,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 3300,
-      "price_sale": 1650,
-      "discount_rate": 50,
+      "price_sale": 3300,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "柚木つばめ"
       ]
@@ -2093,10 +2093,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式"
       ]
@@ -2135,8 +2135,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2156,8 +2156,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2198,8 +2198,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2200,
-      "price_sale": 1100,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2261,10 +2261,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ]
@@ -2282,10 +2282,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 550,
-      "price_sale": 385,
-      "discount_rate": 30,
+      "price_sale": 550,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "柚木つばめ"
       ]
@@ -2325,10 +2325,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ",
         "餅梨あむ",
@@ -2348,10 +2348,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ]
@@ -2390,8 +2390,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2411,10 +2411,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "小花衣こっこ"
       ]
@@ -2432,10 +2432,10 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1760,
-      "price_sale": 880,
-      "discount_rate": 50,
+      "price_sale": 1760,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ"
       ],
@@ -2454,8 +2454,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1001,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2475,8 +2475,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2538,8 +2538,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2624,10 +2624,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2640,
-      "price_sale": 1320,
-      "discount_rate": 50,
+      "price_sale": 2640,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "小花衣こっこ"
       ]
@@ -2688,10 +2688,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの",
         "田中"
@@ -2708,10 +2708,10 @@
       "thumbnail": "https://doujin-assets.dmm.co.jp/digital/voice/d_537828/d_537828pl.jpg",
       "fanza_link": "https://al.fanza.co.jp/?lurl=https%3A%2F%2Fwww.dmm.co.jp%2Fdc%2Fdoujin%2F-%2Fdetail%2F%3D%2Fcid%3Dd_537828%2F&af_id=yukine0423-002&ch=api",
       "review_slug": null,
-      "category": "voice",
+      "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -2732,10 +2732,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ",
         "餅梨あむ"
@@ -2817,10 +2817,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 924,
-      "discount_rate": 30,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "柚木つばめ",
         "浅木式"
@@ -2881,10 +2881,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ",
         "天知遥"
@@ -2903,10 +2903,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "西瓜すいか"
       ]
@@ -2988,10 +2988,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 990,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3051,8 +3051,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3072,10 +3072,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -3093,8 +3093,8 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3158,10 +3158,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ",
         "藍沢夏癒"
@@ -3222,8 +3222,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 110,
-      "price_sale": 55,
-      "discount_rate": 50,
+      "price_sale": 77,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3265,10 +3265,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "涼花みなせ"
       ]
@@ -3286,10 +3286,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "御子柴泉"
       ]
@@ -3328,10 +3328,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 605,
-      "discount_rate": 50,
+      "price_sale": 1210,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式"
       ]
@@ -3349,8 +3349,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 605,
-      "discount_rate": 50,
+      "price_sale": 847,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3370,10 +3370,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3455,10 +3455,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 1100,
-      "discount_rate": null,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false,
+      "is_on_sale": true,
       "voice_actresses": [
         "山田じぇみ子"
       ]
@@ -3476,10 +3476,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 990,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "山田じぇみ子"
       ]
@@ -3539,10 +3539,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 990,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "山田じぇみ子"
       ]
@@ -3624,10 +3624,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3645,10 +3645,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3690,10 +3690,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3732,10 +3732,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3753,10 +3753,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3816,10 +3816,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 990,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "雲八はち"
       ]
@@ -3858,10 +3858,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false,
+      "is_on_sale": true,
       "voice_actresses": [
         "雲八はち",
         "乙倉ゅい"
@@ -3922,8 +3922,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -3964,10 +3964,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "恋鈴桃歌",
         "藤村莉央",
@@ -4029,8 +4029,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4092,10 +4092,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ]
@@ -4134,10 +4134,10 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ],
@@ -4156,8 +4156,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4261,10 +4261,10 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ],
@@ -4283,10 +4283,10 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "みもりあいの"
       ],
@@ -4305,8 +4305,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4368,10 +4368,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 990,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藤村莉央"
       ]
@@ -4431,10 +4431,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藤村莉央",
         "春乃つくし",
@@ -4517,10 +4517,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 770,
-      "price_sale": 385,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藤村莉央"
       ]
@@ -4538,10 +4538,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 770,
-      "price_sale": 385,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藤村莉央"
       ]
@@ -4601,10 +4601,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "餅梨あむ",
         "藍沢夏癒"
@@ -4729,8 +4729,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4792,8 +4792,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2860,
-      "price_sale": 1430,
-      "discount_rate": 50,
+      "price_sale": 2002,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4897,8 +4897,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -4918,10 +4918,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "西瓜すいか"
       ]
@@ -5066,10 +5066,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2200,
-      "price_sale": 1100,
-      "discount_rate": 50,
+      "price_sale": 2200,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "秋野かえで",
         "涼花みなせ"
@@ -5131,8 +5131,8 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5237,10 +5237,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 220,
-      "price_sale": 110,
-      "discount_rate": 50,
+      "price_sale": 220,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "春乃つくし"
       ]
@@ -5258,10 +5258,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 110,
-      "price_sale": 55,
-      "discount_rate": 50,
+      "price_sale": 110,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "春乃つくし"
       ]
@@ -5342,10 +5342,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 440,
-      "price_sale": 220,
-      "discount_rate": 50,
+      "price_sale": 440,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "春乃つくし"
       ]
@@ -5363,10 +5363,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 550,
-      "price_sale": 275,
-      "discount_rate": 50,
+      "price_sale": 550,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "春乃つくし"
       ]
@@ -5384,10 +5384,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 880,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "春乃つくし"
       ]
@@ -5405,10 +5405,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 924,
-      "discount_rate": 30,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式",
         "柚木つばめ"
@@ -5469,10 +5469,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式"
       ]
@@ -5511,10 +5511,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式"
       ]
@@ -5532,8 +5532,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5554,10 +5554,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 3300,
-      "price_sale": 1650,
-      "discount_rate": 50,
+      "price_sale": 3300,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "浅木式",
         "秋野かえで",
@@ -5640,10 +5640,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 880,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -5661,8 +5661,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1001,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5703,10 +5703,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒",
         "天知遥"
@@ -5725,10 +5725,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -5746,10 +5746,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -5767,8 +5767,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2640,
-      "price_sale": 1320,
-      "discount_rate": 50,
+      "price_sale": 1848,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5810,10 +5810,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 1210,
-      "discount_rate": null,
+      "price_sale": 847,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false,
+      "is_on_sale": true,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -5831,8 +5831,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 990,
-      "price_sale": 495,
-      "discount_rate": 50,
+      "price_sale": 693,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5852,10 +5852,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "藍沢夏癒"
       ]
@@ -5957,8 +5957,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 3190,
-      "price_sale": 1595,
-      "discount_rate": 50,
+      "price_sale": 2233,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -5999,8 +5999,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 2090,
-      "price_sale": 1045,
-      "discount_rate": 50,
+      "price_sale": 1463,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6062,8 +6062,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6083,10 +6083,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "小花衣こっこ",
         "恋鈴桃歌"
@@ -6126,10 +6126,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 24200,
-      "price_sale": 12100,
-      "discount_rate": 50,
+      "price_sale": 24200,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "小花衣こっこ"
       ]
@@ -6189,8 +6189,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 770,
-      "price_sale": 385,
-      "discount_rate": 50,
+      "price_sale": 539,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6231,10 +6231,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "田中"
       ]
@@ -6252,8 +6252,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6357,8 +6357,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 110,
-      "price_sale": 55,
-      "discount_rate": 50,
+      "price_sale": 77,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6420,10 +6420,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 3960,
-      "price_sale": 1980,
-      "discount_rate": 50,
+      "price_sale": 3960,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "田中"
       ]
@@ -6441,8 +6441,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6483,10 +6483,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 10,
-      "discount_rate": 99,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "田中",
         "藤村莉央"
@@ -6505,8 +6505,8 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "voice_actresses": [
@@ -6526,10 +6526,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥"
       ]
@@ -6568,10 +6568,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 330,
-      "price_sale": 165,
-      "discount_rate": 50,
+      "price_sale": 330,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥"
       ]
@@ -6736,10 +6736,10 @@
       "review_slug": null,
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥",
         "みもりあいの"
@@ -6780,10 +6780,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1870,
-      "price_sale": 935,
-      "discount_rate": 50,
+      "price_sale": 1870,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥"
       ]
@@ -6822,10 +6822,10 @@
       "review_slug": null,
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "voice_actresses": [
         "天知遥"
       ]
@@ -6888,10 +6888,10 @@
       ],
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 605,
-      "discount_rate": 50,
+      "price_sale": 1210,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_519263",
@@ -6909,10 +6909,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_451501",
@@ -6930,10 +6930,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_673453",
@@ -7056,10 +7056,10 @@
       ],
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "circle": "パステル×トリップ"
     },
     {
@@ -7078,8 +7078,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7120,10 +7120,10 @@
       ],
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1540,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_506242",
@@ -7141,8 +7141,8 @@
       ],
       "category": "voice",
       "price_original": 1540,
-      "price_sale": 770,
-      "discount_rate": 50,
+      "price_sale": 1078,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7162,10 +7162,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_216244",
@@ -7184,8 +7184,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7207,8 +7207,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7251,10 +7251,10 @@
       ],
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1430,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_232167",
@@ -7273,8 +7273,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7399,10 +7399,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_287044",
@@ -7422,10 +7422,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_702776",
@@ -7443,8 +7443,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7464,8 +7464,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7485,10 +7485,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 1320,
-      "discount_rate": null,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_639600",
@@ -7506,8 +7506,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7527,8 +7527,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7548,10 +7548,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_702812",
@@ -7570,8 +7570,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7591,8 +7591,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7612,10 +7612,10 @@
       ],
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 880,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_466835",
@@ -7654,10 +7654,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_537843",
@@ -7675,8 +7675,8 @@
       ],
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "circle": "アトリエTODO"
@@ -7697,8 +7697,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7718,10 +7718,10 @@
       ],
       "category": "doujin",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "circle": "うこんちゃん☆かんぱにぃ"
     },
     {
@@ -7740,8 +7740,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7761,8 +7761,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7803,10 +7803,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_667031",
@@ -7824,8 +7824,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7845,8 +7845,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7887,10 +7887,10 @@
       ],
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true,
+      "is_on_sale": false,
       "circle": "アトリエTODO"
     },
     {
@@ -7909,8 +7909,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -7972,10 +7972,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_519257",
@@ -8014,10 +8014,10 @@
       ],
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 880,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_233727",
@@ -8035,8 +8035,8 @@
       ],
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 616,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8056,8 +8056,8 @@
       ],
       "category": "voice",
       "price_original": 880,
-      "price_sale": 440,
-      "discount_rate": 50,
+      "price_sale": 616,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8077,8 +8077,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8098,10 +8098,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_433935",
@@ -8226,8 +8226,8 @@
       ],
       "category": "voice",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 929,
+      "discount_rate": 35,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8333,8 +8333,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8375,10 +8375,10 @@
       ],
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 1210,
-      "discount_rate": null,
+      "price_sale": 847,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_215807",
@@ -8438,10 +8438,10 @@
       ],
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 1210,
-      "discount_rate": null,
+      "price_sale": 847,
+      "discount_rate": 30,
       "sale_end_date": null,
-      "is_on_sale": false
+      "is_on_sale": true
     },
     {
       "id": "d_747151",
@@ -8522,8 +8522,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8543,8 +8543,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8564,8 +8564,8 @@
       ],
       "category": "voice",
       "price_original": 660,
-      "price_sale": 330,
-      "discount_rate": 50,
+      "price_sale": 462,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8690,8 +8690,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8711,8 +8711,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8732,10 +8732,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_635198",
@@ -8774,10 +8774,10 @@
       ],
       "category": "voice",
       "price_original": 1980,
-      "price_sale": 990,
-      "discount_rate": 50,
+      "price_sale": 1980,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_734131",
@@ -8879,8 +8879,8 @@
       ],
       "category": "doujin",
       "price_original": 1430,
-      "price_sale": 715,
-      "discount_rate": 50,
+      "price_sale": 1001,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "circle": "Deep；Dahlia"
@@ -8901,8 +8901,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -8922,8 +8922,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -9028,8 +9028,8 @@
       ],
       "category": "doujin",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "circle": "アトリエTODO"
@@ -9050,8 +9050,8 @@
       ],
       "category": "doujin",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true,
       "circle": "アトリエTODO"
@@ -9536,10 +9536,10 @@
       ],
       "category": "voice",
       "price_original": 1210,
-      "price_sale": 605,
-      "discount_rate": 50,
+      "price_sale": 1210,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_243978",
@@ -9557,10 +9557,10 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 1100,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_555108",
@@ -9578,10 +9578,10 @@
       ],
       "category": "voice",
       "price_original": 550,
-      "price_sale": 275,
-      "discount_rate": 50,
+      "price_sale": 550,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_524155",
@@ -9599,8 +9599,8 @@
       ],
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1155,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -9641,8 +9641,8 @@
       ],
       "category": "voice",
       "price_original": 660,
-      "price_sale": 330,
-      "discount_rate": 50,
+      "price_sale": 462,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -9662,10 +9662,10 @@
       ],
       "category": "voice",
       "price_original": 1870,
-      "price_sale": 935,
-      "discount_rate": 50,
+      "price_sale": 1870,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_277059",
@@ -9683,10 +9683,10 @@
       ],
       "category": "voice",
       "price_original": 330,
-      "price_sale": 165,
-      "discount_rate": 50,
+      "price_sale": 330,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_373746",
@@ -9725,10 +9725,10 @@
       ],
       "category": "voice",
       "price_original": 440,
-      "price_sale": 220,
-      "discount_rate": 50,
+      "price_sale": 440,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_446276",
@@ -9767,10 +9767,10 @@
       ],
       "category": "voice",
       "price_original": 2200,
-      "price_sale": 1100,
-      "discount_rate": 50,
+      "price_sale": 2200,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_233744",
@@ -9809,8 +9809,8 @@
       ],
       "category": "voice",
       "price_original": 1870,
-      "price_sale": 935,
-      "discount_rate": 50,
+      "price_sale": 1309,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -9852,10 +9852,10 @@
       ],
       "category": "voice",
       "price_original": 2640,
-      "price_sale": 1320,
-      "discount_rate": 50,
+      "price_sale": 2640,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_264737",
@@ -10021,10 +10021,10 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 1320,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_350787",
@@ -10106,8 +10106,8 @@
       ],
       "category": "voice",
       "price_original": 4620,
-      "price_sale": 2310,
-      "discount_rate": 50,
+      "price_sale": 3234,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -10127,10 +10127,10 @@
       ],
       "category": "voice",
       "price_original": 1870,
-      "price_sale": 935,
-      "discount_rate": 50,
+      "price_sale": 1870,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_378860",
@@ -10148,8 +10148,8 @@
       ],
       "category": "voice",
       "price_original": 1100,
-      "price_sale": 550,
-      "discount_rate": 50,
+      "price_sale": 770,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
@@ -10485,10 +10485,10 @@
       ],
       "category": "voice",
       "price_original": 1650,
-      "price_sale": 825,
-      "discount_rate": 50,
+      "price_sale": 1650,
+      "discount_rate": null,
       "sale_end_date": null,
-      "is_on_sale": true
+      "is_on_sale": false
     },
     {
       "id": "d_230081",
@@ -10527,8 +10527,8 @@
       ],
       "category": "voice",
       "price_original": 1320,
-      "price_sale": 660,
-      "discount_rate": 50,
+      "price_sale": 924,
+      "discount_rate": 30,
       "sale_end_date": null,
       "is_on_sale": true
     },
